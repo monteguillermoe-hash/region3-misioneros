@@ -1,12 +1,15 @@
 /* Variables y Configuración Base */
 :root {
-    --primary-color: #d97736;
-    --primary-dark: #b85e25;
-    --secondary-color: #fcebdc;
-    --text-dark: #2c2927;
-    --text-muted: #5e5954;
-    --bg-light: #faf9f7;
+    --primary-color: #00AAB2;     /* Cian/Turquesa de Canva */
+    --primary-dark: #008f96;
+    --secondary-color: #F9B22C;   /* Amarillo/Naranja de Canva */
+    --text-dark: #111111;
+    --text-muted: #4a4a4a;
+    --bg-light: #E9E3D6;          /* Beige Claro de Canva */
     --bg-white: #ffffff;
+    --bg-dark: #000000;           /* Fondo negro */
+    --border-color: rgba(0,0,0,0.1);
+    
     --transition-fast: 0.3s ease;
     --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     
@@ -108,8 +111,40 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
 .read-more { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 600; margin-top: 1rem; }
 .read-more:hover { gap: 0.8rem; }
 
+/* Gira Timeline */
+.gira-timeline { position: relative; max-width: 800px; margin: 0 auto; padding: 2rem 0; text-align: left; }
+.gira-timeline::before { content: ''; position: absolute; top: 0; bottom: 0; left: 20px; width: 2px; background: var(--primary-color); }
+.gira-item { position: relative; padding-left: 60px; margin-bottom: 3rem; }
+.gira-item::before { content: ''; position: absolute; left: 12px; top: 0; width: 18px; height: 18px; border-radius: 50%; background: var(--secondary-color); border: 4px solid var(--bg-light); z-index: 2; }
+.gira-date { font-weight: 700; color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem; }
+.gira-content { background: var(--bg-white); padding: 1.5rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+/* Intercesión Urgente */
+.urgent-banner { background-color: #fff1f0; border-left: 8px solid #ff4d4f; padding: 2.5rem 0; box-shadow: 0 4px 20px rgba(255, 77, 79, 0.1); margin: 2rem 5%; border-radius: 8px; }
+.urgent-content { display: flex; align-items: center; gap: 2rem; justify-content: space-between; }
+.urgent-icon { font-size: 3.5rem; color: #ff4d4f; }
+.urgent-text { flex-grow: 1; }
+.urgent-text h2 { color: #cf1322; margin-bottom: 0.5rem; font-family: var(--font-heading); }
+.urgent-text p { color: #5c0011; margin-bottom: 0; }
+.btn-urgent { background-color: #ff4d4f; color: var(--bg-white); border: none; white-space: nowrap; font-weight: 600; display: inline-block; padding: 0.8rem 2rem; border-radius: 50px; transition: all var(--transition-fast); }
+.btn-urgent:hover { background-color: #cf1322; box-shadow: 0 4px 15px rgba(255, 77, 79, 0.4); transform: translateY(-2px); color: white; }
+.nav-links .btn-urgent { font-size: 0.85rem; padding: 0.5rem 1rem; margin-left: 1rem; }
+
+/* Eventos */
+.bg-dark { background-color: var(--bg-dark); color: var(--bg-white); }
+.header-light h2, .header-light p { color: var(--bg-white); }
+.eventos-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 3rem; }
+.evento-card { display: flex; background: var(--bg-white); border-radius: 12px; overflow: hidden; color: var(--text-dark); transition: transform var(--transition-fast); }
+.evento-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+.evento-date { background: var(--primary-color); color: var(--bg-white); padding: 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 100px; }
+.evento-date .day { font-size: 2.5rem; font-weight: 700; line-height: 1; }
+.evento-date .month { font-size: 1rem; font-weight: 600; text-transform: uppercase; }
+.evento-info { padding: 1.5rem; flex-grow: 1; text-align: left; }
+.evento-info p { margin-bottom: 0.5rem; }
+.btn-sm { padding: 0.5rem 1rem; font-size: 0.9rem; }
+
 /* Form / Oración */
-.bg-warm { background-color: var(--secondary-color); }
+.bg-warm { background-color: #f6e8cc; }
 .oracion-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .oracion-lista { list-style: none; margin-top: 2rem; }
 .oracion-lista li { margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; font-size: 1.1rem; color: var(--text-dark); }
@@ -156,4 +191,13 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
     .navbar:not(.scrolled) .mobile-toggle, .navbar:not(.scrolled) .logo { color: var(--bg-white); }
     .oracion-layout { grid-template-columns: 1fr; gap: 2rem; }
     .hero-content h1 { font-size: 2.5rem; }
+    
+    .evento-card { flex-direction: column; text-align: center; }
+    .evento-date { flex-direction: row; gap: 1rem; padding: 1rem; }
+    .evento-date .day { font-size: 2rem; }
+    .evento-info { text-align: center; }
+    
+    .urgent-content { flex-direction: column; text-align: center; }
+    .urgent-banner { margin: 1rem; padding: 2rem; border-left: none; border-top: 8px solid #ff4d4f; }
+    .nav-links .btn-urgent { margin-left: 0; margin-top: 1rem; display: inline-block; }
 }

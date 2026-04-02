@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidad de Fe | Bienvenidos</title>
+    <title>Misiones Región 3 | UAD Argentina</title>
     <link rel="stylesheet" href="estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,13 +11,16 @@
 <body>
     <!-- Navbar -->
     <header class="navbar" id="navbar">
-        <div class="logo">Comunidad<br><span>De Fe</span></div>
+        <div class="logo">Misiones<br><span>Región 3</span></div>
         <nav class="nav-links" id="nav-links">
             <a href="#inicio" class="nav-item">Inicio</a>
+            <a href="#gira" class="nav-item">De Gira</a>
+            <a href="#eventos" class="nav-item">Eventos</a>
             <a href="#misioneros" class="nav-item">Misioneros</a>
             <a href="#oracion" class="nav-item">Oración</a>
             <a href="#noticias" class="nav-item">Noticias</a>
             <a href="#contacto" class="nav-item">Contacto</a>
+            <a href="#urgente" class="btn btn-urgent btn-nav-urgent"><i class="fas fa-exclamation-circle"></i> Urgencia</a>
         </nav>
         <button class="mobile-toggle" aria-label="Menú">
             <i class="fas fa-bars"></i>
@@ -28,11 +31,87 @@
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
-            <h1>Esperanza y Vida<br>en Comunidad</h1>
-            <p>Un espacio cálido donde encuentras propósito, fe y una familia que te espera con los brazos abiertos.</p>
+            <h1>Conectando con<br>la Obra Misionera</h1>
+            <p>El portal oficial de Misiones de la Región 3 (UAD Argentina). Descubre lo que Dios está haciendo en el campo, apoya a nuestros misioneros y únete en oración desde un solo lugar.</p>
             <div class="hero-buttons">
-                <a href="#contacto" class="btn btn-primary">Visítanos hoy</a>
+                <a href="#misioneros" class="btn btn-primary">Conoce su labor</a>
                 <a href="#oracion" class="btn btn-outline">Pide Oración</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intercesión Urgente -->
+    <section id="urgente" class="section urgent-banner">
+        <div class="container reveal">
+            <div class="urgent-content">
+                <div class="urgent-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="urgent-text">
+                    <h2>Alerta Urgente</h2>
+                    <p>Mantenemos este apartado para emergencias puntuales de nuestros misioneros (ej. tratamientos médicos inesperados, traslados urgentes). ¡Tu ayuda hoy marca la diferencia de una vida o servicio!</p>
+                </div>
+                <div class="urgent-action">
+                    <a href="#contacto" class="btn btn-urgent"><i class="fas fa-hand-holding-heart"></i> Ofrendar a urgencia</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- De Gira -->
+    <section id="gira" class="section split-bg">
+        <div class="container reveal">
+            <div class="section-header text-center">
+                <h2>De Gira</h2>
+                <p>Nuestros misioneros están recorriendo el territorio conectando con la gente y compartiendo sobre la obra.</p>
+            </div>
+            <div class="gira-timeline">
+                <div class="gira-item">
+                    <div class="gira-date">Julio 2026</div>
+                    <div class="gira-content">
+                        <h3>Norte de Argentina</h3>
+                        <p>Familia Isa y José visitando comunidades rurales en Salta y Jujuy, compartiendo el mensaje y asistiendo con insumos.</p>
+                    </div>
+                </div>
+                <div class="gira-item">
+                    <div class="gira-date">Agosto 2026</div>
+                    <div class="gira-content">
+                        <h3>Ruta de la Amazonía</h3>
+                        <p>Recorrido por diferentes iglesias locales en la frontera compartiendo testimonios del campo transcultural.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eventos -->
+    <section id="eventos" class="section bg-dark">
+        <div class="container reveal">
+            <div class="section-header text-center header-light">
+                <h2>Próximos Eventos</h2>
+                <p>Agéndate y acompáñanos en nuestras futuras actividades para este año 2026.</p>
+            </div>
+            <div class="grid eventos-grid">
+                <div class="evento-card">
+                    <div class="evento-date">
+                        <span class="day">15</span>
+                        <span class="month">AGO</span>
+                    </div>
+                    <div class="evento-info">
+                        <h3>Conferencia Misionera</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Sede Central UAD</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="color: var(--primary-color); border-color: var(--primary-color);">Más Info</a>
+                    </div>
+                </div>
+                <div class="evento-card">
+                    <div class="evento-date">
+                        <span class="day">20</span>
+                        <span class="month">OCT</span>
+                    </div>
+                    <div class="evento-info">
+                        <h3>Día de Intercesión Unida</h3>
+                        <p><i class="fas fa-video"></i> Evento Online / Teams</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="color: var(--primary-color); border-color: var(--primary-color);">Unirse</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -42,7 +121,7 @@
         <div class="container reveal">
             <div class="section-header text-center">
                 <h2>Nuestros Misioneros</h2>
-                <p>Llevando luz, ayuda práctica y esperanza a diferentes partes del mundo.</p>
+                <p>Las últimas novedades y el seguimiento del trabajo de nuestros enviados, todo concentrado en este lugar.</p>
             </div>
             <div class="grid misioneros-grid">
                 <!-- Card 1 -->
@@ -102,12 +181,12 @@
         </div>
     </section>
 
-    <!-- Noticias/Blog -->
+    <!-- Actualizaciones del campo -->
     <section id="noticias" class="section">
         <div class="container reveal">
             <div class="section-header">
-                <h2>Últimas Noticias</h2>
-                <p>Mantente al tanto de nuestros eventos, testimonios y servicios especiales.</p>
+                <h2>Actualizaciones del Campo</h2>
+                <p>Mantente al tanto de la obra misionera: testimonios, fotos e informes directos de nuestros misioneros (sin tener que ir a sus redes).</p>
             </div>
             <div class="grid noticias-grid">
                 <article class="noticia-card">
@@ -136,21 +215,22 @@
     <footer id="contacto" class="footer">
         <div class="container footer-grid reveal">
             <div class="footer-info">
-                <h3 class="footer-logo">Comunidad<span>De Fe</span></h3>
-                <p>Buscando impactar nuestra ciudad con amor, servicio y la palabra viva.</p>
+                <h3 class="footer-logo">Misiones<span>Región 3</span></h3>
+                <p>Departamento de Misiones de la denominación UAD (Argentina). Uniendo esfuerzo de forma 100% digital.</p>
             </div>
             <div class="footer-links">
                 <h4>Enlaces Útiles</h4>
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#gira">De Gira</a></li>
+                    <li><a href="#eventos">Eventos</a></li>
                     <li><a href="#misioneros">Misioneros</a></li>
-                    <li><a href="#noticias">Noticias</a></li>
+                    <li><a href="#noticias">Actualizaciones</a></li>
                 </ul>
             </div>
             <div class="footer-contacto">
                 <h4>Contáctanos</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Ciudad</p>
-                <p><i class="fas fa-envelope"></i> info@comunidaddefe.com</p>
+                <p><i class="fas fa-envelope"></i> region3@misiones-uad.com.ar</p>
                 <p><i class="fab fa-whatsapp"></i> +1 234 567 8900</p>
                 <div class="social-links">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -160,7 +240,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Comunidad de Fe. Todos los derechos reservados.</p>
+            <p>&copy; 2026 Misiones Región 3 - UAD Argentina. Todos los derechos reservados.</p>
         </div>
     </footer>
 
