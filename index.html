@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad de Fe | Bienvenidos</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="logo">Comunidad<br><span>De Fe</span></div>
+        <nav class="nav-links" id="nav-links">
+            <a href="#inicio" class="nav-item">Inicio</a>
+            <a href="#misioneros" class="nav-item">Misioneros</a>
+            <a href="#oracion" class="nav-item">Oración</a>
+            <a href="#noticias" class="nav-item">Noticias</a>
+            <a href="#contacto" class="nav-item">Contacto</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Menú">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Inicio -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+            <h1>Esperanza y Vida<br>en Comunidad</h1>
+            <p>Un espacio cálido donde encuentras propósito, fe y una familia que te espera con los brazos abiertos.</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn btn-primary">Visítanos hoy</a>
+                <a href="#oracion" class="btn btn-outline">Pide Oración</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Misioneros -->
+    <section id="misioneros" class="section split-bg">
+        <div class="container reveal">
+            <div class="section-header text-center">
+                <h2>Nuestros Misioneros</h2>
+                <p>Llevando luz, ayuda práctica y esperanza a diferentes partes del mundo.</p>
+            </div>
+            <div class="grid misioneros-grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="assets/images/misionero1.png" alt="Familia López" class="card-img" onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=Foto+Misioneros'">
+                    </div>
+                    <div class="card-body">
+                        <h3>Familia López</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Amazonía, Brasil</p>
+                        <p>Trabajando en educación preescolar comunitaria y asistencia médica en zonas ribereñas.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="assets/images/misionero2.png" alt="David Martínez" class="card-img" onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=Foto+Misioneros'">
+                    </div>
+                    <div class="card-body">
+                        <h3>David Martínez</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Norte de África</p>
+                        <p>Iniciativas de agua potable e integración de jóvenes a través de programas deportivos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pedidos de Oración -->
+    <section id="oracion" class="section bg-warm">
+        <div class="container reveal">
+            <div class="oracion-layout">
+                <div class="oracion-text">
+                    <h2>No Estás Solo</h2>
+                    <p>Sabemos que hay momentos difíciles donde el peso parece demasiado grande. Queremos unirnos a ti en oración.</p>
+                    <ul class="oracion-lista">
+                        <li><i class="fas fa-check-circle"></i> Confidencialidad absoluta</li>
+                        <li><i class="fas fa-check-circle"></i> Equipo dedicado de intercesores</li>
+                        <li><i class="fas fa-check-circle"></i> Acompañamiento espiritual</li>
+                    </ul>
+                </div>
+                <div class="oracion-form-container">
+                    <form id="form-oracion" class="form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre (Opcional)</label>
+                            <input type="text" id="nombre" placeholder="¿Cómo te llamas?">
+                        </div>
+                        <div class="form-group">
+                            <label for="peticion">Tu Pedido *</label>
+                            <textarea id="peticion" rows="5" placeholder="Escribe aquí tu carga o motivo de agradecimiento..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar Petición</button>
+                        <div id="oracion-success" class="alert hidden">¡Gracias! Hemos recibido tu pedido y estaremos orando por ti.</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Noticias/Blog -->
+    <section id="noticias" class="section">
+        <div class="container reveal">
+            <div class="section-header">
+                <h2>Últimas Noticias</h2>
+                <p>Mantente al tanto de nuestros eventos, testimonios y servicios especiales.</p>
+            </div>
+            <div class="grid noticias-grid">
+                <article class="noticia-card">
+                    <img src="assets/images/noticia1.png" alt="Encuentro de Jóvenes" class="noticia-img" onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=Noticias'">
+                    <div class="noticia-content">
+                        <span class="tag">Eventos</span>
+                        <h3>Gran Encuentro de Jóvenes 2026</h3>
+                        <p>Un fin de semana lleno de música, juegos y crecimiento espiritual. ¡Inscríbete hoy!</p>
+                        <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="noticia-card">
+                    <img src="assets/images/noticia2.png" alt="Campaña solidaria" class="noticia-img" onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=Noticias'">
+                    <div class="noticia-content">
+                        <span class="tag">Solidaridad</span>
+                        <h3>Campaña de Invierno Abrigando</h3>
+                        <p>Gracias a sus donaciones logramos entregar más de 500 abrigos a personas en situación de calle.</p>
+                        <a href="#" class="read-more">Leer testimonio <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto / Footer -->
+    <footer id="contacto" class="footer">
+        <div class="container footer-grid reveal">
+            <div class="footer-info">
+                <h3 class="footer-logo">Comunidad<span>De Fe</span></h3>
+                <p>Buscando impactar nuestra ciudad con amor, servicio y la palabra viva.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Útiles</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#misioneros">Misioneros</a></li>
+                    <li><a href="#noticias">Noticias</a></li>
+                </ul>
+            </div>
+            <div class="footer-contacto">
+                <h4>Contáctanos</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Ciudad</p>
+                <p><i class="fas fa-envelope"></i> info@comunidaddefe.com</p>
+                <p><i class="fab fa-whatsapp"></i> +1 234 567 8900</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Comunidad de Fe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
