@@ -42,29 +42,3 @@ const revealOnScroll = () => {
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll(); // Activar en carga inicial
 
-// Simulación de Formulario
-const formOracion = document.getElementById('form-oracion');
-const oracionSuccess = document.getElementById('oracion-success');
-
-if (formOracion) {
-    formOracion.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const btn = formOracion.querySelector('button[type="submit"]');
-        const originalText = btn.textContent;
-        btn.textContent = 'Enviando...';
-        btn.disabled = true;
-
-        setTimeout(() => {
-            formOracion.reset();
-            btn.textContent = originalText;
-            btn.disabled = false;
-            
-            oracionSuccess.classList.remove('hidden');
-            
-            setTimeout(() => {
-                oracionSuccess.classList.add('hidden');
-            }, 5000);
-        }, 1500);
-    });
-}

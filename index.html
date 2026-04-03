@@ -14,13 +14,13 @@
         <div class="logo">Misiones<br><span>Región 3</span></div>
         <nav class="nav-links" id="nav-links">
             <a href="#inicio" class="nav-item">Inicio</a>
-            <a href="#gira" class="nav-item">De Gira</a>
+            <a href="#region" class="nav-item">La Región</a>
+            <a href="#promotores" class="nav-item">Promotores</a>
+            <a href="#gira" class="nav-item">Giras</a>
             <a href="#eventos" class="nav-item">Eventos</a>
-            <a href="#misioneros" class="nav-item">Misioneros</a>
-            <a href="#oracion" class="nav-item">Oración</a>
             <a href="#noticias" class="nav-item">Noticias</a>
             <a href="#contacto" class="nav-item">Contacto</a>
-            <a href="#urgente" class="btn btn-urgent btn-nav-urgent"><i class="fas fa-exclamation-circle"></i> Urgencia</a>
+            <a href="https://dnmargentina.org/page/" target="_blank" class="btn btn-urgent btn-nav-urgent" style="background-color: var(--primary-dark);"><i class="fas fa-globe"></i> DNM Central</a>
         </nav>
         <button class="mobile-toggle" aria-label="Menú">
             <i class="fas fa-bars"></i>
@@ -31,26 +31,96 @@
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
-            <h1>Conectando con<br>la Obra Misionera</h1>
-            <p>El portal oficial de Misiones de la Región 3 (UAD Argentina). Descubre lo que Dios está haciendo en el campo, apoya a nuestros misioneros y únete en oración desde un solo lugar.</p>
+            <h1>Centro de Operaciones<br>Región 3</h1>
+            <p>El portal oficial de contacto y organización para los Promotores de Misiones de la Región 3 (UAD Argentina). Facilita tus giras, eventos y conecta con tu promotor de distrito.</p>
             <div class="hero-buttons">
-                <a href="#misioneros" class="btn btn-primary">Conoce su labor</a>
-                <a href="#oracion" class="btn btn-outline">Pide Oración</a>
+                <a href="#promotores" class="btn btn-primary">Directorio de Promotores</a>
+                <a href="#region" class="btn btn-outline">Nuestra Región</a>
             </div>
         </div>
     </section>
 
-    <!-- Intercesión Urgente -->
-    <section id="urgente" class="section urgent-banner">
+    <!-- Banner DNM Central Call to Action -->
+    <section class="section central-banner bg-warm">
         <div class="container reveal">
-            <div class="urgent-content">
-                <div class="urgent-icon"><i class="fas fa-exclamation-triangle"></i></div>
-                <div class="urgent-text">
-                    <h2>Alerta Urgente</h2>
-                    <p>Mantenemos este apartado para emergencias puntuales de nuestros misioneros (ej. tratamientos médicos inesperados, traslados urgentes). ¡Tu ayuda hoy marca la diferencia de una vida o servicio!</p>
+            <div class="central-banner-content text-center">
+                <h2>¿Buscas Información de Misioneros u Ofrendar?</h2>
+                <p>Nuestra denominación cuenta con el portal oficial del <strong>Departamento Nacional de Misiones (DNM)</strong> donde está centralizada toda la información de nuestros misioneros, así como los canales oficiales de donación y urgencias.</p>
+                <div class="dnm-buttons" style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+                    <a href="https://dnmargentina.org/page/" target="_blank" class="btn btn-primary"><i class="fas fa-users"></i> Conocer Misioneros</a>
+                    <a href="https://dnmargentina.org/page/donaciones-ofrendas" target="_blank" class="btn btn-outline" style="background-color: transparent; color: var(--primary-color); border-color: var(--primary-color);"><i class="fas fa-hand-holding-heart"></i> Portal de Ofrendas</a>
                 </div>
-                <div class="urgent-action">
-                    <a href="#contacto" class="btn btn-urgent"><i class="fas fa-hand-holding-heart"></i> Ofrendar a urgencia</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- La Región -->
+    <section id="region" class="section split-bg">
+        <div class="container reveal">
+            <div class="section-header text-center">
+                <h2>Nuestra Región 3</h2>
+                <p>El trabajo que llevamos a cabo abarca diversos distritos y ciudades. Nuestra intención es organizar todo el territorio para acompañar y potenciar la labor misionera.</p>
+            </div>
+            
+            <div class="region-info" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center; padding: 2rem; background: var(--bg-white); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>Cobertura Territorial</h3>
+                    <p>La Región 3 está organizada estratégicamente en Distritos. Cada distrito alberga varias ciudades y cuenta con <strong>Promotores</strong> asignados, cuya tarea es ser el nexo fundamental entre las congregaciones locales, las necesidades del campo y la organización de eventos misioneros.</p>
+                    <ul class="oracion-lista">
+                        <li><i class="fas fa-map-marked-alt"></i> Organización por Distritos</li>
+                        <li><i class="fas fa-city"></i> Presencia en múltiples ciudades</li>
+                        <li><i class="fas fa-calendar-alt"></i> Coordinación eficaz de visitas y giras</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <img src="assets/images/hero.png" alt="Mapa Región" style="width: 100%; border-radius: 8px; max-height: 250px; object-fit: cover; opacity: 0.8;" onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=Mapa+de+la+Region'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotores / Directorio Placeholder -->
+    <section id="promotores" class="section bg-dark">
+        <div class="container reveal">
+            <div class="section-header text-center header-light">
+                <h2>Directorio de Promotores</h2>
+                <p>Contacta directamente al promotor encargado de tu ciudad o distrito para organizar visitas de misioneros, giras y recolectar fondos de forma eficiente.</p>
+            </div>
+            <div class="grid promotores-grid">
+                <!-- Card Placeholder 1 -->
+                <div class="card" style="background: var(--bg-light); color: var(--text-dark);">
+                    <div class="card-body">
+                        <div class="tag" style="background: var(--primary-color); color: var(--bg-white);">Distrito 1</div>
+                        <h3>[Nombre del Promotor]</h3>
+                        <p class="location" style="color: var(--primary-dark);"><i class="fas fa-city"></i> [Ciudad / Área]</p>
+                        <hr style="margin: 1rem 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
+                        <p><i class="fas fa-user-tie"></i> Responsable de la coordinación de la zona.</p>
+                        <a href="https://wa.me/549XXXXXXXXXX" class="btn btn-outline btn-sm btn-block" style="border-color: #25D366; color: #25D366; text-align: center; margin-top:1rem;"><i class="fab fa-whatsapp"></i> Contactar</a>
+                    </div>
+                </div>
+
+                <!-- Card Placeholder 2 -->
+                <div class="card" style="background: var(--bg-light); color: var(--text-dark);">
+                    <div class="card-body">
+                        <div class="tag" style="background: var(--primary-color); color: var(--bg-white);">Distrito 2</div>
+                        <h3>[Nombre del Promotor]</h3>
+                        <p class="location" style="color: var(--primary-dark);"><i class="fas fa-city"></i> [Ciudad / Área]</p>
+                        <hr style="margin: 1rem 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
+                        <p><i class="fas fa-user-tie"></i> Responsable de la coordinación de la zona.</p>
+                        <a href="https://wa.me/549XXXXXXXXXX" class="btn btn-outline btn-sm btn-block" style="border-color: #25D366; color: #25D366; text-align: center; margin-top:1rem;"><i class="fab fa-whatsapp"></i> Contactar</a>
+                    </div>
+                </div>
+                
+                <!-- Card Placeholder 3 -->
+                <div class="card" style="background: var(--bg-light); color: var(--text-dark);">
+                    <div class="card-body">
+                        <div class="tag" style="background: var(--secondary-color); color: var(--text-dark);">Distrito 3</div>
+                        <h3>[Nombre del Promotor]</h3>
+                        <p class="location" style="color: var(--primary-dark);"><i class="fas fa-city"></i> [Ciudad / Área]</p>
+                        <hr style="margin: 1rem 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
+                        <p><i class="fas fa-user-tie"></i> Responsable de la coordinación de la zona.</p>
+                        <a href="mailto:email@ejemplo.com" class="btn btn-outline btn-sm btn-block" style="border-color: var(--primary-color); color: var(--primary-color); text-align: center; margin-top:1rem;"><i class="fas fa-envelope"></i> Enviar Email</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,22 +130,15 @@
     <section id="gira" class="section split-bg">
         <div class="container reveal">
             <div class="section-header text-center">
-                <h2>De Gira</h2>
-                <p>Nuestros misioneros están recorriendo el territorio conectando con la gente y compartiendo sobre la obra.</p>
+                <h2>De Gira en la Región</h2>
+                <p>Nuestros misioneros están recorriendo nuestro territorio contando lo que Dios hace. Ponte en contacto con el promotor de tu ciudad para agendar una visita.</p>
             </div>
             <div class="gira-timeline">
                 <div class="gira-item">
-                    <div class="gira-date">Julio 2026</div>
+                    <div class="gira-date">Pronto...</div>
                     <div class="gira-content">
-                        <h3>Norte de Argentina</h3>
-                        <p>Familia Isa y José visitando comunidades rurales en Salta y Jujuy, compartiendo el mensaje y asistiendo con insumos.</p>
-                    </div>
-                </div>
-                <div class="gira-item">
-                    <div class="gira-date">Agosto 2026</div>
-                    <div class="gira-content">
-                        <h3>Ruta de la Amazonía</h3>
-                        <p>Recorrido por diferentes iglesias locales en la frontera compartiendo testimonios del campo transcultural.</p>
+                        <h3>Organizando la Próxima Gira</h3>
+                        <p>Trabajando con los promotores zonales para coordinar la ruta. ¡Mantente atento a las novedades locales!</p>
                     </div>
                 </div>
             </div>
@@ -83,128 +146,52 @@
     </section>
 
     <!-- Eventos -->
-    <section id="eventos" class="section bg-dark">
-        <div class="container reveal">
-            <div class="section-header text-center header-light">
-                <h2>Próximos Eventos</h2>
-                <p>Agéndate y acompáñanos en nuestras futuras actividades para este año 2026.</p>
-            </div>
-            <div class="grid eventos-grid">
-                <div class="evento-card">
-                    <div class="evento-date">
-                        <span class="day">15</span>
-                        <span class="month">AGO</span>
-                    </div>
-                    <div class="evento-info">
-                        <h3>Conferencia Misionera</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Sede Central UAD</p>
-                        <a href="#" class="btn btn-outline btn-sm" style="color: var(--primary-color); border-color: var(--primary-color);">Más Info</a>
-                    </div>
-                </div>
-                <div class="evento-card">
-                    <div class="evento-date">
-                        <span class="day">20</span>
-                        <span class="month">OCT</span>
-                    </div>
-                    <div class="evento-info">
-                        <h3>Día de Intercesión Unida</h3>
-                        <p><i class="fas fa-video"></i> Evento Online / Teams</p>
-                        <a href="#" class="btn btn-outline btn-sm" style="color: var(--primary-color); border-color: var(--primary-color);">Unirse</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Misioneros -->
-    <section id="misioneros" class="section split-bg">
+    <section id="eventos" class="section bg-warm">
         <div class="container reveal">
             <div class="section-header text-center">
-                <h2>Nuestros Misioneros</h2>
-                <p>Las últimas novedades y el seguimiento del trabajo de nuestros enviados, todo concentrado en este lugar.</p>
+                <h2>Próximos Eventos</h2>
+                <p>Agéndate y acompáñanos en nuestras futuras actividades para la Región 3.</p>
             </div>
-            <div class="grid misioneros-grid">
-                <!-- Card 1 -->
-                <div class="card">
-                    <div class="card-img-wrapper">
-                        <img src="assets/images/misionero1.png" alt="Familia López" class="card-img" onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=Foto+Misioneros'">
+            <div class="grid eventos-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="evento-card" style="border: 1px solid var(--border-color);">
+                    <div class="evento-date">
+                        <span class="day">--</span>
+                        <span class="month">---</span>
                     </div>
-                    <div class="card-body">
-                        <h3>Familia López</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Amazonía, Brasil</p>
-                        <p>Trabajando en educación preescolar comunitaria y asistencia médica en zonas ribereñas.</p>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="card">
-                    <div class="card-img-wrapper">
-                        <img src="assets/images/misionero2.png" alt="David Martínez" class="card-img" onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=Foto+Misioneros'">
-                    </div>
-                    <div class="card-body">
-                        <h3>David Martínez</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Norte de África</p>
-                        <p>Iniciativas de agua potable e integración de jóvenes a través de programas deportivos.</p>
+                    <div class="evento-info">
+                        <h3>Evento a Definir</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Ciudad a confirmar</p>
+                        <a href="#promotores" class="btn btn-outline btn-sm" style="color: var(--primary-color); border-color: var(--primary-color);">Contacta a tu Promotor</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pedidos de Oración -->
-    <section id="oracion" class="section bg-warm">
-        <div class="container reveal">
-            <div class="oracion-layout">
-                <div class="oracion-text">
-                    <h2>No Estás Solo</h2>
-                    <p>Sabemos que hay momentos difíciles donde el peso parece demasiado grande. Queremos unirnos a ti en oración.</p>
-                    <ul class="oracion-lista">
-                        <li><i class="fas fa-check-circle"></i> Confidencialidad absoluta</li>
-                        <li><i class="fas fa-check-circle"></i> Equipo dedicado de intercesores</li>
-                        <li><i class="fas fa-check-circle"></i> Acompañamiento espiritual</li>
-                    </ul>
-                </div>
-                <div class="oracion-form-container">
-                    <form id="form-oracion" class="form">
-                        <div class="form-group">
-                            <label for="nombre">Nombre (Opcional)</label>
-                            <input type="text" id="nombre" placeholder="¿Cómo te llamas?">
-                        </div>
-                        <div class="form-group">
-                            <label for="peticion">Tu Pedido *</label>
-                            <textarea id="peticion" rows="5" placeholder="Escribe aquí tu carga o motivo de agradecimiento..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Enviar Petición</button>
-                        <div id="oracion-success" class="alert hidden">¡Gracias! Hemos recibido tu pedido y estaremos orando por ti.</div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Actualizaciones del campo -->
+    <!-- Actualizaciones / Noticias -->
     <section id="noticias" class="section">
         <div class="container reveal">
-            <div class="section-header">
-                <h2>Actualizaciones del Campo</h2>
-                <p>Mantente al tanto de la obra misionera: testimonios, fotos e informes directos de nuestros misioneros (sin tener que ir a sus redes).</p>
+            <div class="section-header text-center">
+                <h2>Noticias de la Región</h2>
+                <p>Mantente al tanto de las novedades, testimonios y el trabajo de campo a través de nuestra web y redes sociales oficiales.</p>
+                <div style="margin-top: 1.5rem;">
+                    <a href="https://www.instagram.com/promociondemisionesr3/?hl=es%2F" target="_blank" class="btn" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white;"><i class="fab fa-instagram"></i> Síguenos en Instagram</a>
+                </div>
             </div>
-            <div class="grid noticias-grid">
+            <div class="grid noticias-grid" style="margin-top: 2rem;">
                 <article class="noticia-card">
-                    <img src="assets/images/noticia1.png" alt="Encuentro de Jóvenes" class="noticia-img" onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=Noticias'">
                     <div class="noticia-content">
-                        <span class="tag">Eventos</span>
-                        <h3>Gran Encuentro de Jóvenes 2026</h3>
-                        <p>Un fin de semana lleno de música, juegos y crecimiento espiritual. ¡Inscríbete hoy!</p>
-                        <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                        <span class="tag">Institucional</span>
+                        <h3>Nueva Organización Territorial</h3>
+                        <p>Hemos reestructurado nuestro sitio web para facilitar la comunicación a nivel distritos. Ahora es más fácil contactar a tu promotor local.</p>
+                        <span style="color: var(--text-muted); font-size: 0.85rem;"><i class="far fa-clock"></i> Reciente</span>
                     </div>
                 </article>
                 <article class="noticia-card">
-                    <img src="assets/images/noticia2.png" alt="Campaña solidaria" class="noticia-img" onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=Noticias'">
                     <div class="noticia-content">
-                        <span class="tag">Solidaridad</span>
-                        <h3>Campaña de Invierno Abrigando</h3>
-                        <p>Gracias a sus donaciones logramos entregar más de 500 abrigos a personas en situación de calle.</p>
-                        <a href="#" class="read-more">Leer testimonio <i class="fas fa-arrow-right"></i></a>
+                        <span class="tag">Noticias</span>
+                        <h3>[Título de Noticia Futura]</h3>
+                        <p>Aquí listaremos las próximas novedades importantes de la región que las iglesias necesitan tener a mano.</p>
                     </div>
                 </article>
             </div>
@@ -216,26 +203,23 @@
         <div class="container footer-grid reveal">
             <div class="footer-info">
                 <h3 class="footer-logo">Misiones<span>Región 3</span></h3>
-                <p>Departamento de Misiones de la denominación UAD (Argentina). Uniendo esfuerzo de forma 100% digital.</p>
+                <p>Promoviendo y organizando la obra misionera en nuestro territorio.</p>
             </div>
             <div class="footer-links">
-                <h4>Enlaces Útiles</h4>
+                <h4>Enlaces Rápidos</h4>
                 <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#gira">De Gira</a></li>
-                    <li><a href="#eventos">Eventos</a></li>
-                    <li><a href="#misioneros">Misioneros</a></li>
-                    <li><a href="#noticias">Actualizaciones</a></li>
+                    <li><a href="#region">La Región</a></li>
+                    <li><a href="#promotores">Promotores</a></li>
+                    <li><a href="https://dnmargentina.org/page/donaciones-ofrendas" target="_blank">DNM Central (Ofrendas)</a></li>
                 </ul>
             </div>
             <div class="footer-contacto">
                 <h4>Contáctanos</h4>
-                <p><i class="fas fa-envelope"></i> region3@misiones-uad.com.ar</p>
-                <p><i class="fab fa-whatsapp"></i> +1 234 567 8900</p>
+                <!-- Nuevo teléfono de contacto proporcionado -->
+                <p><i class="fab fa-whatsapp"></i> 2983-641455</p>
+                <p><i class="fas fa-envelope"></i> region3rmn@gmail.com</p>
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/promociondemisionesr3/?hl=es%2F" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
