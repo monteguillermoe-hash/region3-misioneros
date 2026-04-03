@@ -207,6 +207,74 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
 .social-links a:hover { background: var(--primary-color); transform: translateY(-3px); }
 .footer-bottom { text-align: center; padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
 
+/* Premium UI Elements */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+.premium-quote {
+    font-style: italic;
+    padding: 2rem;
+    background: rgba(0, 170, 178, 0.05);
+    border-left: 4px solid var(--primary-color);
+    margin: 2rem 0;
+    position: relative;
+}
+
+.premium-quote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 4rem;
+    color: var(--primary-color);
+    opacity: 0.2;
+    font-family: serif;
+}
+
+.alfajor-progress-container {
+    background: #f9f9f9;
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+
+.alfajor-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.alfajor-dot {
+    width: 12px;
+    height: 12px;
+    background: #ddd;
+    border-radius: 50%;
+    transition: background var(--transition-fast);
+}
+
+.alfajor-dot.filled {
+    background: var(--secondary-color);
+    box-shadow: 0 0 8px var(--secondary-color);
+}
+
+.floating-tag {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: var(--bg-dark);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
 /* Animaciones */
 .reveal { opacity: 0; transform: translateY(30px); transition: all var(--transition-slow); }
 .reveal.active { opacity: 1; transform: translateY(0); }
@@ -235,5 +303,8 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
     .nav-links .btn-urgent { margin-left: 0; margin-top: 1rem; display: inline-block; }
     
     .misioneros-highlight { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .misioneros-premium-layout { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .misionero-side-content { position: static !important; }
 }
+
 
