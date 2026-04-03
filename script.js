@@ -59,18 +59,27 @@ document.addEventListener('DOMContentLoaded', () => {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // ==== Pines de Ejemplo (Placeholders) ====
-        // Marker 1
-        L.marker([-34.92, -57.95]).addTo(map)
-         .bindPopup('<b>Distrito 1</b><br>La Plata y alrededores.<br><a href="#promotores">Ver Promotor</a>');
+        // ==== Pines Reales de los Distritos ====
+        
+        // Distrito 1: La Pampa (Santa Rosa centro)
+        L.marker([-36.61, -64.28]).addTo(map)
+         .bindPopup('<b>Distrito 1</b><br>Toda la provincia de La Pampa.<br><a href="#promotores" style="color:var(--primary-color); font-weight:bold;">Ver Detalles</a>');
          
-        // Marker 2
-        L.marker([-38.00, -57.55]).addTo(map)
-         .bindPopup('<b>Distrito 2</b><br>Mar del Plata y zona costera.<br><a href="#promotores">Ver Promotor</a>');
-
-        // Marker 3
+        // Distrito 2: Bahía Blanca (Centro de Distrito 2)
         L.marker([-38.71, -62.26]).addTo(map)
-         .bindPopup('<b>Distrito 3</b><br>Bahía Blanca y sur de PBA.<br><a href="#promotores">Ver Promotor</a>');
+         .bindPopup('<b>Distrito 2</b><br>Bahía Blanca, Necochea, Tres Arroyos, y más.<br><a href="#promotores" style="color:var(--primary-color); font-weight:bold;">Ver Detalles</a>');
+
+        // Distrito 3: Mar del Plata (Centro de Distrito 3)
+        L.marker([-38.00, -57.55]).addTo(map)
+         .bindPopup('<b>Distrito 3</b><br>Partido de la Costa, Mar del Plata, Balcarce, etc.<br><a href="#promotores" style="color:var(--primary-color); font-weight:bold;">Ver Detalles</a>');
+
+        // Distrito 4: Olavarría (Centro de Distrito 4)
+        L.marker([-36.89, -60.32]).addTo(map)
+         .bindPopup('<b>Distrito 4</b><br>Olavarría, Trenque Lauquen, Pehuajó, y más.<br><a href="#promotores" style="color:var(--primary-color); font-weight:bold;">Ver Detalles</a>');
+
+        // Distrito 5: Tandil (Centro de Distrito 5)
+        L.marker([-37.32, -59.13]).addTo(map)
+         .bindPopup('<b>Distrito 5</b><br>Tandil, Cañuelas, Azul, Lobos, y alrededores.<br><a href="#promotores" style="color:var(--primary-color); font-weight:bold;">Ver Detalles</a>');
 
         // Activar zoom con la rueda del mouse solo cuando el usuario hace clic en el mapa (mejor UX en móviles)
         map.on('focus', () => { map.scrollWheelZoom.enable(); });
