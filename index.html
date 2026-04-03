@@ -80,83 +80,197 @@
         </div>
     </section>
 
-    <!-- Promotores / Directorio Placeholder -->
+    <!-- Directorio de Promotores -->
     <section id="promotores" class="section bg-dark">
         <div class="container reveal">
             <div class="section-header text-center header-light">
                 <h2>Directorio de Promotores</h2>
-                <p>Contacta directamente al promotor encargado de tu ciudad o distrito para organizar visitas de misioneros, giras y recolectar fondos de forma eficiente.</p>
+                <p>Contacta directamente al coordinador o promotor de tu zona. Elegí con quién comunicarte.</p>
                 <div style="margin-top: 1.5rem;">
-                    <a href="http://dnmargentina.org/page/component/phocadownload/category/2-descargas?download=174:rmn-base-de-datos" target="_blank" class="btn btn-outline" style="border-color: var(--primary-color); color: var(--primary-color); background: var(--bg-white);"><i class="fas fa-file-excel"></i> Descargar Padrón Nacional (En Tiempo Real)</a>
+                    <a href="https://dnmargentina.org/page/component/phocadownload/category/2-descargas?download=174:rmn-base-de-datos" target="_blank" class="btn btn-outline" style="border-color: var(--primary-color); color: var(--primary-color); background: var(--bg-white);"><i class="fas fa-file-excel"></i> Descargar Padrón Nacional (En Tiempo Real)</a>
                 </div>
             </div>
+
+            <!-- Coordinadora Regional -->
+            <div class="card" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: var(--bg-white); margin-bottom: 2rem; border: 2px solid var(--secondary-color);">
+                <div class="card-body" style="text-align: center; padding: 2rem;">
+                    <div class="tag" style="background: var(--secondary-color); color: var(--text-dark); font-size: 0.9rem;"><i class="fas fa-star"></i> Coordinadora Regional</div>
+                    <h3 style="color: var(--bg-white); font-size: 1.8rem; margin-top: 0.5rem;">Viviana Cruz</h3>
+                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 1.5rem;">Coordinadora de toda la Región 3 — Pampa Húmeda</p>
+                    <a href="https://wa.me/5492954641455" target="_blank" class="btn" style="background: #25D366; color: white; border: none;"><i class="fab fa-whatsapp"></i> Escribirle por WhatsApp</a>
+                </div>
+            </div>
+
             <div class="grid promotores-grid">
 
-
                 <!-- Distrito 1 -->
-                <div class="card" style="background: var(--bg-light); color: var(--text-dark);">
+                <div class="card distrito-card" style="background: var(--bg-light); color: var(--text-dark);">
                     <div class="card-body">
                         <div class="tag" style="background: var(--primary-color); color: var(--bg-white);">Distrito 1</div>
-                        <h3>Viviana Cruz</h3>
                         <p class="location" style="color: var(--primary-dark);"><i class="fas fa-map-marker-alt"></i> La Pampa</p>
                         <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;"><strong>Ciudades:</strong> Toda la provincia de La Pampa.</p>
                         <hr style="margin: 1rem 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
-                        <p style="font-size: 0.85rem;"><i class="fas fa-user-friends"></i> <strong>Promotores locales:</strong><br>- Jorge y Graciela Quiroga (Realicó)<br>- Facundo y Yamila Brayda (Gral. Pico)</p>
-                        <a href="https://wa.me/549295415641455" target="_blank" class="btn btn-outline btn-sm btn-block" style="border-color: #25D366; color: #25D366; text-align: center; margin-top:0.5rem;"><i class="fab fa-whatsapp"></i> Contactar Coordinador</a>
+                        <div class="contacto-lista">
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol coordinador"><i class="fas fa-user-shield"></i> Coordinador de Distrito</span>
+                                    <strong>Viviana Cruz</strong>
+                                </div>
+                                <a href="https://wa.me/5492954641455" target="_blank" class="btn-wa" title="Escribir a Viviana Cruz"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol promotor"><i class="fas fa-user"></i> Promotor</span>
+                                    <strong>Jorge y Graciela Quiroga</strong>
+                                    <small>Realicó</small>
+                                </div>
+                                <a href="https://wa.me/5492302412106" target="_blank" class="btn-wa" title="Escribir a Jorge Quiroga"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol promotor"><i class="fas fa-user"></i> Promotor</span>
+                                    <strong>Facundo y Yamila Brayda</strong>
+                                    <small>General Pico</small>
+                                </div>
+                                <a href="https://wa.me/5492804601831" target="_blank" class="btn-wa" title="Escribir a Facundo Brayda"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Distrito 2 -->
-                <div class="card" style="background: var(--bg-light); color: var(--text-dark);">
+                <div class="card distrito-card" style="background: var(--bg-light); color: var(--text-dark);">
                     <div class="card-body">
                         <div class="tag" style="background: var(--primary-color); color: var(--bg-white);">Distrito 2</div>
-                        <h3>Mabel Chicote</h3>
                         <p class="location" style="color: var(--primary-dark);"><i class="fas fa-map-marker-alt"></i> Sudoeste PBA</p>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;"><strong>Ciudades:</strong> Monte Hermoso, Bahía Blanca, Tornquist, Coronel Dorrego, Coronel Pringles, Tres Arroyos, Adolfo Gonzáles Chaves, San Cayetano, Patagones, Necochea, Lobería, Benito Juárez, Laprida, General Lamadrid, Coronel Suarez, Puán, Guaminí, Salliqueló, Saavedra, Villarino, Adolfo Alsina, Coronel Rosales.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;"><strong>Ciudades:</strong> Monte Hermoso, Bahía Blanca, Tornquist, Cnel. Dorrego, Cnel. Pringles, Tres Arroyos, A. Gonzáles Chaves, San Cayetano, Patagones, Necochea, Lobería, Benito Juárez, Laprida, Gral. Lamadrid, Cnel. Suarez, Puán, Guaminí, Salliqueló, Saavedra, Villarino, A. Alsina, Cnel. Rosales.</p>
                         <hr style="margin: 1rem 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
-                        <p style="font-size: 0.85rem;"><i class="fas fa-user-friends"></i> <strong>Promotores locales:</strong><br>- Nora Fritz, Flia. Guimera Gauna (Bahía Blanca)<br>- M. Alejandra La Greca, Patricia Reina (Tres Arroyos)<br>- Claudia Deluster (Dorrego)</p>
-                        <a href="https://wa.me/549291155079018" target="_blank" class="btn btn-outline btn-sm btn-block" style="border-color: #25D366; color: #25D366; text-align: center; margin-top:0.5rem;"><i class="fab fa-whatsapp"></i> Contactar Coordinador</a>
+                        <div class="contacto-lista">
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol coordinador"><i class="fas fa-user-shield"></i> Coordinador de Distrito</span>
+                                    <strong>Mabel Chicote</strong>
+                                </div>
+                                <a href="https://wa.me/5492915079018" target="_blank" class="btn-wa" title="Escribir a Mabel Chicote"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol promotor"><i class="fas fa-user"></i> Promotor</span>
+                                    <strong>Nora Fritz</strong>
+                                    <small>Bahía Blanca</small>
+                                </div>
+                                <a href="https://wa.me/5492914377355" target="_blank" class="btn-wa" title="Escribir a Nora Fritz"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol promotor"><i class="fas fa-user"></i> Promotor</span>
+                                    <strong>Darío y Gabriela Guimera Gauna</strong>
+                                    <small>Bahía Blanca</small>
+                                </div>
+                                <a href="https://wa.me/5491153257958" target="_blank" class="btn-wa" title="Escribir a Darío Guimera"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol promotor"><i class="fas fa-user"></i> Promotor</span>
+                                    <strong>María Alejandra La Greca</strong>
+                                    <small>Tres Arroyos</small>
+                                </div>
+                                <a href="https://wa.me/549298365892" target="_blank" class="btn-wa" title="Escribir a M. Alejandra La Greca"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol promotor"><i class="fas fa-user"></i> Promotor</span>
+                                    <strong>Patricia Reina</strong>
+                                    <small>Tres Arroyos</small>
+                                </div>
+                                <a href="https://wa.me/5492983404625" target="_blank" class="btn-wa" title="Escribir a Patricia Reina"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol promotor"><i class="fas fa-user"></i> Promotor</span>
+                                    <strong>Claudia Deluster</strong>
+                                    <small>Dorrego</small>
+                                </div>
+                                <a href="https://wa.me/5492916480286" target="_blank" class="btn-wa" title="Escribir a Claudia Deluster"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Distrito 3 -->
-                <div class="card" style="background: var(--bg-light); color: var(--text-dark);">
+                <div class="card distrito-card" style="background: var(--bg-light); color: var(--text-dark);">
                     <div class="card-body">
                         <div class="tag" style="background: var(--primary-color); color: var(--bg-white);">Distrito 3</div>
-                        <h3>[Coordinador a Designar]</h3>
                         <p class="location" style="color: var(--primary-dark);"><i class="fas fa-map-marker-alt"></i> Costa Atlántica</p>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;"><strong>Ciudades:</strong> Balcarce, General Alvarado, General Pueyrredon, Mar Chiquita, Villa Gesell, Pinamar, General Madariaga, Partido de la Costa, Tordillo, General Lavalle, Maipú.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;"><strong>Ciudades:</strong> Balcarce, Gral. Alvarado, Gral. Pueyrredon, Mar Chiquita, Villa Gesell, Pinamar, Gral. Madariaga, Partido de la Costa, Tordillo, Gral. Lavalle, Maipú.</p>
                         <hr style="margin: 1rem 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
-                        <p style="font-size: 0.85rem;"><i class="fas fa-user-friends"></i> <strong>Promotores locales:</strong><br>- Adriana Anahí Ale (Mar del Plata)</p>
-                        <a href="#" class="btn btn-outline btn-sm btn-block" style="border-color: #25D366; color: #25D366; text-align: center; margin-top:0.5rem;"><i class="fab fa-whatsapp"></i> Contactar Promotores</a>
+                        <div class="contacto-lista">
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol coordinador" style="opacity: 0.5;"><i class="fas fa-user-shield"></i> Coordinador de Distrito</span>
+                                    <strong style="opacity: 0.5;">[A designar]</strong>
+                                </div>
+                            </div>
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol promotor"><i class="fas fa-user"></i> Promotor</span>
+                                    <strong>Adriana Anahí Ale</strong>
+                                    <small>Mar del Plata</small>
+                                </div>
+                                <a href="tel:02235479674" class="btn-wa" style="background: var(--primary-color);" title="Llamar a Adriana Ale"><i class="fas fa-phone"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Distrito 4 -->
-                <div class="card" style="background: var(--bg-light); color: var(--text-dark);">
+                <div class="card distrito-card" style="background: var(--bg-light); color: var(--text-dark);">
                     <div class="card-body">
                         <div class="tag" style="background: var(--primary-color); color: var(--bg-white);">Distrito 4</div>
-                        <h3>Mirta Bernardo</h3>
                         <p class="location" style="color: var(--primary-dark);"><i class="fas fa-map-marker-alt"></i> Noroeste PBA</p>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;"><strong>Ciudades:</strong> Rivadavia, Pellegrini, Tres Lomas, Trenque Lauquen, Carlos Tejedor, Pehuajó, Daireaux, Hipólito Irigoyen, Carlos Casares... (y zona).</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;"><strong>Ciudades:</strong> Rivadavia, Pellegrini, Tres Lomas, Trenque Lauquen, Carlos Tejedor, Pehuajó, Daireaux, Hipólito Irigoyen, Carlos Casares, 9 de Julio, 25 de Mayo, Bolívar, Olavarría, Tapalqué, Florentino Ameghino, Gral. Villegas, Gral. Alvear.</p>
                         <hr style="margin: 1rem 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
-                        <p style="font-size: 0.85rem;"><i class="fas fa-user-friends"></i> <strong>Promotores locales:</strong><br>- Ezequiel y Carla Avila (Salliqueló)</p>
-                        <a href="https://wa.me/5492392503119" target="_blank" class="btn btn-outline btn-sm btn-block" style="border-color: #25D366; color: #25D366; text-align: center; margin-top:0.5rem;"><i class="fab fa-whatsapp"></i> Contactar Coordinador</a>
+                        <div class="contacto-lista">
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol coordinador"><i class="fas fa-user-shield"></i> Coordinador de Distrito</span>
+                                    <strong>Mirta Bernardo</strong>
+                                    <small>Trenque Lauquen</small>
+                                </div>
+                                <a href="https://wa.me/5492392503119" target="_blank" class="btn-wa" title="Escribir a Mirta Bernardo"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol promotor"><i class="fas fa-user"></i> Promotor</span>
+                                    <strong>Ezequiel y Carla Avila</strong>
+                                    <small>Salliqueló</small>
+                                </div>
+                                <a href="https://wa.me/5492392524986" target="_blank" class="btn-wa" title="Escribir a Ezequiel Avila"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Distrito 5 -->
-                <div class="card" style="background: var(--bg-light); color: var(--text-dark);">
+                <div class="card distrito-card" style="background: var(--bg-light); color: var(--text-dark);">
                     <div class="card-body">
                         <div class="tag" style="background: var(--primary-color); color: var(--bg-white);">Distrito 5</div>
-                        <h3>Caleb Josue Mollo</h3>
                         <p class="location" style="color: var(--primary-dark);"><i class="fas fa-map-marker-alt"></i> Centro / Este PBA</p>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;"><strong>Ciudades:</strong> Cañuelas, Ayacucho, Azul, Brandsen, Castelli, Chascomus, Dolores, General Belgrano, Las Flores, Lobos, Magdalena, Marcos Paz, Tandil... (y zona).</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;"><strong>Ciudades:</strong> Ayacucho, Azul, Brandsen, Cañuelas, Castelli, Chascomus, Dolores, Gral. Belgrano, Gral. Guido, Gral. Las Heras, Gral. Paz, Las Flores, Lobos, Magdalena, Marcos Paz, Monte, Navarro, Pila, Punta Indio, Rauch, Roque Pérez, Saladillo, San Vicente, Tandil.</p>
                         <hr style="margin: 1rem 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
-                        <p style="font-size: 0.85rem;"><i class="fas fa-user-friends"></i> <strong>Promotores locales:</strong><br>- [A designar]</p>
-                        <a href="https://wa.me/5491151380102" target="_blank" class="btn btn-outline btn-sm btn-block" style="border-color: #25D366; color: #25D366; text-align: center; margin-top:0.5rem;"><i class="fab fa-whatsapp"></i> Contactar Coordinador</a>
+                        <div class="contacto-lista">
+                            <div class="contacto-item">
+                                <div class="contacto-info">
+                                    <span class="contacto-rol coordinador"><i class="fas fa-user-shield"></i> Coordinador de Distrito</span>
+                                    <strong>Caleb Josue Mollo</strong>
+                                    <small>Cañuelas</small>
+                                </div>
+                                <a href="https://wa.me/5491151380102" target="_blank" class="btn-wa" title="Escribir a Caleb Mollo"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -250,7 +364,6 @@
             </div>
             <div class="footer-contacto">
                 <h4>Contáctanos</h4>
-                <!-- Nuevo teléfono de contacto proporcionado -->
                 <p><i class="fab fa-whatsapp"></i> 2983-641455</p>
                 <p><i class="fas fa-envelope"></i> region3rmn@gmail.com</p>
                 <div class="social-links">

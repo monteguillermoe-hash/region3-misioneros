@@ -111,6 +111,39 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
 .read-more { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 600; margin-top: 1rem; }
 .read-more:hover { gap: 0.8rem; }
 
+/* Promotores Grid */
+.promotores-grid { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); margin-top: 2rem; }
+.distrito-card:hover { transform: translateY(-3px); }
+
+/* Lista de Contactos dentro de cada tarjeta de Distrito */
+.contacto-lista { display: flex; flex-direction: column; gap: 0.75rem; }
+.contacto-item {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+    padding: 0.6rem 0.8rem; background: rgba(0,0,0,0.03); border-radius: 8px;
+    transition: background var(--transition-fast);
+}
+.contacto-item:hover { background: rgba(0,0,0,0.06); }
+.contacto-info { display: flex; flex-direction: column; gap: 0.15rem; flex: 1; min-width: 0; }
+.contacto-info strong { font-size: 0.95rem; color: var(--text-dark); }
+.contacto-info small { font-size: 0.8rem; color: var(--text-muted); }
+
+/* Etiquetas de Rol */
+.contacto-rol {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+    display: inline-flex; align-items: center; gap: 0.3rem;
+}
+.contacto-rol.coordinador { color: var(--primary-dark); }
+.contacto-rol.promotor { color: var(--secondary-color); }
+
+/* Botón circular de WhatsApp individual */
+.btn-wa {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; min-width: 40px; border-radius: 50%;
+    background: #25D366; color: white; font-size: 1.1rem;
+    transition: all var(--transition-fast); text-decoration: none; border: none; cursor: pointer;
+}
+.btn-wa:hover { background: #128C7E; transform: scale(1.1); box-shadow: 0 4px 12px rgba(37,211,102,0.4); }
+
 /* Gira Timeline */
 .gira-timeline { position: relative; max-width: 800px; margin: 0 auto; padding: 2rem 0; text-align: left; }
 .gira-timeline::before { content: ''; position: absolute; top: 0; bottom: 0; left: 20px; width: 2px; background: var(--primary-color); }
