@@ -303,8 +303,29 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
     .nav-links .btn-urgent { margin-left: 0; margin-top: 1rem; display: inline-block; }
     
     .misioneros-highlight { grid-template-columns: 1fr !important; gap: 2rem !important; }
-    .misioneros-premium-layout { grid-template-columns: 1fr !important; gap: 2rem !important; }
-    .misionero-side-content { position: static !important; }
+}
+
+/* Escuela de Formación (EFM) */
+.efm-card {
+    transition: all var(--transition-fast);
+}
+.efm-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
+.efm-card.destaque {
+    box-shadow: 0 15px 35px rgba(0, 170, 178, 0.3);
+}
+.efm-card.destaque .btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .efm-content-layout {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
 }
 
 
