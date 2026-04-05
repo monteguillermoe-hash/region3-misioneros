@@ -379,4 +379,110 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
 /* split-bg para secciones alternas */
 .split-bg { background-color: var(--bg-light); }
 
+/* ============================================================
+   RESPONSIVE — Mobile First
+   ============================================================ */
 
+/* Navbar responsive */
+@media (max-width: 900px) {
+    .navbar { padding: 1rem 5%; }
+    .nav-links {
+        position: fixed; top: 0; left: -100%; width: 80%; max-width: 320px;
+        height: 100vh; background: var(--bg-white);
+        flex-direction: column; gap: 0; padding-top: 5rem;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+        transition: left 0.35s cubic-bezier(0.16,1,0.3,1);
+        clip-path: none; overflow-y: auto; z-index: 999;
+    }
+    .nav-links.active { left: 0; }
+    .nav-item {
+        color: var(--text-dark); padding: 1.1rem 2rem;
+        border-bottom: 1px solid rgba(0,0,0,0.06); display: block; text-align: left;
+        font-size: 1rem;
+    }
+    .mobile-toggle { display: block; z-index: 1001; }
+    .navbar:not(.scrolled) .mobile-toggle,
+    .navbar:not(.scrolled) .logo { color: var(--bg-white); }
+    .nav-links .btn-urgent { margin: 1rem 2rem; display: inline-block; }
+}
+
+/* Hero responsive */
+@media (max-width: 768px) {
+    .hero { padding: 0 6%; min-height: 100svh; }
+    .hero-content h1 { font-size: 2.2rem; line-height: 1.15; }
+    .hero-content p { font-size: 1rem; }
+    .hero-buttons { flex-direction: column; gap: 0.75rem; }
+    .hero-buttons .btn { text-align: center; }
+}
+
+/* Secciones generales */
+@media (max-width: 768px) {
+    .section { padding: 3.5rem 0; }
+    .container { padding: 0 4%; }
+    h2 { font-size: 1.9rem; }
+    h3 { font-size: 1.3rem; }
+
+    /* La Región — mapa apilado */
+    .region-info {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+    .region-info > div { min-width: unset !important; width: 100% !important; }
+    #mapa-region { height: 260px !important; }
+
+    /* Promotores grid → 1 columna */
+    .promotores-grid { grid-template-columns: 1fr !important; }
+
+    /* De Gira — columnas apiladas */
+    .misioneros-premium-layout {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    .misionero-side-content { position: static !important; }
+
+    /* Eventos */
+    .eventos-cards-grid { grid-template-columns: 1fr !important; }
+    .evento-card-nueva .evento-imagen-wrapper { height: 200px !important; }
+
+    /* Formación Misionera */
+    .formacion-grid { grid-template-columns: 1fr !important; }
+
+    /* Noticias */
+    .noticias-grid { grid-template-columns: 1fr !important; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+    /* Oración layout */
+    .oracion-layout { grid-template-columns: 1fr; gap: 2rem; }
+
+    /* Eventos old */
+    .evento-card { flex-direction: column; text-align: center; }
+    .evento-date { flex-direction: row; gap: 1rem; padding: 1rem; }
+    .evento-info { text-align: center; }
+
+    /* Urgent banner */
+    .urgent-content { flex-direction: column; text-align: center; }
+    .urgent-banner { margin: 1rem; padding: 2rem; border-left: none; border-top: 8px solid #ff4d4f; }
+
+    /* DNM banner buttons */
+    .dnm-buttons { flex-direction: column; align-items: center; }
+
+    /* Alfajor grid */
+    .alfajor-grid { grid-template-columns: repeat(7, 1fr) !important; }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .promotores-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .formacion-grid { grid-template-columns: 1fr 1fr !important; }
+    .misioneros-premium-layout { grid-template-columns: 1fr !important; }
+    .misionero-side-content { position: static !important; }
+}
+
+/* Pantallas muy chicas */
+@media (max-width: 380px) {
+    .hero-content h1 { font-size: 1.8rem; }
+    .btn { padding: 0.7rem 1.4rem; font-size: 0.9rem; }
+    .tag { font-size: 0.7rem; }
+}

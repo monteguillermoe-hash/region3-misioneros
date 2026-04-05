@@ -1,89 +1,110 @@
-// Efecto de Scroll en Navbar
+// ── Navbar scroll effect ──────────────────────────────────────
 const navbar = document.getElementById('navbar');
-
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Menú Móvil
+// ── Menú móvil ────────────────────────────────────────────────
 const mobileToggle = document.querySelector('.mobile-toggle');
-const navLinks = document.getElementById('nav-links');
-const navItems = document.querySelectorAll('.nav-item');
+const navLinks     = document.getElementById('nav-links');
+const navItems     = document.querySelectorAll('.nav-item');
 
 mobileToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+    const open = navLinks.classList.toggle('active');
+    mobileToggle.setAttribute('aria-expanded', open);
 });
 
 navItems.forEach(item => {
     item.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', false);
     });
 });
 
-// Animaciones de Aparición (Reveal)
-const revealElements = document.querySelectorAll('.reveal');
-
-const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-    const elementVisible = 150;
-
-    revealElements.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-        if (elementTop < windowHeight - elementVisible) {
-            el.classList.add('active');
-        }
-    });
-};
-
-window.addEventListener('scroll', revealOnScroll);
-revealOnScroll(); // Activar en carga inicial
-
-// Inicialización del Mapa Interactivo (Leaflet)
-document.addEventListener('DOMContentLoaded', () => {
-    const mapElement = document.getElementById('mapa-region');
-    // Verificamos si el contenedor del mapa existe en la página actual
-    if (mapElement) {
-        // Coordenadas aproximadas del centro de la Provincia de Buenos Aires
-        const map = L.map('mapa-region', {
-            center: [-36.0, -60.0],
-            zoom: 6,
-            scrollWheelZoom: false // Desactivar zoom con la rueda del mouse por defecto por usabilidad
-        });
-
-        // Capa de mapa base (OpenStreetMap gratuito)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        // ==== Pines Reales de los Distritos ====
-        
-        // Distrito 1: La Pampa (Santa Rosa centro)
-        L.marker([-36.61, -64.28]).addTo(map)
-         .bindPopup('<b>Distrito 1</b><br>Toda la provincia de La Pampa.<br><a href="#promotores" style="color:var(--primary-color); font-weight:bold;">Ver Detalles</a>');
-         
-        // Distrito 2: Bahía Blanca (Centro de Distrito 2)
-        L.marker([-38.71, -62.26]).addTo(map)
-         .bindPopup('<b>Distrito 2</b><br>Bahía Blanca, Necochea, Tres Arroyos, y más.<br><a href="#promotores" style="color:var(--primary-color); font-weight:bold;">Ver Detalles</a>');
-
-        // Distrito 3: Mar del Plata (Centro de Distrito 3)
-        L.marker([-38.00, -57.55]).addTo(map)
-         .bindPopup('<b>Distrito 3</b><br>Partido de la Costa, Mar del Plata, Balcarce, etc.<br><a href="#promotores" style="color:var(--primary-color); font-weight:bold;">Ver Detalles</a>');
-
-        // Distrito 4: Olavarría (Centro de Distrito 4)
-        L.marker([-36.89, -60.32]).addTo(map)
-         .bindPopup('<b>Distrito 4</b><br>Olavarría, Trenque Lauquen, Pehuajó, y más.<br><a href="#promotores" style="color:var(--primary-color); font-weight:bold;">Ver Detalles</a>');
-
-        // Distrito 5: Tandil (Centro de Distrito 5)
-        L.marker([-37.32, -59.13]).addTo(map)
-         .bindPopup('<b>Distrito 5</b><br>Tandil, Cañuelas, Azul, Lobos, y alrededores.<br><a href="#promotores" style="color:var(--primary-color); font-weight:bold;">Ver Detalles</a>');
-
-        // Activar zoom con la rueda del mouse solo cuando el usuario hace clic en el mapa (mejor UX en móviles)
-        map.on('focus', () => { map.scrollWheelZoom.enable(); });
-        map.on('blur', () => { map.scrollWheelZoom.disable(); });
+document.addEventListener('click', e => {
+    if (!navbar.contains(e.target)) {
+        navLinks.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', false);
     }
 });
 
+// ── Reveal on scroll ─────────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+const revealOnScroll = () => {
+    const vh = window.innerHeight;
+    revealEls.forEach(el => {
+        if (el.getBoundingClientRect().top < vh - 100) el.classList.add('active');
+    });
+};
+window.addEventListener('scroll', revealOnScroll, { passive: true });
+revealOnScroll();
+
+// ── Active nav link por sección visible ──────────────────────
+const sections     = document.querySelectorAll('section[id], footer[id]');
+const navLinkItems = document.querySelectorAll('.nav-item[href^="#"]');
+const sectionObs   = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navLinkItems.forEach(l => l.classList.remove('active'));
+            const a = document.querySelector(`.nav-item[href="#${entry.target.id}"]`);
+            if (a) a.classList.add('active');
+        }
+    });
+}, { threshold: 0.3 });
+sections.forEach(s => sectionObs.observe(s));
+
+// ── Mapa Leaflet — 5 Distritos Región 3 ──────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    const mapEl = document.getElementById('mapa-region');
+    if (!mapEl || typeof L === 'undefined') return;
+
+    const map = L.map('mapa-region', {
+        center: [-37.4, -61.8],
+        zoom: 6,
+        scrollWheelZoom: false
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 18
+    }).addTo(map);
+
+    map.on('focus', () => map.scrollWheelZoom.enable());
+    map.on('blur',  () => map.scrollWheelZoom.disable());
+
+    const icono = (color, label) => L.divIcon({
+        className: '',
+        html: `<div style="width:46px;height:46px;border-radius:50%;background:${color};border:3px solid white;box-shadow:0 3px 12px rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-weight:800;font-size:11px;color:white;cursor:pointer;">${label}</div>`,
+        iconSize: [46, 46],
+        iconAnchor: [23, 23]
+    });
+
+    const popup = (titulo, ciudades) =>
+        `<div style="font-family:Montserrat,sans-serif;min-width:190px;padding:4px 2px;">
+            <strong style="color:#008f96;font-size:0.95rem;">${titulo}</strong>
+            <p style="margin:6px 0 8px;font-size:0.8rem;color:#444;line-height:1.5;">${ciudades}</p>
+            <a href="#promotores" style="color:#00AAB2;font-weight:700;font-size:0.82rem;">Ver promotores →</a>
+         </div>`;
+
+    [
+        { lat:-36.61, lng:-64.28, color:'#00AAB2', label:'D1',
+          titulo:'Distrito 1 — La Pampa',
+          ciudades:'Toda la provincia de La Pampa.' },
+        { lat:-38.30, lng:-62.00, color:'#007d85', label:'D2',
+          titulo:'Distrito 2 — Sudoeste PBA',
+          ciudades:'Bahía Blanca, Tres Arroyos, Necochea, Tornquist, Patagones y más.' },
+        { lat:-37.70, lng:-57.10, color:'#F9B22C', label:'D3',
+          titulo:'Distrito 3 — Costa Atlántica',
+          ciudades:'Mar del Plata, Balcarce, Villa Gesell, Pinamar, Partido de la Costa y más.' },
+        { lat:-35.90, lng:-62.00, color:'#00AAB2', label:'D4',
+          titulo:'Distrito 4 — Noroeste PBA',
+          ciudades:'Pehuajó, Trenque Lauquen, Olavarría, 9 de Julio, Carlos Casares y más.' },
+        { lat:-37.50, lng:-59.50, color:'#007d85', label:'D5',
+          titulo:'Distrito 5 — Centro/Este PBA',
+          ciudades:'Tandil, Azul, Cañuelas, Lobos, Saladillo, Chascomús y más.' }
+    ].forEach(d => {
+        L.marker([d.lat, d.lng], { icon: icono(d.color, d.label) })
+            .addTo(map)
+            .bindPopup(popup(d.titulo, d.ciudades), { maxWidth: 260 });
+    });
+});
