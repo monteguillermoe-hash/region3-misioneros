@@ -108,3 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
             .bindPopup(popup(d.titulo, d.ciudades), { maxWidth: 260 });
     });
 });
+
+// ── Hero: efecto difuminado al hacer scroll ───────────────────
+const heroSection = document.getElementById('inicio');
+const heroContent = document.querySelector('.hero-content');
+window.addEventListener('scroll', () => {
+    if (!heroSection || !heroContent) return;
+    const scrolled = window.scrollY;
+    const heroH = heroSection.offsetHeight;
+    const ratio = Math.min(scrolled / (heroH * 0.5), 1);
+    // Difumina y sube el contenido suavemente
+    heroContent.style.opacity = 1 - ratio * 0.65;
+    heroContent.style.transform = `translateY(${-ratio * 30}px)`;
+}, { passive: true });

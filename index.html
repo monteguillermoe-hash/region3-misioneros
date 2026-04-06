@@ -38,11 +38,16 @@
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
-            <h1>Centro de Operaciones<br>Región 3</h1>
-            <p>El portal oficial de contacto y organización para los Promotores de Misiones de la Región 3 (UAD Argentina). Facilita tus giras, eventos y conecta con tu promotor de distrito.</p>
+            <div class="hero-eyebrow">UAD Argentina · Región 3</div>
+            <h1>Red de Movilización<br>Nacional</h1>
+            <p>El portal oficial de contacto y organización para los Promotores de Misiones de la Región 3. Facilita tus giras, eventos y conecta con tu promotor de distrito.</p>
             <div class="hero-buttons">
                 <a href="#promotores" class="btn btn-primary">Directorio de Promotores</a>
-                <a href="#region" class="btn btn-outline">Nuestra Región</a>
+                <a href="#region" class="btn btn-outline">Conocer más</a>
+            </div>
+            <div class="hero-scroll-indicator" onclick="document.getElementById('region').scrollIntoView({behavior:'smooth'})">
+                <span>Explorá</span>
+                <div class="hero-scroll-arrow"><i class="fas fa-chevron-down"></i></div>
             </div>
         </div>
     </section>
@@ -365,15 +370,15 @@
                 <div class="misionero-side-content" style="position: sticky; top: 100px;">
                     <div class="glass-card" style="padding: 2.5rem; border-radius: 20px; overflow: hidden; position: relative;">
                         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--secondary-color);"></div>
-                        <h4 style="margin-bottom: 2rem;"><i class="fas fa-pray" style="color: var(--primary-color);"></i> Motivos de Oración</h4>
-                        <ul class="oracion-lista" style="gap: 1.2rem; display: flex; flex-direction: column;">
-                            <li style="font-size: 0.9rem; align-items: flex-start;"><i class="fas fa-seedling"></i> Por el hermano Edgar y su familia en Iquitos.</li>
-                            <li style="font-size: 0.9rem; align-items: flex-start;"><i class="fas fa-tree"></i> Provisión para la madera (Mayo).</li>
-                            <li style="font-size: 0.9rem; align-items: flex-start;"><i class="fas fa-home"></i> Alquiler y muebles en Pehuajó.</li>
-                            <li style="font-size: 0.9rem; align-items: flex-start;"><i class="fas fa-car-side"></i> Vehículo propio para giras regionales.</li>
-                            <li style="font-size: 0.9rem; align-items: flex-start;"><i class="fas fa-users"></i> Por la familia Zamorano: adaptación y fortaleza física y espiritual.</li>
-                            <li style="font-size: 0.9rem; align-items: flex-start;"><i class="fas fa-plane-departure"></i> Por el viaje a las comunidades Kichwas, que consigamos los recursos para viajar.</li>
-                        </ul>
+                        <h4 style="margin-bottom: 1.5rem;"><i class="fas fa-pray" style="color: var(--primary-color);"></i> Motivos de Oración</h4>
+                        <div class="motivos-grid">
+                            <div class="motivo-card"><span class="motivo-icon">✦</span><p>Por el hermano Edgar y su familia en Iquitos.</p></div>
+                            <div class="motivo-card"><span class="motivo-icon">✦</span><p>Provisión para la madera (Mayo).</p></div>
+                            <div class="motivo-card"><span class="motivo-icon">✦</span><p>Alquiler y muebles en Pehuajó.</p></div>
+                            <div class="motivo-card"><span class="motivo-icon">✦</span><p>Vehículo propio para giras regionales.</p></div>
+                            <div class="motivo-card"><span class="motivo-icon">✦</span><p>Por la familia Zamorano: adaptación y fortaleza física y espiritual.</p></div>
+                            <div class="motivo-card"><span class="motivo-icon">✦</span><p>Por el viaje a las comunidades Kichwas, que consigamos los recursos para viajar.</p></div>
+                        </div>
                     </div>
 
                     <div class="ofrenda-premium-box" style="margin-top: 2rem;">
@@ -406,67 +411,54 @@
         <div class="container reveal">
             <div class="section-header text-center">
                 <h2>Próximos Eventos</h2>
-                <p>Agéndate y acompáñanos en nuestras futuras actividades para la Región 3.</p>
+                <p>Agéndate y acompáñanos en las actividades promovidas para la Región 3. Algunos eventos son organizados por nuestra región y otros por la DNM, pero todos buscan informar y movilizar a promotores y movilizadores.</p>
             </div>
             <div class="eventos-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                
+
                 <!-- Evento 1: IV Cumbre Iberoamericana -->
-                <div class="evento-card-nueva" style="background: var(--bg-white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.07); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column;">
-                    <div class="evento-imagen-wrapper" style="position: relative; height: 240px; overflow: hidden; background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));">
-                        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #005f65 0%, #00aab2 50%, #008f96 100%); display: flex; align-items: center; justify-content: center;">
-                            <div style="text-align: center; color: white; padding: 1rem;">
-                                <i class="fas fa-globe-americas" style="font-size: 3rem; opacity: 0.3; margin-bottom: 0.5rem; display: block;"></i>
-                                <div style="font-family: var(--font-heading); font-size: 1.6rem; letter-spacing: 2px; opacity: 0.9;">IV CUMBRE</div>
-                                <div style="font-size: 0.8rem; opacity: 0.7; letter-spacing: 3px;">IBEROAMERICANA</div>
+                <div class="evento-card-nueva" style="background: var(--bg-white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.07); display: flex; flex-direction: column;">
+                    <!-- Imagen estilo Instagram cuadrada -->
+                    <div class="evento-img-insta">
+                        <div class="evento-img-inner" style="background: linear-gradient(135deg, #004a50 0%, #00838b 40%, #00AAB2 70%, #F9B22C 100%);">
+                            <div class="evento-img-overlay-text">
+                                <div class="evento-img-date-badge">10<span>ABR</span></div>
+                                <div class="evento-img-title-overlay">IV CUMBRE<br>IBEROAMERICANA</div>
+                                <div class="evento-img-lugar"><i class="fas fa-map-marker-alt"></i> Bariloche</div>
                             </div>
                         </div>
-                        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);"></div>
-                        <div style="position: absolute; top: 1rem; left: 1rem;">
-                            <span class="tag" style="background: var(--secondary-color); color: var(--text-dark); font-size: 0.75rem;"><i class="fas fa-globe-americas"></i> Cumbre Internacional</span>
-                        </div>
-                        <div style="position: absolute; bottom: 1rem; right: 1rem; background: var(--primary-color); color: white; padding: 0.6rem 1rem; border-radius: 12px; text-align: center; font-family: var(--font-heading);">
-                            <div style="font-size: 1.8rem; line-height: 1; font-weight: 900;">10</div>
-                            <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Abril</div>
-                        </div>
+                        <div class="evento-img-tag-tl"><span class="tag" style="background: var(--secondary-color); color: var(--text-dark); font-size: 0.72rem;"><i class="fas fa-globe-americas"></i> Cumbre Internacional</span></div>
                     </div>
-                    <div style="padding: 2rem; flex: 1; display: flex; flex-direction: column;">
-                        <h3 style="font-size: 1.4rem; color: var(--primary-dark); margin-bottom: 0.75rem;">IV Cumbre Iberoamericana</h3>
-                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> &nbsp;Catedral Familiar a las Naciones, <strong>Bariloche</strong></p>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; flex: 1;">Un tiempo clave de intercesión y visión misionera para toda Iberoamérica. Líderes de múltiples países se reunirán para buscar a Dios por las naciones.</p>
-                        <a href="https://www.instagram.com/p/DVvk2avDVAb/?utm_source=ig_web_copy_link" target="_blank" class="btn btn-primary btn-sm" style="align-self: flex-start;"><i class="fab fa-instagram"></i>&nbsp; Ver en Instagram</a>
+                    <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+                        <h3 style="font-size: 1.25rem; color: var(--primary-dark); margin-bottom: 0.5rem;">IV Cumbre Iberoamericana</h3>
+                        <p style="margin-bottom: 0.4rem; font-size: 0.88rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i>&nbsp; Catedral Familiar a las Naciones, <strong>Bariloche</strong></p>
+                        <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 1.2rem; flex: 1;">Tiempo clave de intercesión y visión misionera para toda Iberoamérica. Líderes de múltiples países reunidos para buscar a Dios por las naciones.</p>
+                        <a href="https://www.instagram.com/p/DVvk2avDVAb/?utm_source=ig_web_copy_link" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i>&nbsp; Ver en Instagram</a>
                     </div>
                 </div>
 
                 <!-- Evento 2: Jornada Misionera Distrito 3 -->
-                <div class="evento-card-nueva" style="background: var(--bg-white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.07); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column;">
-                    <div class="evento-imagen-wrapper" style="position: relative; height: 240px; overflow: hidden; background: linear-gradient(135deg, #005f65, var(--primary-dark));">
-                        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #003d42 0%, #005f65 50%, var(--primary-dark) 100%); display: flex; align-items: center; justify-content: center;">
-                            <div style="text-align: center; color: white; padding: 1rem;">
-                                <i class="fas fa-church" style="font-size: 3rem; opacity: 0.3; margin-bottom: 0.5rem; display: block;"></i>
-                                <div style="font-family: var(--font-heading); font-size: 1.6rem; letter-spacing: 2px; opacity: 0.9;">JORNADA</div>
-                                <div style="font-size: 0.8rem; opacity: 0.7; letter-spacing: 3px;">MISIONERA · DISTRITO 3</div>
+                <div class="evento-card-nueva" style="background: var(--bg-white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.07); display: flex; flex-direction: column;">
+                    <div class="evento-img-insta">
+                        <div class="evento-img-inner" style="background: linear-gradient(135deg, #002a2e 0%, #005f65 45%, #008f96 80%, #00AAB2 100%);">
+                            <div class="evento-img-overlay-text">
+                                <div class="evento-img-date-badge">25<span>ABR</span></div>
+                                <div class="evento-img-title-overlay">JORNADA<br>MISIONERA</div>
+                                <div class="evento-img-lugar"><i class="fas fa-map-marker-alt"></i> Mar del Plata</div>
                             </div>
                         </div>
-                        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);"></div>
-                        <div style="position: absolute; top: 1rem; left: 1rem;">
-                            <span class="tag" style="background: var(--primary-color); color: white; font-size: 0.75rem;"><i class="fas fa-star"></i> Nuestra Región — Distrito 3</span>
-                        </div>
-                        <div style="position: absolute; bottom: 1rem; right: 1rem; background: var(--primary-dark); color: white; padding: 0.6rem 1rem; border-radius: 12px; text-align: center; font-family: var(--font-heading);">
-                            <div style="font-size: 1.8rem; line-height: 1; font-weight: 900;">25</div>
-                            <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Abril</div>
-                        </div>
+                        <div class="evento-img-tag-tl"><span class="tag" style="background: var(--primary-color); color: white; font-size: 0.72rem;"><i class="fas fa-star"></i> Nuestra Región · D3</span></div>
                     </div>
-                    <div style="padding: 2rem; flex: 1; display: flex; flex-direction: column;">
-                        <h3 style="font-size: 1.4rem; color: var(--primary-dark); margin-bottom: 0.75rem;">Jornada Misionera</h3>
-                        <p style="margin-bottom: 0.3rem; font-size: 0.9rem;"><i class="fas fa-user-tie" style="color: var(--primary-color);"></i> &nbsp;Emiliano Pedrozo</p>
-                        <p style="margin-bottom: 0.75rem; font-size: 0.9rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> &nbsp;Iglesia Emanuel, <strong>Mar del Plata</strong></p>
-                        <div style="background: rgba(0,170,178,0.06); padding: 1rem; border-radius: 10px; margin-bottom: 1.5rem; font-size: 0.85rem; border: 1px solid rgba(0,170,178,0.15); flex: 1;">
-                            <p style="margin-bottom: 0.3rem;"><strong>Inversión:</strong> $5.000 &nbsp;·&nbsp; Alias: <code style="background: rgba(0,0,0,0.06); padding: 0.1rem 0.4rem; border-radius: 4px;">roma30</code></p>
+                    <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+                        <h3 style="font-size: 1.25rem; color: var(--primary-dark); margin-bottom: 0.5rem;">Jornada Misionera</h3>
+                        <p style="margin-bottom: 0.3rem; font-size: 0.88rem;"><i class="fas fa-user-tie" style="color: var(--primary-color);"></i>&nbsp; Emiliano Pedrozo</p>
+                        <p style="margin-bottom: 0.6rem; font-size: 0.88rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i>&nbsp; Iglesia Emanuel, <strong>Mar del Plata</strong></p>
+                        <div style="background: rgba(0,170,178,0.06); padding: 0.8rem 1rem; border-radius: 10px; margin-bottom: 1.2rem; font-size: 0.83rem; border: 1px solid rgba(0,170,178,0.15); flex: 1;">
+                            <p style="margin-bottom: 0.25rem;"><strong>Inversión:</strong> $5.000 &nbsp;·&nbsp; Alias: <code style="background: rgba(0,0,0,0.06); padding: 0.1rem 0.4rem; border-radius: 4px;">roma30</code></p>
                             <p style="margin-bottom: 0;"><strong>Contacto:</strong> 223 593-5453 (Olga Soto)</p>
                         </div>
-                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
                             <a href="https://wa.me/5492235935453" target="_blank" class="btn btn-primary btn-sm"><i class="fab fa-whatsapp"></i>&nbsp; Inscribirse</a>
-                            <a href="https://www.instagram.com/p/DWAmsEhjcJk/?utm_source=ig_web_copy_link" target="_blank" class="btn btn-sm" style="background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: white; border: none;"><i class="fab fa-instagram"></i>&nbsp; Ver en Instagram</a>
+                            <a href="https://www.instagram.com/p/DWAmsEhjcJk/?utm_source=ig_web_copy_link" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i>&nbsp; Ver en Instagram</a>
                         </div>
                     </div>
                 </div>
@@ -657,7 +649,7 @@
             <div class="footer-contacto">
                 <h4>Contáctanos</h4>
                 <p><i class="fab fa-whatsapp"></i> 2983-641455</p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:misionesregion3@gmail.com" style="color: rgba(255,255,255,0.7);">misionesregion3@gmail.com</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection#9ef3f7edf7f1f0fbedecfbf9f7f1f0addef9f3fff7f2b0fdf1f3" style="color: rgba(255,255,255,0.7);"><span class="__cf_email__" data-cfemail="bdd0d4ced4d2d3d8cecfd8dad4d2d38efddad0dcd4d193ded2d0">[email&#160;protected]</span></a></p>
                 <div class="social-links">
                     <a href="https://www.instagram.com/promociondemisionesr3/?hl=es%2F" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>

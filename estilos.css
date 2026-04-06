@@ -486,3 +486,213 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
     .btn { padding: 0.7rem 1.4rem; font-size: 0.9rem; }
     .tag { font-size: 0.7rem; }
 }
+
+/* ============================================================
+   HERO — Centrado, minimalista, con scroll indicator
+   ============================================================ */
+.hero {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0 5% !important;
+}
+.hero-overlay {
+    background: linear-gradient(160deg, rgba(0,0,0,0.72) 0%, rgba(0,60,65,0.55) 60%, rgba(0,0,0,0.35) 100%) !important;
+}
+.hero-content {
+    max-width: 740px !important;
+    margin: 0 auto !important;
+}
+.hero-eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(249,178,44,0.4);
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+}
+.hero-content h1 {
+    font-size: 4rem !important;
+    line-height: 1.08 !important;
+    letter-spacing: -1px;
+    margin-bottom: 1.4rem !important;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.hero-buttons {
+    justify-content: center !important;
+    margin-bottom: 3rem;
+}
+/* Scroll indicator */
+.hero-scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+.hero-scroll-indicator:hover { opacity: 1; }
+.hero-scroll-indicator span {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 600;
+}
+.hero-scroll-arrow {
+    width: 32px; height: 32px;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 0.75rem;
+    animation: heroScrollBounce 1.8s ease-in-out infinite;
+}
+@keyframes heroScrollBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+/* Efecto blur/fade al hacer scroll — manejado por JS */
+.hero.scrolled-hero .hero-content { opacity: 0.35; transform: translateY(-20px); transition: opacity 0.4s, transform 0.4s; }
+
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.4rem !important; }
+    .hero-eyebrow { font-size: 0.7rem; }
+}
+
+/* ============================================================
+   MOTIVOS DE ORACIÓN — Cards
+   ============================================================ */
+.motivos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+.motivo-card {
+    background: #f9f9f9;
+    border: 1px solid rgba(0,170,178,0.12);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    padding: 0.9rem 1rem;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    cursor: default;
+}
+.motivo-card:hover {
+    background: #e8f7f8;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0,170,178,0.15);
+    border-color: rgba(0,170,178,0.3);
+}
+.motivo-icon {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    line-height: 1;
+}
+.motivo-card p {
+    font-size: 0.82rem;
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.5;
+}
+@media (max-width: 640px) {
+    .motivos-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   EVENTOS — Imagen estilo Instagram cuadrada
+   ============================================================ */
+.evento-img-insta {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* cuadrado */
+    overflow: hidden;
+    background: #000;
+    border-radius: 0; /* hereda el del padre */
+}
+.evento-img-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+.evento-img-overlay-text {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.2rem;
+    gap: 0.3rem;
+}
+.evento-img-date-badge {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    color: white;
+    line-height: 1;
+    font-weight: 900;
+}
+.evento-img-date-badge span {
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    letter-spacing: 2px;
+    opacity: 0.9;
+    margin-left: 4px;
+    vertical-align: middle;
+    font-weight: 700;
+}
+.evento-img-title-overlay {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    color: white;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    opacity: 0.92;
+}
+.evento-img-lugar {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 600;
+}
+.evento-img-tag-tl {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+}
+.evento-card-nueva:hover .evento-img-inner {
+    transform: scale(1.03);
+    transition: transform 0.5s ease;
+}
+
+/* Botón Instagram coherente */
+.btn-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.25s, transform 0.25s;
+    align-self: flex-start;
+}
+.btn-instagram:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+    color: white;
+}
