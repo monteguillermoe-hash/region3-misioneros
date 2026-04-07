@@ -615,8 +615,16 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
     width: 100%;
     padding-top: 100%; /* cuadrado */
     overflow: hidden;
-    background: #000;
-    border-radius: 0; /* hereda el del padre */
+    background: transparent;
+    border-radius: 12px; /* bordes redondeados estilo Instagram */
+}
+.evento-img-insta img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .evento-img-inner {
     position: absolute;
