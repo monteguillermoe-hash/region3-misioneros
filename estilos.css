@@ -787,9 +787,14 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
 .promotores-swiper {
     padding: 2rem 0 4rem; /* Espacio para bullets */
 }
-.swiper-slide {
-    height: auto;
+.swiper-wrapper {
     display: flex;
+    align-items: stretch;
+}
+.swiper-slide {
+    display: flex;
+    align-items: stretch;
+    height: auto; /* Permitir estiramiento natural */
 }
 .promotor-card {
     background: var(--bg-white);
@@ -798,9 +803,30 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
     text-align: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
-    flex: 1;
+    flex: 1; 
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+/* Asegurar alineación vertical de textos variables */
+.promotor-card h3 {
+    min-height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem !important;
+}
+.promotor-card p:nth-of-type(1) {
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.promotor-card p:nth-of-type(2) {
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .promotor-card:hover {
     transform: translateY(-5px);
@@ -853,4 +879,63 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
     text-transform: uppercase;
     margin-bottom: 0.5rem;
     letter-spacing: 1px;
+}
+
+/* ============================================================
+   UNIFORMIDAD DE TARJETAS (Global)
+   ============================================================ */
+
+/* Asegurar que los grids estiren sus hijos */
+.eventos-cards-grid, 
+.noticias-grid, 
+.formacion-grid {
+    display: grid !important;
+    align-items: stretch !important;
+}
+
+/* Base para todas las tarjetas */
+.evento-card-nueva, 
+.formacion-card, 
+.noticia-card,
+.devocional-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+/* Alineación de títulos */
+.evento-card-nueva h3, 
+.formacion-card h3, 
+.noticia-card h3,
+.devocional-body h3 {
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem !important;
+}
+
+/* Contenido flexible para empujar el botón al fondo */
+.evento-card-nueva .evento-content,
+.formacion-card .formacion-content,
+.noticia-card .noticia-content,
+.devocional-card .devocional-body {
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Forzar que los párrafos de descripción ocupen el espacio central */
+.evento-card-nueva p,
+.formacion-card p,
+.noticia-card p,
+.devocional-card p {
+    flex-grow: 1;
+}
+
+/* Botones al fondo */
+.evento-card-nueva .btn, 
+.formacion-card .btn,
+.noticia-card .read-more {
+    margin-top: auto !important;
+    align-self: flex-start;
 }
