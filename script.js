@@ -121,3 +121,70 @@ window.addEventListener('scroll', () => {
     heroContent.style.opacity = 1 - ratio * 0.65;
     heroContent.style.transform = `translateY(${-ratio * 30}px)`;
 }, { passive: true });
+
+
+// ── Swiper (Carrusel de Promotores) ───────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof Swiper !== 'undefined' && document.querySelector('.mySwiper')) {
+        const swiper = new Swiper('.mySwiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                }
+            }
+        });
+    }
+    
+    // ── Filtros de Eventos ──────────────────────────────────────────
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const eventoCards = document.querySelectorAll('.evento-card-nueva');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Activar botón actual
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const filterValue = btn.getAttribute('data-filter');
+            
+            eventoCards.forEach(card => {
+                // Agregar animación suave
+                card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                
+                if (filterValue === 'all' || card.getAttribute('data-distrito') === filterValue) {
+                    card.style.display = 'flex';
+                    // Pequeño timeout para permitir que el display surta efecto antes de la opacidad
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 400); // Mismo tiempo que la transición CSS
+                }
+            });
+        });
+    });
+});

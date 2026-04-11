@@ -608,14 +608,14 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
 }
 
 /* ============================================================
-   EVENTOS — Imagen estilo Instagram cuadrada
+   EVENTOS — Imagen estilo Instagram Vertical
    ============================================================ */
 .evento-img-insta {
     position: relative;
     width: 100%;
-    padding-top: 100%; /* cuadrado */
+    padding-top: 125%; /* 4:5 ratio (125%) to fit full vertical flyers */
     overflow: hidden;
-    background: transparent;
+    background: #fdfdfd;
     border-radius: 12px; /* bordes redondeados estilo Instagram */
 }
 .evento-img-insta img {
@@ -703,4 +703,154 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
     opacity: 0.88;
     transform: translateY(-2px);
     color: white;
+}
+
+
+/* === REDISEÑO REGION 3 === */
+
+/* Utilidades para los botones consistentes */
+.btn-unified {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-unified-primary {
+    background: var(--primary-color);
+    color: white;
+}
+.btn-unified-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,170,178,0.3);
+    color: white;
+}
+
+.btn-unified-outline {
+    background: transparent;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+.btn-unified-outline:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,170,178,0.2);
+}
+
+.btn-unified-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+}
+.btn-unified-instagram:hover {
+    opacity: 0.9;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(220,39,67,0.3);
+    color: white;
+}
+
+/* Filtros de Eventos */
+.eventos-filtros {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+.filter-btn {
+    background: var(--bg-white);
+    color: var(--text-muted);
+    border: 2px solid rgba(0,0,0,0.05);
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.filter-btn.active, .filter-btn:hover {
+    border-color: var(--primary-color);
+    background: rgba(0,170,178,0.1);
+    color: var(--primary-color);
+}
+
+/* Swiper para Promotores */
+.promotores-swiper {
+    padding: 2rem 0 4rem; /* Espacio para bullets */
+}
+.swiper-slide {
+    height: auto;
+    display: flex;
+}
+.promotor-card {
+    background: var(--bg-white);
+    border-radius: 16px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.promotor-card:hover {
+    transform: translateY(-5px);
+}
+.promotor-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    background: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    border: 3px solid rgba(0,170,178,0.2);
+}
+.swiper-pagination-bullet-active {
+    background: var(--primary-color) !important;
+}
+
+/* Devocionales Feed */
+.devocional-card {
+    background: var(--bg-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+.devocional-card:hover {
+    transform: translateY(-5px);
+}
+.devocional-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.devocional-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.devocional-date {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
 }
