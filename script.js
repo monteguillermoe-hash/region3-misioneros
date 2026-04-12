@@ -187,4 +187,201 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+    // ── Gira Redesign: Carrusel y Mapa Interactivo ──────────────────
+    const missionaries = [
+        {
+            id: 'zamorano',
+            name: 'Familia Zamorano',
+            destination: 'Per&uacute; / Argentina',
+            continent: 'america',
+            quote: 'Construyendo el primer templo Kichwa en la selva peruana.',
+            img: 'assets/images/zamorano_tour.png',
+            link: 'https://www.instagram.com/promociondemisionesr3/',
+            coords: [-12.0464, -77.0428],
+            whatsapp: '351'
+        },
+        {
+            id: 'losmacc',
+            name: 'Los Macc',
+            destination: 'Sudeste Asi&aacute;tico',
+            continent: 'asia',
+            quote: 'Presentar el evangelio en otra cultura es nuestro mayor desaf&iacute;o.',
+            img: 'assets/images/LOS_MACC_1.png',
+            link: 'https://www.instagram.com/promociondemisionesr3/',
+            coords: [13.7563, 100.5018],
+            whatsapp: '351 6825541'
+        },
+        {
+            id: 'sepulveda',
+            name: 'Familia Sep&uacute;lveda',
+            destination: 'Espa&ntilde;a',
+            continent: 'europa',
+            quote: 'Llevando la visi&oacute;n misionera al continente europeo.',
+            img: 'assets/images/sepulveda_1.png',
+            link: 'https://www.instagram.com/p/DV4CXrMiRmr/',
+            coords: [40.4168, -3.7038],
+            whatsapp: '351 6169210'
+        },
+        {
+            id: 'aristimuno',
+            name: 'Familia Aristimu&ntilde;o',
+            destination: 'Asia Central',
+            continent: 'asia',
+            quote: 'Compartiendo sobre la necesidad de obreros en el Mundo Budista.',
+            img: 'assets/images/aristimuno_1.png',
+            link: 'https://www.instagram.com/p/DV1arDTkkjS/',
+            coords: [27.7172, 85.3240],
+            whatsapp: '11 3191-7009'
+        },
+        {
+            id: 'fabiana',
+            name: 'Fabiana Llamas',
+            destination: 'Mozambique (&Aacute;frica)',
+            continent: 'africa',
+            quote: 'Misionera compartiendo testimonios de labor en el campo africano.',
+            img: 'assets/images/fabiana_llamas.png',
+            link: 'https://www.instagram.com/p/DVjj0nRDQYP/',
+            coords: [-25.9692, 32.5732],
+            whatsapp: '258 872969506'
+        },
+        {
+            id: 'analia',
+            name: 'Anal&iacute;a V&aacute;zquez',
+            destination: 'Mozambique / &Aacute;frica',
+            continent: 'africa',
+            quote: 'Proyecto PASA POR MOZAMBIQUE: Educaci&oacute;n e Identidad en Cristo.',
+            img: 'assets/images/analia_vazquez.png',
+            link: 'https://www.instagram.com/p/DWEIydbFEb2/',
+            coords: [-18.6657, 35.5296],
+            whatsapp: '11 2250-5475'
+        }
+    ];
+
+    let giraSwiper = null;
+    let giraMap = null;
+    let giraMarkers = [];
+
+    function renderGiraCards(filter) {
+        const container = document.getElementById('gira-cards-container');
+        if (!container) return;
+        const filtered = filter === 'all' ? missionaries : missionaries.filter(m => m.continent === filter);
+        
+        container.innerHTML = filtered.map(m => `
+            <div class="swiper-slide">
+                <div class="gira-card">
+                    <div class="gira-card-img-wrapper">
+                        <img src="${m.img}" alt="${m.name}" class="gira-card-img">
+                    </div>
+                    <div class="gira-card-content">
+                        <h3 class="gira-card-name">${m.name}</h3>
+                        <p class="gira-card-dest"><i class="fas fa-plane-departure"></i> ${m.destination}</p>
+                        <p class="gira-card-quote">${m.quote}</p>
+                        <div class="gira-card-footer">
+                            <a href="${m.link}" target="_blank" class="btn-unified btn-unified-instagram" style="width: 100%; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;"><i class="fab fa-instagram"></i>&nbsp; Ver en Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function updateGiraMarkers(filter) {
+        if (!giraMap) return;
+        
+        giraMarkers.forEach(m => giraMap.removeLayer(m));
+        giraMarkers = [];
+
+        const filtered = filter === 'all' ? missionaries : missionaries.filter(m => m.continent === filter);
+        const bounds = L.latLngBounds();
+
+        filtered.forEach(m => {
+            const marker = L.marker(m.coords, {
+                icon: L.divIcon({
+                    className: 'gira-minimal-marker',
+                    html: '<div class="marker-dot"></div>',
+                    iconSize: [20, 20],
+                    iconAnchor: [10, 10]
+                })
+            }).addTo(giraMap);
+
+            marker.bindPopup(`
+                <div class="gira-popup-content">
+                    <img src="${m.img}" class="popup-img">
+                    <h4>${m.name}</h4>
+                    <p>${m.destination}</p>
+                    <a href="${m.link}" target="_blank" class="popup-btn">Ver Proyecto</a>
+                </div>
+            `, { closeButton: false, offset: [0, -5] });
+
+            giraMarkers.push(marker);
+            bounds.extend(m.coords);
+        });
+
+        if (filtered.length > 0) {
+            if (filter !== 'all') {
+                giraMap.fitBounds(bounds, { padding: [100, 100], maxZoom: 5 });
+            } else {
+                giraMap.setView([10, 0], 2);
+            }
+        }
+    }
+
+    function initGira() {
+        if (!document.getElementById('gira-cards-container')) return;
+
+        renderGiraCards('all');
+
+        giraSwiper = new Swiper('.giraSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 25,
+            loop: false,
+            autoplay: { delay: 5000, disableOnInteraction: true },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+
+        const mapContainer = document.getElementById('mapa-gira');
+        if (mapContainer && typeof L !== 'undefined') {
+            giraMap = L.map('mapa-gira', {
+                center: [10, 0],
+                zoom: 2,
+                scrollWheelZoom: false,
+                zoomControl: true
+            });
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; OpenStreetMap &copy; CARTO'
+            }).addTo(giraMap);
+
+            updateGiraMarkers('all');
+        }
+
+        document.querySelectorAll('.filter-btn-gira').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn-gira').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const continent = btn.getAttribute('data-continent');
+                
+                const container = document.getElementById('gira-cards-container');
+                container.style.opacity = '0';
+                container.style.transform = 'translateY(15px)';
+                
+                setTimeout(() => {
+                    renderGiraCards(continent);
+                    giraSwiper.update();
+                    giraSwiper.slideTo(0);
+                    updateGiraMarkers(continent);
+                    
+                    container.style.opacity = '1';
+                    container.style.transform = 'translateY(0)';
+                }, 400);
+            });
+        });
+    }
+
+    initGira();
 });
