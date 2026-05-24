@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rmn-region3-v3';
+const CACHE_NAME = 'rmn-region3-v4';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',

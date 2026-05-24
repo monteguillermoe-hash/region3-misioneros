@@ -167,71 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // ── Filtros de Eventos ───
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    let eventosSwiper = null;
-    let originalEventosSlides = [];
 
-    const eventosWrapper = document.getElementById('eventosWrapper');
-    if (eventosWrapper) {
-        originalEventosSlides = Array.from(eventosWrapper.querySelectorAll('.swiper-slide'));
-    }
-
-    function buildEventosSwiper() {
-        if (eventosSwiper) {
-            eventosSwiper.destroy(true, true);
-            eventosSwiper = null;
-        }
-        if (document.querySelector('.eventosSwiper')) {
-            eventosSwiper = new Swiper('.eventosSwiper', {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                loop: false,
-                pagination: { el: '.eventos-pagination', clickable: true },
-                navigation: { nextEl: '.eventos-btn-next', prevEl: '.eventos-btn-prev' },
-                breakpoints: {
-                    640:  { slidesPerView: 1, spaceBetween: 16 },
-                    900:  { slidesPerView: 2, spaceBetween: 20 },
-                    1200: { slidesPerView: 3, spaceBetween: 24 }
-                }
-            });
-        }
-    }
-
-    function applyEventoFilter(filterValue) {
-        if (!eventosWrapper) return;
-        eventosWrapper.innerHTML = '';
-        originalEventosSlides.forEach(slide => {
-            const card = slide.querySelector('.evento-card-nueva');
-            const distrito = card ? card.getAttribute('data-distrito') : null;
-            if (filterValue === 'all' || distrito === filterValue) {
-                eventosWrapper.appendChild(slide);
-            }
-        });
-        buildEventosSwiper();
-        
-        // Ensure swiper updates its positioning
-        if (eventosSwiper) {
-            eventosSwiper.update();
-            eventosSwiper.slideTo(0);
-        }
-    }
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => {
-                b.classList.remove('active');
-                b.setAttribute('aria-pressed', 'false');
-            });
-            btn.classList.add('active');
-            btn.setAttribute('aria-pressed', 'true');
-            // data-filter values: 'all', 'd1', 'd2', 'd3', 'd4', 'global'
-            applyEventoFilter(btn.getAttribute('data-filter'));
-        });
-    });
-
-    // Init on load
-    buildEventosSwiper();
 
     // ── Devocionales Swiper ───────────────────────────────────────────
     if (document.querySelector('.devociSwiper')) {
