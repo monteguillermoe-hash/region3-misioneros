@@ -356,6 +356,32 @@ document.addEventListener('DOMContentLoaded', () => {
             link: 'https://www.instagram.com/isayjoseind/',
             coords: [34.0479, 100.6197],
             whatsapp: '5493512404281'
+        },
+        {
+            id: 'sara_serves',
+            name: 'Misionera Sara Serves',
+            destination: 'Brasil — Amazonas (Benjam&iacute;n Constant)',
+            continent: 'america',
+            continentLabel: 'AMERICA',
+            continentColor: '#e6993a',
+            quote: 'Comunidades en Brasil: Filadelfia, Atalaia do Norte, Sao Gabriel.',
+            img: 'assets/images/sara_serves.png',
+            link: '#',
+            coords: [-4.3828, -70.0317],
+            whatsapp: ''
+        },
+        {
+            id: 'maria_canilla',
+            name: 'Misionera Mar&iacute;a Canilla',
+            destination: 'Per&uacute; — Loreto (Santa Rosa)',
+            continent: 'america',
+            continentLabel: 'AMERICA',
+            continentColor: '#e6993a',
+            quote: 'Comunidades en Per&uacute;: Puerto Sina&iacute;, Nuevo San Juan, Ticunas Nini, etc.',
+            img: 'assets/images/maria_canilla.png',
+            link: '#',
+            coords: [-3.7491, -73.2538],
+            whatsapp: ''
         }
     ];
 
