@@ -25,24 +25,18 @@
         </button>
     </header>
 
-    <!-- Header Interno -->
-    <section class="hero hero-interna" style="min-height: 50vh; display: flex; align-items: center; justify-content: center; position: relative; padding-top: 80px; background: url('assets/images/aristimuno_1.png') center/cover no-repeat;">
-        <div class="hero-overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,64,128,0.92) 0%, rgba(251,192,45,0.85) 100%); z-index: 1;"></div>
-        <div class="hero-content reveal" style="z-index: 2; text-align: center; color: white; display: flex; flex-direction: column; align-items: center;">
-            
-            <!-- Foto de la familia -->
-            <div style="width: 140px; height: 140px; border-radius: 50%; overflow: hidden; border: 4px solid #fbc02d; margin-bottom: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.4); background: white;">
-                <!-- Usamos la imagen que ya está en assets/images, o bien el usuario puede reemplazarla -->
-                <img src="assets/images/aristimuno_1.png" alt="Familia Aristimuño" style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
-            </div>
-
-            <div class="hero-eyebrow" style="margin-bottom: 0.5rem; color: #fbc02d; font-weight: bold; letter-spacing: 2px;">INVITADOS: FLIA ARISTIMUÑO</div>
-            <h1 style="font-size: 3.5rem; margin-bottom: 0; line-height: 1.1;">Jornada Misionera</h1>
-            <p style="font-size: 1.2rem; margin-top: 1rem; font-weight: 300;">Sábado 27 de JUNIO &middot; Distrito 2</p>
+    <!-- Header Interno con Nueva Portada -->
+    <section class="hero hero-interna" style="min-height: 55vh; display: flex; align-items: flex-end; justify-content: center; position: relative; padding-top: 80px; padding-bottom: 2rem; background: url('assets/images/portada_aristimuno.png') center/cover no-repeat; border-bottom: 5px solid var(--primary-color);">
+        <!-- Un overlay sutil solo en la parte inferior para que el botón destaque -->
+        <div class="hero-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 40%); z-index: 1;"></div>
+        
+        <div class="hero-content reveal" style="z-index: 2; text-align: center; color: white; width: 100%;">
+            <!-- Textos para SEO pero visualmente reducidos o escondidos porque la portada ya tiene la info, pero mantenemos el botón IG -->
+            <h1 class="sr-only" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">Jornada Misionera - Flia Aristimuño</h1>
             
             <!-- Botón Instagram -->
-            <a href="https://www.instagram.com/fliaaristimuno/" target="_blank" class="btn-unified" style="margin-top: 1.5rem; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(220,39,67,0.4); transition: transform 0.3s ease;">
-                <i class="fab fa-instagram" style="font-size: 1.2rem;"></i> Seguir en Instagram
+            <a href="https://www.instagram.com/fliaaristimuno/" target="_blank" class="btn-unified" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.5); transition: transform 0.3s ease;">
+                <i class="fab fa-instagram" style="font-size: 1.3rem;"></i> Seguir en Instagram
             </a>
         </div>
     </section>
@@ -163,9 +157,9 @@
             <!-- Misioneros -->
             <div class="detalle-bloque reveal" style="margin-top: 4rem;">
                 <div class="section-header text-center" style="margin-bottom: 2rem;">
-                    <span class="tag" style="background: #e53935; color: white; margin-bottom: 1rem;"><i class="fab fa-youtube"></i> MISIONEROS</span>
-                    <h2>Flia Aristimuño</h2>
-                    <p>Misioneros en el Sudeste Asiático y Arizona</p>
+                    <span class="tag" style="background: #e53935; color: white; margin-bottom: 1rem;"><i class="fab fa-youtube"></i> RECURSOS</span>
+                    <h2>Cambiar El Mapa Español</h2>
+                    <p>Transformando el Mundo Budista a Través de la Oración 🌏</p>
                 </div>
                 
                 <div style="max-width: 800px; margin: 0 auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; padding: 3rem;">
@@ -174,12 +168,12 @@
                         <i class="fas fa-play"></i>
                     </div>
 
-                    <h3 style="color: var(--primary-dark); margin-bottom: 1rem; text-align: center;">Conocé más de su labor</h3>
-                    <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem; max-width: 500px;">
-                        Descubrí de primera mano los desafíos y motivos de oración de la Familia Aristimuño en este video exclusivo.
+                    <h3 style="color: var(--primary-dark); margin-bottom: 1rem; text-align: center;">Únete a esta misión</h3>
+                    <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem; max-width: 650px; line-height: 1.6;">
+                        Bienvenidos a Cambiar El Mapa Español, donde te inspiramos, educamos y equipamos para generar un impacto duradero a través de la oración y la acción. Nuestra visión es movilizar a 50,000 compañeros de oración dedicados, intercediendo semanalmente por un avivamiento espiritual en el mundo budista.
                     </p>
                     
-                    <a href="https://www.youtube.com/watch?v=Lwn80nTW_0A" target="_blank" class="btn-unified" style="background: #e53935; color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 15px rgba(229,57,53,0.3);">
+                    <a href="https://www.youtube.com/watch?v=YH_PsgIEcbk" target="_blank" class="btn-unified" style="background: #e53935; color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 15px rgba(229,57,53,0.3);">
                         <i class="fab fa-youtube" style="font-size: 1.3rem;"></i> Ver Video en YouTube
                     </a>
 
