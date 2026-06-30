@@ -312,9 +312,10 @@ document.addEventListener('DOMContentLoaded', () => {
             continent: 'asia',
             continentLabel: 'ASIA',
             continentColor: '#dc2626',
-            quote: 'Levantando intercesores para la parte del mundo no alcanzada.',
+            quote: 'Proyecto "De tu casa a las naciones". Levantando intercesores para la parte del mundo no alcanzada.',
             img: 'assets/images/aristimuno_1.png',
-            link: 'https://www.instagram.com/p/DV1arDTkkjS/?img_index=1',
+            link: 'https://www.instagram.com/fliaaristimuno/',
+            customImageLink: 'evento-detalle.html',
             coords: [27.7172, 85.3240],
             whatsapp: '541131917009'
         },
@@ -397,13 +398,20 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = filtered.map(m => `
             <div class="swiper-slide">
                 <div class="gira-card">
+                    ${m.customImageLink ? `<a href="${m.customImageLink}" style="display: block; text-decoration: none; position: relative;">` : ''}
                     <div class="gira-card-img-wrapper">
                         <img src="${m.img}" alt="${m.name}" class="gira-card-img"
                              onerror="this.closest('.gira-card-img-wrapper').classList.add('gira-img-fallback')">
                         <span class="gira-card-continent-badge" style="background:${m.continentColor}">
                             ${m.continentLabel}
                         </span>
+                        ${m.customImageLink ? `
+                        <div class="evento-img-hover-overlay">
+                            <span class="hover-text">Más información</span>
+                        </div>
+                        ` : ''}
                     </div>
+                    ${m.customImageLink ? `</a>` : ''}
                     <div class="gira-card-content">
                         <h3 class="gira-card-name">${m.name}</h3>
                         <p class="gira-card-dest"><i class="fas fa-plane-departure"></i> ${m.destination}</p>

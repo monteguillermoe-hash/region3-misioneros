@@ -720,17 +720,27 @@ p, h1, h2, h3, h4, h5, h6, a, span {
     transition: transform 0.3s ease;
 }
 
-.evento-img-link:hover .evento-img-hover-overlay {
+.evento-img-link:hover .evento-img-hover-overlay,
+.gira-card-img-wrapper a:hover .evento-img-hover-overlay,
+.gira-card a:hover .evento-img-hover-overlay {
     opacity: 1;
 }
 
-.evento-img-link:hover .evento-img-hover-overlay .hover-text {
+.evento-img-link:hover .evento-img-hover-overlay .hover-text,
+.gira-card a:hover .evento-img-hover-overlay .hover-text {
     transform: translateY(0);
 }
 
 .evento-img-link:hover .evento-img-insta img {
     transform: scale(1.05);
     filter: blur(2px);
+}
+
+/* Hover sobre el link de imagen de gira card (ej: Aristimuño) */
+.gira-card a:hover .gira-card-img {
+    transform: scale(1.05);
+    filter: blur(2px);
+    transition: transform 0.5s ease, filter 0.5s ease;
 }
 .evento-img-inner {
     position: absolute;

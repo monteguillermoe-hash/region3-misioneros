@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Detalle del Evento | Misiones Región 3</title>
+    <title>Familia Aristimuño | Misioneros Región 3</title>
+    <meta name="description" content="Conocé la historia y los proyectos misioneros de la Familia Aristimuño, sirviendo en el Sudeste Asiático y Arizona con el proyecto 'De tu casa a las naciones'."/>
     <link href="estilos.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Montserrat:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
@@ -11,6 +12,227 @@
     <meta content="#004080" name="theme-color"/>
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+    <style>
+        /* --- Estilos específicos para la página de perfil --- */
+        .perfil-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+            padding-top: 80px;
+            padding-bottom: 3rem;
+            background: url('assets/images/hero_aristimuno.jpg') center/cover no-repeat;
+        }
+        .perfil-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,20,60,0.95) 0%, rgba(0,20,60,0.5) 50%, transparent 100%);
+            z-index: 1;
+        }
+        .perfil-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            width: 100%;
+            max-width: 800px;
+            padding: 0 1.5rem;
+        }
+        .perfil-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+        }
+        .perfil-hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            line-height: 1.1;
+        }
+        .perfil-hero-sub {
+            font-size: 1.15rem;
+            font-weight: 300;
+            opacity: 0.85;
+            margin-bottom: 2rem;
+        }
+        .perfil-hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- Info cards --- */
+        .perfil-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .perfil-info-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.7rem;
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .perfil-info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .perfil-info-card .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            background: var(--primary-color);
+        }
+        .perfil-info-card h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .perfil-info-card p {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* --- Proyecto highlight --- */
+        .proyecto-highlight {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #003270 100%);
+            border-radius: 20px;
+            padding: 3.5rem 3rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .proyecto-highlight::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        .proyecto-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -60px; left: -60px;
+            width: 280px; height: 280px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .proyecto-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        .proyecto-highlight h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .proyecto-highlight p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.88;
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+        }
+        .proyecto-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Video resource --- */
+        .recurso-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .recurso-play-btn {
+            width: 90px;
+            height: 90px;
+            background: #e53935;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 25px rgba(229,57,53,0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .recurso-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(229,57,53,0.45);
+        }
+
+        /* --- Intercesión motivator --- */
+        .intercesion-card {
+            background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+            border: 1px solid #ffd54f;
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+        .intercesion-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+        .intercesion-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .proyecto-highlight { padding: 2.5rem 1.5rem; }
+            .proyecto-highlight h3 { font-size: 1.6rem; }
+        }
+    </style>
 </head>
 <body class="page-interna">
     <!-- Navbar -->
@@ -18,165 +240,120 @@
         <a class="logo" href="index.html">Red de Movilización Nacional<br/><span>Región 3</span></a>
         <nav class="nav-links" id="nav-links">
             <a class="nav-item" href="index.html#inicio">Inicio</a>
-            <a class="nav-item" href="index.html#eventos">Volver a Eventos</a>
+            <a class="nav-item" href="index.html#gira">Familias Misioneras</a>
         </nav>
         <button aria-label="Menú" class="mobile-toggle">
             <i class="fas fa-bars"></i>
         </button>
     </header>
 
-    <!-- Header Interno con Nueva Portada -->
-    <section class="hero hero-interna" style="min-height: 55vh; display: flex; align-items: flex-end; justify-content: center; position: relative; padding-top: 80px; padding-bottom: 2rem; background: url('assets/images/portada_aristimuno.png') center/cover no-repeat; border-bottom: 5px solid var(--primary-color);">
-        <!-- Un overlay sutil solo en la parte inferior para que el botón destaque -->
-        <div class="hero-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 40%); z-index: 1;"></div>
-        
-        <div class="hero-content reveal" style="z-index: 2; text-align: center; color: white; width: 100%;">
-            <!-- Textos para SEO pero visualmente reducidos o escondidos porque la portada ya tiene la info, pero mantenemos el botón IG -->
-            <h1 class="sr-only" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">Jornada Misionera - Flia Aristimuño</h1>
-            
-            <!-- Botón Instagram -->
-            <a href="https://www.instagram.com/fliaaristimuno/" target="_blank" class="btn-unified" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.5); transition: transform 0.3s ease;">
-                <i class="fab fa-instagram" style="font-size: 1.3rem;"></i> Seguir en Instagram
-            </a>
+    <!-- Hero -->
+    <section class="perfil-hero">
+        <div class="perfil-hero-overlay"></div>
+        <div class="perfil-hero-content reveal">
+            <div class="perfil-hero-badge">
+                <i class="fas fa-plane-departure"></i> Misioneros Transculturales
+            </div>
+            <h1 class="perfil-hero-title">Familia Aristimuño</h1>
+            <p class="perfil-hero-sub">Sudeste Asiático &amp; Arizona · Levantando intercesores para el mundo budista</p>
+            <div class="perfil-hero-actions">
+                <a href="https://www.instagram.com/fliaaristimuno/" target="_blank" class="btn-unified" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.4);">
+                    <i class="fab fa-instagram" style="font-size: 1.2rem;"></i> Instagram
+                </a>
+                <a href="https://wa.me/541131917009" target="_blank" class="btn-unified" style="background: #25D366; color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.4);">
+                    <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Contactar
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Contenido Principal -->
     <main class="section bg-light" style="padding: 4rem 0;">
         <div class="container">
-            
-            <!-- Programa del Evento -->
-            <div class="detalle-bloque reveal">
-                <div class="section-header text-center" style="margin-bottom: 2rem;">
-                    <span class="tag" style="background: var(--primary-color); color: white; margin-bottom: 1rem;"><i class="far fa-clock"></i> AGENDA</span>
-                    <h2>Programa del Evento</h2>
-                    <p>Cronograma sujeto a modificaciones</p>
-                </div>
 
-                <div class="programa-timeline" style="max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                    <ul class="timeline-list" style="list-style: none; padding: 0; margin: 0;">
-                        <!-- Item -->
-                        <li style="display: flex; margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1.5rem;">
-                            <div class="time" style="flex: 0 0 100px; font-weight: bold; color: var(--secondary-color); font-size: 1.1rem; display: flex; align-items: center;"><i class="fas fa-coffee" style="margin-right: 0.5rem;"></i> 10:00 HS</div>
-                            <div class="content" style="flex: 1; padding-left: 1rem;">
-                                <h4 style="margin: 0; color: var(--primary-dark); font-size: 1.2rem;">Recepción / Desayuno</h4>
-                            </div>
-                        </li>
-                        <!-- Item -->
-                        <li style="display: flex; margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1.5rem;">
-                            <div class="time" style="flex: 0 0 100px; font-weight: bold; color: var(--secondary-color); font-size: 1.1rem; display: flex; align-items: center;"><i class="fas fa-door-open" style="margin-right: 0.5rem;"></i> 10:30 HS</div>
-                            <div class="content" style="flex: 1; padding-left: 1rem;">
-                                <h4 style="margin: 0; color: var(--primary-dark); font-size: 1.2rem;">Apertura</h4>
-                            </div>
-                        </li>
-                        <!-- Item -->
-                        <li style="display: flex; margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1.5rem;">
-                            <div class="time" style="flex: 0 0 100px; font-weight: bold; color: var(--secondary-color); font-size: 1.1rem; display: flex; align-items: center;"><i class="fas fa-chalkboard-teacher" style="margin-right: 0.5rem;"></i> 11:00 HS</div>
-                            <div class="content" style="flex: 1; padding-left: 1rem;">
-                                <h4 style="margin: 0; color: var(--primary-dark); font-size: 1.2rem;">1 Taller: Conociendo el mundo Budista</h4>
-                                <p style="margin: 0.2rem 0 0; font-size: 0.9rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Los Misioneros</p>
-                            </div>
-                        </li>
-                        <!-- Item -->
-                        <li style="display: flex; margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1.5rem;">
-                            <div class="time" style="flex: 0 0 100px; font-weight: bold; color: var(--secondary-color); font-size: 1.1rem; display: flex; align-items: center;"><i class="fas fa-bullhorn" style="margin-right: 0.5rem;"></i> 11:45 HS</div>
-                            <div class="content" style="flex: 1; padding-left: 1rem;">
-                                <h4 style="margin: 0; color: var(--primary-dark); font-size: 1.2rem;">Anuncio/BREAK</h4>
-                                <p style="margin: 0.2rem 0 0; font-size: 0.9rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Novedades y Recursos</p>
-                            </div>
-                        </li>
-                        <!-- Item -->
-                        <li style="display: flex; margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1.5rem;">
-                            <div class="time" style="flex: 0 0 100px; font-weight: bold; color: var(--secondary-color); font-size: 1.1rem; display: flex; align-items: center;"><i class="fas fa-praying-hands" style="margin-right: 0.5rem;"></i> 12:00 HS</div>
-                            <div class="content" style="flex: 1; padding-left: 1rem;">
-                                <h4 style="margin: 0; color: var(--primary-dark); font-size: 1.2rem;">2 Taller: Taller de intercesión por el mundo budista</h4>
-                                <p style="margin: 0.2rem 0 0; font-size: 0.9rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Los Misioneros</p>
-                            </div>
-                        </li>
-                        <!-- Item -->
-                        <li style="display: flex; margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1.5rem;">
-                            <div class="time" style="flex: 0 0 100px; font-weight: bold; color: var(--secondary-color); font-size: 1.1rem; display: flex; align-items: center;"><i class="fas fa-utensils" style="margin-right: 0.5rem;"></i> 13:00 HS</div>
-                            <div class="content" style="flex: 1; padding-left: 1rem;">
-                                <h4 style="margin: 0; color: var(--primary-dark); font-size: 1.2rem;">Almuerzo</h4>
-                            </div>
-                        </li>
-                        <!-- Item -->
-                        <li style="display: flex; margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1.5rem;">
-                            <div class="time" style="flex: 0 0 100px; font-weight: bold; color: var(--secondary-color); font-size: 1.1rem; display: flex; align-items: center;"><i class="fas fa-globe-americas" style="margin-right: 0.5rem;"></i> 14:00 HR</div>
-                            <div class="content" style="flex: 1; padding-left: 1rem;">
-                                <h4 style="margin: 0; color: var(--primary-dark); font-size: 1.2rem;">Plenaria: Tierra aún por conquistar</h4>
-                                <p style="margin: 0.2rem 0 0; font-size: 0.9rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Los Misioneros</p>
-                            </div>
-                        </li>
-                        <!-- Item -->
-                        <li style="display: flex; margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1.5rem;">
-                            <div class="time" style="flex: 0 0 100px; font-weight: bold; color: var(--secondary-color); font-size: 1.1rem; display: flex; align-items: center;"><i class="fas fa-users" style="margin-right: 0.5rem;"></i> 15:00 HS</div>
-                            <div class="content" style="flex: 1; padding-left: 1rem;">
-                                <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-                                    <div style="flex: 1; min-width: 200px; background: #f8f9fa; padding: 1rem; border-radius: 8px;">
-                                        <h4 style="margin: 0 0 0.3rem 0; color: var(--primary-dark); font-size: 1.1rem;">NIÑOS: Presentando el mundo budista</h4>
-                                        <p style="margin: 0; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Los Misioneros</p>
-                                    </div>
-                                    <div style="flex: 1; min-width: 200px; background: #f8f9fa; padding: 1rem; border-radius: 8px;">
-                                        <h4 style="margin: 0 0 0.3rem 0; color: var(--primary-dark); font-size: 1.1rem;">3 TALLER: ¿Cómo participar en misiones?</h4>
-                                        <p style="margin: 0; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Promotores</p>
-                                    </div>
-                                </div>
-                                <span style="display: inline-block; margin-top: 0.5rem; font-size: 0.8rem; color: var(--secondary-color); font-weight: bold; text-transform: uppercase;"><i class="fas fa-sync-alt"></i> En Simultáneo</span>
-                            </div>
-                        </li>
-                        <!-- Item -->
-                        <li style="display: flex; margin-bottom: 0; padding-bottom: 0;">
-                            <div class="time" style="flex: 0 0 100px; font-weight: bold; color: var(--secondary-color); font-size: 1.1rem; display: flex; align-items: center;"><i class="fas fa-flag-checkered" style="margin-right: 0.5rem;"></i> 16:00 HS</div>
-                            <div class="content" style="flex: 1; padding-left: 1rem;">
-                                <h4 style="margin: 0; color: var(--primary-dark); font-size: 1.2rem;">Cierre</h4>
-                            </div>
-                        </li>
-                    </ul>
+            <!-- Info rápida -->
+            <div class="perfil-info-grid reveal">
+                <div class="perfil-info-card">
+                    <div class="card-icon"><i class="fas fa-globe-asia"></i></div>
+                    <h4>Campo de servicio</h4>
+                    <p>Sudeste Asiático — Mundo Budista</p>
+                </div>
+                <div class="perfil-info-card" style="border-color: #e6993a;">
+                    <div class="card-icon" style="background: #e6993a;"><i class="fas fa-map-marker-alt"></i></div>
+                    <h4>También en</h4>
+                    <p>Arizona, Estados Unidos</p>
+                </div>
+                <div class="perfil-info-card" style="border-color: #dc2626;">
+                    <div class="card-icon" style="background: #dc2626;"><i class="fas fa-praying-hands"></i></div>
+                    <h4>Visión</h4>
+                    <p>50.000 intercesores por el mundo budista</p>
+                </div>
+                <div class="perfil-info-card" style="border-color: #16a34a;">
+                    <div class="card-icon" style="background: #16a34a;"><i class="fas fa-home"></i></div>
+                    <h4>Proyecto</h4>
+                    <p>De tu casa a las naciones</p>
                 </div>
             </div>
 
             <!-- Proyecto "De tu casa a las naciones" -->
-            <div class="detalle-bloque reveal" style="margin-top: 4rem;">
+            <div class="detalle-bloque reveal" style="margin-bottom: 3rem;">
                 <div class="section-header text-center" style="margin-bottom: 2rem;">
-                    <span class="tag" style="background: var(--secondary-color); color: var(--text-dark); margin-bottom: 1rem;"><i class="fas fa-home"></i> PROYECTO</span>
+                    <span class="tag" style="background: var(--secondary-color); color: var(--text-dark); margin-bottom: 1rem;">
+                        <i class="fas fa-home"></i> PROYECTO MISIONERO
+                    </span>
                     <h2>De tu casa a las naciones</h2>
                 </div>
-                <div style="max-width: 800px; margin: 0 auto; background: var(--primary-color); color: white; padding: 3rem; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,64,128,0.2); text-align: center;">
-                    <i class="fas fa-globe" style="font-size: 4rem; margin-bottom: 1.5rem; opacity: 0.9;"></i>
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">Un llamado para todas las familias</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9; margin-bottom: 2rem;">
-                        Este proyecto nace con la visión de que cada hogar puede ser un faro de luz. No importa dónde te encuentres, desde tu propia casa podés ser parte activa de la obra misionera, orando, ofrendando y movilizando a otros hacia el campo.
+                <div class="proyecto-highlight">
+                    <div class="proyecto-icon">🌏</div>
+                    <h3>Un llamado para cada hogar</h3>
+                    <p>
+                        Este proyecto nace con la visión de que cada hogar puede ser un faro de luz para el mundo no alcanzado. Sin importar dónde te encontrés, desde tu propia casa podés ser parte activa de la obra misionera: orando, ofrendando y movilizando a otros hacia el campo.
                     </p>
-                    <a href="https://forms.gle/3HQ9pCudDEjoXpfu6" target="_blank" class="btn-unified btn-unified-wa" style="background: white; color: var(--primary-dark); font-weight: bold;">
-                        <i class="fas fa-edit"></i> Inscribite a la Jornada
+                    <div class="proyecto-actions">
+                        <a href="https://wa.me/541131917009" target="_blank" class="btn-unified" style="background: white; color: var(--primary-dark); font-weight: bold; border: none; padding: 0.9rem 2rem; border-radius: 50px; display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.2rem;"></i> Quiero participar
+                        </a>
+                        <a href="https://www.instagram.com/fliaaristimuno/" target="_blank" class="btn-unified" style="background: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.4); font-weight: bold; padding: 0.9rem 2rem; border-radius: 50px; display: inline-flex; align-items: center; gap: 0.5rem; backdrop-filter: blur(4px);">
+                            <i class="fab fa-instagram"></i> Seguir el proyecto
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recurso: Cambiar el Mapa Español -->
+            <div class="detalle-bloque reveal" style="margin-bottom: 3rem;">
+                <div class="section-header text-center" style="margin-bottom: 2rem;">
+                    <span class="tag" style="background: #e53935; color: white; margin-bottom: 1rem;">
+                        <i class="fab fa-youtube"></i> RECURSO
+                    </span>
+                    <h2>Cambiar El Mapa Español</h2>
+                    <p>Transformando el Mundo Budista a través de la Oración 🌏</p>
+                </div>
+                <div class="recurso-card">
+                    <a href="https://www.youtube.com/watch?v=YH_PsgIEcbk" target="_blank" class="recurso-play-btn">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <h3 style="color: var(--primary-dark); margin-bottom: 0.8rem;">Únete a esta misión</h3>
+                    <p style="color: var(--text-muted); max-width: 650px; line-height: 1.7; margin-bottom: 2rem;">
+                        Bienvenidos a <strong>Cambiar El Mapa Español</strong>, donde te inspiramos, educamos y equipamos para generar un impacto duradero a través de la oración y la acción. La visión es movilizar a <strong>50.000 compañeros de oración</strong> dedicados, intercediendo semanalmente por un avivamiento espiritual en el mundo budista.
+                    </p>
+                    <a href="https://www.youtube.com/watch?v=YH_PsgIEcbk" target="_blank" class="btn-unified" style="background: #e53935; color: white; border: none; padding: 1rem 2.2rem; font-size: 1.05rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(229,57,53,0.3);">
+                        <i class="fab fa-youtube" style="font-size: 1.3rem;"></i> Ver Video en YouTube
                     </a>
                 </div>
             </div>
 
-            <!-- Misioneros -->
-            <div class="detalle-bloque reveal" style="margin-top: 4rem;">
-                <div class="section-header text-center" style="margin-bottom: 2rem;">
-                    <span class="tag" style="background: #e53935; color: white; margin-bottom: 1rem;"><i class="fab fa-youtube"></i> RECURSOS</span>
-                    <h2>Cambiar El Mapa Español</h2>
-                    <p>Transformando el Mundo Budista a Través de la Oración 🌏</p>
-                </div>
-                
-                <div style="max-width: 800px; margin: 0 auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; padding: 3rem;">
-                    
-                    <div style="width: 100px; height: 100px; background: #ffebee; color: #e53935; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; margin-bottom: 1.5rem;">
-                        <i class="fas fa-play"></i>
-                    </div>
-
-                    <h3 style="color: var(--primary-dark); margin-bottom: 1rem; text-align: center;">Únete a esta misión</h3>
-                    <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem; max-width: 650px; line-height: 1.6;">
-                        Bienvenidos a Cambiar El Mapa Español, donde te inspiramos, educamos y equipamos para generar un impacto duradero a través de la oración y la acción. Nuestra visión es movilizar a 50,000 compañeros de oración dedicados, intercediendo semanalmente por un avivamiento espiritual en el mundo budista.
+            <!-- Intercesión -->
+            <div class="detalle-bloque reveal">
+                <div class="intercesion-card">
+                    <i class="fas fa-hands-praying" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                    <h3>Intercedé por la Familia Aristimuño</h3>
+                    <p>
+                        El trabajo en el mundo budista es uno de los campos más difíciles. Tu intercesión es una de las formas más poderosas de ser parte de esta misión. Acompañalos con oración semana a semana.
                     </p>
-                    
-                    <a href="https://www.youtube.com/watch?v=YH_PsgIEcbk" target="_blank" class="btn-unified" style="background: #e53935; color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 15px rgba(229,57,53,0.3);">
-                        <i class="fab fa-youtube" style="font-size: 1.3rem;"></i> Ver Video en YouTube
+                    <a href="https://wa.me/541131917009" target="_blank" class="btn-unified btn-unified-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 2rem; border-radius: 50px;">
+                        <i class="fas fa-paper-plane"></i> Enviarles un mensaje de aliento
                     </a>
-
                 </div>
             </div>
 
@@ -195,39 +372,22 @@
                 <ul>
                     <li><a href="index.html#region">La Región</a></li>
                     <li><a href="index.html#promotores">Promotores</a></li>
+                    <li><a href="index.html#gira">Familias Misioneras</a></li>
                     <li><a href="https://dnmargentina.org/page/donaciones-ofrendas" target="_blank">DNM Central (Ofrendas)</a></li>
                 </ul>
             </div>
-            <div class="footer-contacto">
-                <h4>Contáctanos</h4>
-                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1.2rem;">¿Tienes alguna consulta? Escríbenos directamente para coordinar tus actividades misioneras.</p>
-                <div class="footer-contact-buttons" style="display: flex; flex-direction: column; gap: 0.8rem;">
-                    <a class="btn-unified btn-unified-wa" href="https://wa.me/5492954641455" style="padding: 0.6rem 1.2rem; font-size: 0.9rem; width: 100%; justify-content: flex-start;" target="_blank"><i class="fab fa-whatsapp" style="width: 24px; text-align: center;"></i> WhatsApp Directo</a>
-                    <a class="btn-unified btn-unified-outline" href="mailto:region3rmn@gmail.com" style="padding: 0.6rem 1.2rem; font-size: 0.9rem; border-color: rgba(255,255,255,0.2); color: white; width: 100%; justify-content: flex-start;"><i class="fas fa-envelope" style="width: 24px; text-align: center;"></i> region3rmn@gmail.com</a>
-                </div>
+            <div class="footer-social">
+                <h4>Redes</h4>
+                <a href="https://www.instagram.com/promociondemisionesr3/" target="_blank">
+                    <i class="fab fa-instagram"></i> @promociondemisionesr3
+                </a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Misiones Región 3 - UAD Argentina. Todos los derechos reservados.</p>
+            <p>© 2025 Misiones Región 3 — Red de Movilización Nacional.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Efecto reveal simple
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
-    </script>
 </body>
 </html>
