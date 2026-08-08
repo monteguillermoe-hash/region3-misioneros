@@ -273,9 +273,10 @@ document.addEventListener('DOMContentLoaded', () => {
             continent: 'america',
             continentLabel: 'AMERICA',
             continentColor: '#e6993a',
-            quote: 'Construyendo el primer templo Kichwa en la selva peruana.',
+            quote: 'Proyecto Pablo Timoteo: Construyendo la 1ª iglesia Kichwa en la selva peruana.',
             img: 'assets/images/zamorano_tour.png',
             link: 'https://www.instagram.com/p/DVg_d20Epdx/',
+            customImageLink: 'zamorano-detalle.html',
             coords: [-12.0464, -77.0428],
             whatsapp: '5492396601312'
         },
@@ -304,6 +305,20 @@ document.addEventListener('DOMContentLoaded', () => {
             link: 'https://www.instagram.com/p/DV4CXrMiRmr/?img_index=1',
             coords: [40.4168, -3.7038],
             whatsapp: '5493516169210'
+        },
+        {
+            id: 'farinelli',
+            name: 'Familia Farinelli',
+            destination: 'Croacia — Split (Dalmacia)',
+            continent: 'europa',
+            continentLabel: 'EUROPA',
+            continentColor: '#3b82f6',
+            quote: 'Discipulado, bautismos y unidad entre iglesias en la regi&oacute;n de Dalmacia.',
+            img: 'assets/images/farinelli_card.png',
+            link: 'https://www.instagram.com/farinellijorge/',
+            customImageLink: 'farinelli-detalle.html',
+            coords: [43.5081, 16.4402],
+            whatsapp: ''
         },
         {
             id: 'aristimuno',
@@ -418,8 +433,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="gira-card-quote">${m.quote}</p>
                         <div class="gira-card-footer">
                             <a href="${m.link}" target="_blank"
-                               class="btn-unified btn-unified-instagram gira-btn">
-                                <i class="fab fa-instagram"></i> Ver en Instagram
+                               class="btn-unified ${m.link.includes('dnmargentina.org') ? 'btn-unified-primary' : 'btn-unified-instagram'} gira-btn">
+                                <i class="${m.link.includes('dnmargentina.org') ? 'fas fa-globe' : 'fab fa-instagram'}"></i> ${m.link.includes('dnmargentina.org') ? 'Ver en DNM' : 'Ver en Instagram'}
                             </a>
                             ${m.whatsapp ? `<a href="https://wa.me/${m.whatsapp}" target="_blank"
                                class="btn-unified btn-unified-wa gira-btn">

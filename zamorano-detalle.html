@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Familia Zamorano | Misiones Región 3</title>
+    <meta name="description" content="Conocé el informe, proyectos y carta de oración de la Familia Zamorano (Familia 4X4) sirviendo en el pueblo Kichwa en Perú con el Proyecto Pablo Timoteo."/>
+    <link href="estilos.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Montserrat:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="manifest.json" rel="manifest"/>
+    <meta content="#004080" name="theme-color"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+    <style>
+        /* --- Estilos específicos para la página de Familia Zamorano --- */
+        .perfil-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+            padding-top: 80px;
+            padding-bottom: 3rem;
+            background: url('assets/images/frame_napo_60.png') center/cover no-repeat;
+        }
+        .perfil-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,20,60,0.95) 0%, rgba(0,20,60,0.65) 60%, rgba(0,20,60,0.4) 100%);
+            z-index: 1;
+        }
+        .perfil-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #ffffff !important;
+            width: 100%;
+            max-width: 850px;
+            padding: 0 1.5rem;
+        }
+        .perfil-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.35);
+            color: #ffffff !important;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .perfil-hero-title {
+            color: #ffffff !important;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.8);
+        }
+        .perfil-hero-sub {
+            color: #ffffff !important;
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+        }
+        .perfil-hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- Info cards --- */
+        .perfil-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .perfil-info-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.7rem;
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .perfil-info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .perfil-info-card .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            background: var(--primary-color);
+        }
+        .perfil-info-card h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .perfil-info-card p {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* --- Video Section --- */
+        .video-container-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-wrapper video {
+            width: 100%;
+            max-height: 520px;
+            display: block;
+            object-fit: contain;
+        }
+        .video-details-body {
+            padding: 2rem;
+        }
+
+        /* --- Report Block --- */
+        .reporte-box {
+            background: linear-gradient(135deg, #ffffff 0%, #f4f7f8 100%);
+            border-left: 5px solid #e6993a;
+            border-radius: 12px;
+            padding: 2.2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            margin-bottom: 2rem;
+        }
+
+        /* --- Banner Milagro --- */
+        .milagro-banner {
+            background: linear-gradient(135deg, #e6993a 0%, #d97706 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px rgba(230,153,58,0.3);
+        }
+        .milagro-banner h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: white !important;
+        }
+        .milagro-banner p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin: 0;
+        }
+
+        /* --- Motivos de Oración --- */
+        .oracion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .oracion-card {
+            background: white;
+            border-radius: 14px;
+            padding: 1.6rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+        .oracion-card h4 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .oracion-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --- Donaciones Box --- */
+        .donacion-box {
+            background: linear-gradient(135deg, #002b5c 0%, #004080 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,64,128,0.25);
+            margin-top: 3rem;
+        }
+        .donacion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .donacion-item {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        .donacion-item h4 {
+            color: #fbc02d !important;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+        .donacion-item p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0 0 0.5rem;
+            color: rgba(255,255,255,0.9);
+        }
+        .donacion-item code {
+            background: rgba(0,0,0,0.3);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-family: monospace;
+            color: #fff;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body class="page-interna">
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <a class="logo" href="index.html">Red de Movilización Nacional<br/><span>Región 3</span></a>
+        <nav class="nav-links" id="nav-links">
+            <a class="nav-item" href="index.html#inicio">Inicio</a>
+            <a class="nav-item" href="index.html#gira">Familias Misioneras</a>
+        </nav>
+        <button aria-label="Menú" class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Hero Header -->
+    <section class="perfil-hero">
+        <div class="perfil-hero-overlay"></div>
+        <div class="perfil-hero-content reveal">
+            <div class="perfil-hero-badge">
+                <i class="fas fa-tree"></i> Misioneros en América · Perú / Argentina
+            </div>
+            <h1 class="perfil-hero-title">Familia Zamorano</h1>
+            <p class="perfil-hero-sub">Familia 4X4 · Proyecto Pablo Timoteo: Evangelizando, Discipulando y Plantación de Iglesia Kichwa</p>
+            <div class="perfil-hero-actions">
+                <a href="https://wa.me/5492396601312" target="_blank" class="btn-unified" style="background: #25D366; color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.4);">
+                    <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp Eduardo
+                </a>
+                <a href="https://www.instagram.com/p/DVg_d20Epdx/" target="_blank" class="btn-unified" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.4);">
+                    <i class="fab fa-instagram" style="font-size: 1.2rem;"></i> Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="section bg-light" style="padding: 4rem 0;">
+        <div class="container">
+
+            <!-- Info rápida -->
+            <div class="perfil-info-grid reveal">
+                <div class="perfil-info-card">
+                    <div class="card-icon" style="background: #e6993a;"><i class="fas fa-map-marked-alt"></i></div>
+                    <h4>Campo de Servicio</h4>
+                    <p>Selva Peruana (Comunidad Kichwa - Angotero) &amp; Argentina</p>
+                </div>
+                <div class="perfil-info-card" style="border-color: #10b981;">
+                    <div class="card-icon" style="background: #10b981;"><i class="fas fa-hammer"></i></div>
+                    <h4>Hito Actual</h4>
+                    <p>¡Madera lista para la 1ª Iglesia Kichwa!</p>
+                </div>
+                <div class="perfil-info-card" style="border-color: #3b82f6;">
+                    <div class="card-icon" style="background: #3b82f6;"><i class="fas fa-users"></i></div>
+                    <h4>Familia 4X4</h4>
+                    <p>Eduardo, Vania, David y Hannah</p>
+                </div>
+                <div class="perfil-info-card" style="border-color: #8b5cf6;">
+                    <div class="card-icon" style="background: #8b5cf6;"><i class="fas fa-calendar-alt"></i></div>
+                    <h4>Próximo Desafío</h4>
+                    <p>Construcción en la 1ª semana de Septiembre</p>
+                </div>
+            </div>
+
+            <!-- Sección de Video EL ALTO NAPO -->
+            <div class="detalle-bloque reveal" style="margin-bottom: 4rem;">
+                <div class="section-header text-center" style="margin-bottom: 2rem;">
+                    <span class="tag" style="background: #e6993a; color: white; margin-bottom: 1rem;">
+                        <i class="fas fa-video"></i> VIDEO EN EL CAMPO
+                    </span>
+                    <h2>El Alto Napo: Testimonio en la Selva</h2>
+                    <p>Navegación y labor misionera junto a las comunidades Kichwa en Perú</p>
+                </div>
+
+                <div class="video-container-card">
+                    <div class="video-wrapper">
+                        <video controls poster="assets/images/frame_napo_60.png" preload="metadata">
+                            <source src="assets/images/EL_ALTO_NAPO.mp4" type="video/mp4"/>
+                            Tu navegador no soporta el reproductor de video.
+                        </video>
+                    </div>
+                    <div class="video-details-body">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.4rem;">
+                            <i class="fas fa-compass" style="color: #e6993a;"></i> Expedición Misionera — Proyecto Pablo Timoteo
+                        </h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; margin: 0;">
+                            Registros directos desde la selva peruana cruzando los ríos y conviviendo con los habitantes de la comunidad Kichwa de Angotero para llevar el Evangelio y edificar el primer templo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner Milagro -->
+            <div class="milagro-banner reveal">
+                <i class="fas fa-church" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                <h3>"A UN PASO DEL MILAGRO: LA PRIMERA IGLESIA KICHWA"</h3>
+                <p><em>“He aquí, yo hago cosa nueva; pronto saldrá a luz; ¿no la conoceréis? Otra vez abriré camino en el desierto, y ríos en la soledad”</em> — Isaías 43:19</p>
+            </div>
+
+            <!-- Carta de Oración y Reporte -->
+            <div class="detalle-bloque reveal" style="margin-bottom: 4rem;">
+                <div class="section-header text-center" style="margin-bottom: 2rem;">
+                    <span class="tag" style="background: var(--primary-color); color: white; margin-bottom: 1rem;">
+                        <i class="fas fa-envelope-open-text"></i> CARTA DE ORACIÓN
+                    </span>
+                    <h2>Informe: Dios Abrió Camino en el Desierto</h2>
+                </div>
+
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div class="reporte-box">
+                        <h4 style="color: var(--primary-dark); font-size: 1.25rem; margin-bottom: 1rem;">
+                            <i class="fas fa-quote-left" style="color: #e6993a; margin-right: 0.5rem;"></i>
+                            Etapa 1 Cumplida: Extracción y secado de madera
+                        </h4>
+                        <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.2rem;">
+                            Entre mediados de junio y julio viajamos a las comunidades Kichwa con un solo objetivo: extraer la madera para construir la primera iglesia. ¡Y Dios nos sorprendió! Era tiempo de creciente, el río había subido y el agua nos llegaba hasta la cintura.
+                        </p>
+                        <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.2rem;">
+                            Tuvimos que internarnos lejos dentro del bosque para tumbar la madera, acarrearla hasta la orilla y cruzarla a la comunidad de Angotero realizando varias <strong>"mingas"</strong> con la ayuda del pueblo. La madera ya se está secando y la primera etapa está cumplida.
+                        </p>
+                        
+                        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 1.8rem 0;"/>
+
+                        <h4 style="color: var(--primary-dark); font-size: 1.25rem; margin-bottom: 1rem;">
+                            <i class="fas fa-heart" style="color: #e6993a; margin-right: 0.5rem;"></i>
+                            Noticias de la Familia 4X4
+                        </h4>
+                        <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1rem;">
+                            Durante el viaje, Vania, David y Hannah estuvieron enfermos, pero Dios se mostró como nuestro sanador (<em>Éxodo 15:26</em>) y hoy están totalmente sanos. Además celebramos el cumpleaños #4 de nuestra princesa Hannah.
+                        </p>
+                        <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin: 0;">
+                            En <strong>Agosto</strong> estaremos realizando trámites y una gira en Buenos Aires, a disposición de las iglesias que deseen recibirnos para presentar el Proyecto Pablo Timoteo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Motivos de Oración Urgentes -->
+            <div class="detalle-bloque reveal" style="margin-bottom: 4rem;">
+                <div class="section-header text-center" style="margin-bottom: 2rem;">
+                    <span class="tag" style="background: #dc2626; color: white; margin-bottom: 1rem;">
+                        <i class="fas fa-hands-praying"></i> UNIDAD EN ORACIÓN
+                    </span>
+                    <h2>7 Motivos Urgentes de Oración y Ayuno</h2>
+                    <p>Te pedimos que te unas con nosotros intercediendo por las siguientes peticiones:</p>
+                </div>
+
+                <div class="oracion-grid">
+                    <div class="oracion-card">
+                        <h4><i class="fas fa-tools" style="color: #e6993a;"></i> 1. Por la Construcción (Septiembre)</h4>
+                        <p>Oren por el viaje de la 1ª semana de septiembre, por recursos, por 4 carpinteros y protección para todo el equipo. (<em>Salmo 127:1</em>)</p>
+                    </div>
+                    <div class="oracion-card">
+                        <h4><i class="fas fa-hand-holding-usd" style="color: #10b981;"></i> 2. Sostén del Proyecto</h4>
+                        <p>Por 50 iglesias que se sumen a apoyar con $50.000 mensuales para discipulado, evangelismo y plantación. (<em>2 Corintios 9:8</em>)</p>
+                    </div>
+                    <div class="oracion-card">
+                        <h4><i class="fas fa-cubes" style="color: #3b82f6;"></i> 3. Materiales Faltantes</h4>
+                        <p>Por las calaminas, clavos y demás materiales necesarios para terminar la estructura de la iglesia Kichwa.</p>
+                    </div>
+                    <div class="oracion-card">
+                        <h4><i class="fas fa-seedling" style="color: #8b5cf6;"></i> 4. Primeros Frutos</h4>
+                        <p>Por la familia de Edgar y la comunidad de Angotero, los primeros discípulos Kichwa. Que Dios siga obrando en sus vidas.</p>
+                    </div>
+                    <div class="oracion-card">
+                        <h4><i class="fas fa-home" style="color: #ec4899;"></i> 5. Familia Zamorano</h4>
+                        <p>Por Vania, David y Hannah que quedarán en Pehuajó. Oren por fortaleza, salud, cuidado y provisión continua.</p>
+                    </div>
+                    <div class="oracion-card">
+                        <h4><i class="fas fa-door-open" style="color: #f59e0b;"></i> 6. Puertas Abiertas en Agosto</h4>
+                        <p>Por la gira y reuniones en Buenos Aires y países vecinos compartiendo el Proyecto Pablo Timoteo.</p>
+                    </div>
+                    <div class="oracion-card" style="grid-column: 1 / -1;">
+                        <h4><i class="fas fa-key" style="color: #6366f1;"></i> 7. Provisión de Hogar</h4>
+                        <p>Por una casa para alquilar en Pehuajó y por los muebles necesarios para vivir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ofrendas y Donaciones -->
+            <div class="donacion-box reveal">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <i class="fas fa-hand-holding-heart" style="font-size: 3rem; color: #fbc02d; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 2rem; font-weight: 800; color: white !important; margin-bottom: 0.5rem;">Sumate al Proyecto Pablo Timoteo</h3>
+                    <p style="opacity: 0.9; max-width: 600px; margin: 0 auto; line-height: 1.6;"> Podés hacer llegar tu ofrenda directamente a través del Departamento Nacional de Misiones (DNM):</p>
+                </div>
+
+                <div class="donacion-grid">
+                    <div class="donacion-item">
+                        <h4><i class="fas fa-university"></i> Transferencia Bancaria (DNM)</h4>
+                        <p><strong>Banco:</strong> Santander Río (Cuenta Corriente)</p>
+                        <p><strong>Sucursal / Cuenta:</strong> 055 - Nº 1255/7</p>
+                        <p><strong>Titular:</strong> Unión de las Asambleas de Dios</p>
+                        <p><strong>CBU:</strong> <code>0720055720000000125572</code></p>
+                        <p><strong>CUIT:</strong> <code>30-53803502/1</code></p>
+                    </div>
+                    <div class="donacion-item">
+                        <h4><i class="fas fa-paper-plane"></i> Envío de Comprobante</h4>
+                        <p>Enviar copia del comprobante al correo de DNM:</p>
+                        <p>📧 <code>recibos@dnmargentina.org</code></p>
+                        <p>📞 <strong>Tel:</strong> 5411-4958-5095 / 5195</p>
+                        <p style="margin-top: 0.8rem; color: #fbc02d;"><strong>Aclaración obligatoria:</strong> Especificar que es para el <em>"Proyecto de Eduardo y Vania Zamorano - Perú"</em>.</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <p style="font-size: 1.05rem; margin-bottom: 1rem;">Contacto directo con Eduardo Zamorano:</p>
+                    <a href="https://wa.me/5492396601312" target="_blank" class="btn-unified" style="background: #25D366; color: white; border: none; padding: 0.9rem 2.2rem; border-radius: 50px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp Directo (+54 9 2396 601312)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="container footer-grid reveal">
+            <div class="footer-info">
+                <a class="footer-logo" href="index.html">Red de Movilización Nacional<span>Región 3</span></a>
+                <p>Promoviendo y organizando la obra misionera en nuestro territorio.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="index.html#region">La Región</a></li>
+                    <li><a href="index.html#promotores">Promotores</a></li>
+                    <li><a href="index.html#gira">Familias Misioneras</a></li>
+                    <li><a href="https://dnmargentina.org/page/donaciones-ofrendas" target="_blank">DNM Central (Ofrendas)</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Redes</h4>
+                <a href="https://www.instagram.com/promociondemisionesr3/" target="_blank">
+                    <i class="fab fa-instagram"></i> @promociondemisionesr3
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Misiones Región 3 — Red de Movilización Nacional.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

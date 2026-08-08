@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Familia Farinelli | Misiones Región 3</title>
+    <meta name="description" content="Conocé el testimonio, el reporte y la labor misionera de la Familia Farinelli en Split, Croacia (Región de Dalmacia)."/>
+    <link href="estilos.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Montserrat:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="manifest.json" rel="manifest"/>
+    <meta content="#004080" name="theme-color"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+    <style>
+        /* --- Estilos específicos para la página de Farinelli --- */
+        .perfil-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+            padding-top: 80px;
+            padding-bottom: 3rem;
+            background: url('assets/images/hero_farinelli.jpg') center/cover no-repeat;
+        }
+        .perfil-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,20,60,0.95) 0%, rgba(0,20,60,0.65) 60%, rgba(0,20,60,0.4) 100%);
+            z-index: 1;
+        }
+        .perfil-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #ffffff !important;
+            width: 100%;
+            max-width: 800px;
+            padding: 0 1.5rem;
+        }
+        .perfil-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.35);
+            color: #ffffff !important;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .perfil-hero-title {
+            color: #ffffff !important;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.8);
+        }
+        .perfil-hero-sub {
+            color: #ffffff !important;
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+        }
+        .perfil-hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- Info cards --- */
+        .perfil-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .perfil-info-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.7rem;
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .perfil-info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .perfil-info-card .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            background: var(--primary-color);
+        }
+        .perfil-info-card h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .perfil-info-card p {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* --- Video Section --- */
+        .video-container-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-wrapper video {
+            width: 100%;
+            max-height: 520px;
+            display: block;
+            object-fit: contain;
+        }
+        .video-details-body {
+            padding: 2rem;
+        }
+
+        /* --- Report Block --- */
+        .reporte-box {
+            background: linear-gradient(135deg, #ffffff 0%, #f4f7f8 100%);
+            border-left: 5px solid #3b82f6;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            margin-bottom: 2rem;
+        }
+
+        /* --- Intercesión / Oración --- */
+        .intercesion-card {
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+            border: 1px solid #c7d2fe;
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+        .intercesion-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+        .intercesion-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto 1.5rem;
+        }
+        .oracion-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            padding-left: 1.2rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body class="page-interna">
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <a class="logo" href="index.html">Red de Movilización Nacional<br/><span>Región 3</span></a>
+        <nav class="nav-links" id="nav-links">
+            <a class="nav-item" href="index.html#inicio">Inicio</a>
+            <a class="nav-item" href="index.html#gira">Familias Misioneras</a>
+        </nav>
+        <button aria-label="Menú" class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Hero Header -->
+    <section class="perfil-hero">
+        <div class="perfil-hero-overlay"></div>
+        <div class="perfil-hero-content reveal">
+            <div class="perfil-hero-badge">
+                <i class="fas fa-globe-europe"></i> Misioneros en Europa
+            </div>
+            <h1 class="perfil-hero-title">Familia Farinelli</h1>
+            <p class="perfil-hero-sub">Split, Croacia · Región de Dalmacia</p>
+            <div class="perfil-hero-actions">
+                <a href="https://www.instagram.com/farinellijorge/" target="_blank" class="btn-unified" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.4);">
+                    <i class="fab fa-instagram" style="font-size: 1.2rem;"></i> Instagram
+                </a>
+                <a href="https://dnmargentina.org/page/misioneros/argentina/article/189-flia-farinelli" target="_blank" class="btn-unified btn-unified-primary" style="padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.4);">
+                    <i class="fas fa-globe"></i> Ficha Oficial en DNM
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="section bg-light" style="padding: 4rem 0;">
+        <div class="container">
+
+            <!-- Info rápida -->
+            <div class="perfil-info-grid reveal">
+                <div class="perfil-info-card">
+                    <div class="card-icon" style="background: #3b82f6;"><i class="fas fa-map-marked-alt"></i></div>
+                    <h4>Campo de servicio</h4>
+                    <p>Split, Croacia (Europa)</p>
+                </div>
+                <div class="perfil-info-card" style="border-color: #10b981;">
+                    <div class="card-icon" style="background: #10b981;"><i class="fas fa-church"></i></div>
+                    <h4>Enfoque Ministerial</h4>
+                    <p>Discipulado, Bautismos y Unidad</p>
+                </div>
+                <div class="perfil-info-card" style="border-color: #f59e0b;">
+                    <div class="card-icon" style="background: #f59e0b;"><i class="fas fa-users"></i></div>
+                    <h4>Trabajo Unido</h4>
+                    <p>Iglesias de la región de Dalmacia</p>
+                </div>
+                <div class="perfil-info-card" style="border-color: #8b5cf6;">
+                    <div class="card-icon" style="background: #8b5cf6;"><i class="fas fa-language"></i></div>
+                    <h4>Idioma</h4>
+                    <p>Estudio del idioma Croata</p>
+                </div>
+            </div>
+
+            <!-- Sección del Video de los Adolescentes -->
+            <div class="detalle-bloque reveal" style="margin-bottom: 4rem;">
+                <div class="section-header text-center" style="margin-bottom: 2rem;">
+                    <span class="tag" style="background: #3b82f6; color: white; margin-bottom: 1rem;">
+                        <i class="fas fa-video"></i> VIDEO EXCLUSIVO ADOS
+                    </span>
+                    <h2>Conferencia de Prensa Misionera: Croacia</h2>
+                    <p>Video producido por los adolescentes de la iglesia con entrevista a Jorge Farinelli</p>
+                </div>
+
+                <div class="video-container-card">
+                    <div class="video-wrapper">
+                        <video controls poster="assets/images/frame_100.png" preload="metadata">
+                            <source src="assets/images/farinelli.mp4" type="video/mp4"/>
+                            Tu navegador no soporta el reproductor de video.
+                        </video>
+                    </div>
+                    <div class="video-details-body">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.4rem;">
+                            <i class="fas fa-microphone-alt" style="color: #3b82f6;"></i> Entrevista Especial con la Familia Farinelli
+                        </h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; margin: 0;">
+                            En esta conferencia de prensa misionera, los adolescentes comparten una emotiva conversación sobre el llamado, los desafíos y los triunfos del ministerio en Croacia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reporte Actual: Noticias desde Croacia -->
+            <div class="detalle-bloque reveal" style="margin-bottom: 4rem;">
+                <div class="section-header text-center" style="margin-bottom: 2rem;">
+                    <span class="tag" style="background: var(--primary-color); color: white; margin-bottom: 1rem;">
+                        <i class="fas fa-newspaper"></i> REPORTE DESDE EL CAMPO
+                    </span>
+                    <h2>Noticias desde Croacia</h2>
+                    <p style="font-style: italic; color: var(--text-muted);">Testimonio y avances del ministerio en Split</p>
+                </div>
+
+                <div style="max-width: 850px; margin: 0 auto;">
+                    <div class="reporte-box">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem; font-size: 1.3rem;">
+                            <i class="fas fa-quote-left" style="color: #3b82f6; opacity: 0.6; margin-right: 0.5rem;"></i>
+                            Avanzando en la Región de Dalmacia
+                        </h3>
+                        <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.2rem;">
+                            "Con la ayuda de Dios, seguimos trabajando y avanzando para cumplir con sus propósitos en esta hermosa Nación. Tuvimos bautismos, una experiencia hermosa viendo almas croatas dar pasos de obediencia."
+                        </p>
+                        <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.2rem;">
+                            "Tuvimos también una reunión unida con las iglesias en <strong>Split</strong>. Es interesante que Split significa 'dividido', pero desde que llegamos nos sorprendió ver la gran unidad que hay entre las iglesias de diferentes denominaciones y el mismo deseo de un despertar de Dios en la nación."
+                        </p>
+                        <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin: 0;">
+                            "Continuamos con las reuniones de discipulado en nuestra casa y estudiando en familia el idioma croata en el instituto. ¡Es una gran bendición!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Motivos de Oración -->
+            <div class="detalle-bloque reveal">
+                <div class="intercesion-card">
+                    <i class="fas fa-hands-praying" style="font-size: 2.5rem; color: #3b82f6; margin-bottom: 1rem;"></i>
+                    <h3>Motivos de Oración por la Familia Farinelli</h3>
+                    <p>Te pedimos que te unas en oración por las siguientes peticiones específicas:</p>
+                    
+                    <ul class="oracion-list">
+                        <li><i class="fas fa-check-circle" style="color: #3b82f6; margin-right: 0.5rem;"></i> <strong>Apertura de grupos</strong> en Omiš, Vrgorac, Ploče, Metković, Makarska y Podgora en la región de Dalmacia.</li>
+                        <li><i class="fas fa-check-circle" style="color: #3b82f6; margin-right: 0.5rem;"></i> <strong>Familia y aprendizaje del idioma</strong> croata.</li>
+                        <li><i class="fas fa-check-circle" style="color: #3b82f6; margin-right: 0.5rem;"></i> <strong>Renovación de Visa</strong> para toda la familia.</li>
+                    </ul>
+
+                    <a href="https://dnmargentina.org/page/misioneros/argentina/article/189-flia-farinelli" target="_blank" class="btn-unified btn-unified-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 2rem; border-radius: 50px;">
+                        <i class="fas fa-external-link-alt"></i> Ver Ficha Completa en DNM Argentina
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="container footer-grid reveal">
+            <div class="footer-info">
+                <a class="footer-logo" href="index.html">Red de Movilización Nacional<span>Región 3</span></a>
+                <p>Promoviendo y organizando la obra misionera en nuestro territorio.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="index.html#region">La Región</a></li>
+                    <li><a href="index.html#promotores">Promotores</a></li>
+                    <li><a href="index.html#gira">Familias Misioneras</a></li>
+                    <li><a href="https://dnmargentina.org/page/donaciones-ofrendas" target="_blank">DNM Central (Ofrendas)</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Redes</h4>
+                <a href="https://www.instagram.com/promociondemisionesr3/" target="_blank">
+                    <i class="fab fa-instagram"></i> @promociondemisionesr3
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Misiones Región 3 — Red de Movilización Nacional.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

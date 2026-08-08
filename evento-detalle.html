@@ -27,14 +27,14 @@
         .perfil-hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,20,60,0.95) 0%, rgba(0,20,60,0.5) 50%, transparent 100%);
+            background: linear-gradient(to top, rgba(0,20,60,0.95) 0%, rgba(0,20,60,0.65) 60%, rgba(0,20,60,0.4) 100%);
             z-index: 1;
         }
         .perfil-hero-content {
             position: relative;
             z-index: 2;
             text-align: center;
-            color: white;
+            color: #ffffff !important;
             width: 100%;
             max-width: 800px;
             padding: 0 1.5rem;
@@ -43,10 +43,10 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.2);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
+            border: 1px solid rgba(255,255,255,0.35);
+            color: #ffffff !important;
             padding: 0.4rem 1.2rem;
             border-radius: 50px;
             font-size: 0.8rem;
@@ -54,18 +54,23 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         .perfil-hero-title {
+            color: #ffffff !important;
             font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 800;
             margin: 0 0 0.5rem;
             line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.8);
         }
         .perfil-hero-sub {
-            font-size: 1.15rem;
-            font-weight: 300;
-            opacity: 0.85;
+            color: #ffffff !important;
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.95;
             margin-bottom: 2rem;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.9);
         }
         .perfil-hero-actions {
             display: flex;
