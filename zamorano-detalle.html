@@ -191,12 +191,15 @@
 
         /* --- Motivos de Oración --- */
         .oracion-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
         .oracion-card {
+            flex: 1 1 320px;
+            max-width: 450px;
             background: white;
             border-radius: 14px;
             padding: 1.6rem;
@@ -317,7 +320,7 @@
                 <div class="perfil-info-card" style="border-color: #8b5cf6;">
                     <div class="card-icon" style="background: #8b5cf6;"><i class="fas fa-calendar-alt"></i></div>
                     <h4>Próximo Desafío</h4>
-                    <p>Construcción en la 1ª semana de Septiembre</p>
+                    <p>Construcción: 14 de Sept a 4 de Oct</p>
                 </div>
             </div>
 
@@ -356,39 +359,49 @@
                 <p><em>“He aquí, yo hago cosa nueva; pronto saldrá a luz; ¿no la conoceréis? Otra vez abriré camino en el desierto, y ríos en la soledad”</em> — Isaías 43:19</p>
             </div>
 
-            <!-- Carta de Oración y Reporte -->
+            <!-- Convocatoria y Filosofía de Trabajo -->
             <div class="detalle-bloque reveal" style="margin-bottom: 4rem;">
                 <div class="section-header text-center" style="margin-bottom: 2rem;">
                     <span class="tag" style="background: var(--primary-color); color: white; margin-bottom: 1rem;">
-                        <i class="fas fa-envelope-open-text"></i> CARTA DE ORACIÓN
+                        <i class="fas fa-bullhorn"></i> CONVOCATORIA ABIERTA
                     </span>
-                    <h2>Informe: Dios Abrió Camino en el Desierto</h2>
+                    <h2>Se necesitan cuatro carpinteros</h2>
+                    <p><em>“El Dios de los cielos, él nos prosperará, y nosotros sus siervos nos levantaremos y edificaremos”</em> — Nehemías 2:20</p>
                 </div>
 
                 <div style="max-width: 900px; margin: 0 auto;">
                     <div class="reporte-box">
+                        <div style="text-align: center; margin-bottom: 2rem;">
+                            <img src="assets/images/flyer_carpintero.jpeg" alt="Flyer Convocatoria Carpinteros" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <div style="margin-top: 1rem;">
+                                <a href="assets/images/carpintero.pdf" download class="btn-unified" style="background: var(--primary-color); color: white; border: none; padding: 0.6rem 1.5rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-file-pdf"></i> Descargar PDF Informativo
+                                </a>
+                            </div>
+                        </div>
+
                         <h4 style="color: var(--primary-dark); font-size: 1.25rem; margin-bottom: 1rem;">
-                            <i class="fas fa-quote-left" style="color: #e6993a; margin-right: 0.5rem;"></i>
-                            Etapa 1 Cumplida: Extracción y secado de madera
+                            <i class="fas fa-users" style="color: #e6993a; margin-right: 0.5rem;"></i>
+                            Filosofía del Proyecto: Trabajo Colaborativo
                         </h4>
                         <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.2rem;">
-                            Entre mediados de junio y julio viajamos a las comunidades Kichwa con un solo objetivo: extraer la madera para construir la primera iglesia. ¡Y Dios nos sorprendió! Era tiempo de creciente, el río había subido y el agua nos llegaba hasta la cintura.
+                            Una premisa central del Proyecto Pablo Timoteo es la integración total con la población local. La iniciativa rechaza el modelo asistencialista tradicional, optando por una metodología de acompañamiento y esfuerzo compartido. <strong>"No se llegó a 'trabajar para' la comunidad, sino a trabajar junto a ella: cortando madera, cargando tablones y compartiendo cada comida del día."</strong>
                         </p>
                         <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.2rem;">
-                            Tuvimos que internarnos lejos dentro del bosque para tumbar la madera, acarrearla hasta la orilla y cruzarla a la comunidad de Angotero realizando varias <strong>"mingas"</strong> con la ayuda del pueblo. La madera ya se está secando y la primera etapa está cumplida.
+                            El proyecto involucra a todos los estratos de la comunidad de Angotero: hombres y jóvenes en las tareas de mayor exigencia física en el monte, y mujeres y niños participando activamente en el estibado de la madera.
                         </p>
                         
                         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 1.8rem 0;"/>
 
                         <h4 style="color: var(--primary-dark); font-size: 1.25rem; margin-bottom: 1rem;">
-                            <i class="fas fa-heart" style="color: #e6993a; margin-right: 0.5rem;"></i>
-                            Noticias de la Familia 4X4
+                            <i class="fas fa-tools" style="color: #e6993a; margin-right: 0.5rem;"></i>
+                            Misión de Carpintería: 14 de Sept al 4 de Oct
                         </h4>
                         <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1rem;">
-                            Durante el viaje, Vania, David y Hannah estuvieron enfermos, pero Dios se mostró como nuestro sanador (<em>Éxodo 15:26</em>) y hoy están totalmente sanos. Además celebramos el cumpleaños #4 de nuestra princesa Hannah.
+                            A pesar del sólido avance en la obtención de materiales (extracción en el monte, corte con motosierras y traslado fluvial), la comunidad carece de personal suficiente con el oficio técnico necesario para el ensamblaje y levantamiento de la iglesia.
                         </p>
                         <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin: 0;">
-                            En <strong>Agosto</strong> estaremos realizando trámites y una gira en Buenos Aires, a disposición de las iglesias que deseen recibirnos para presentar el Proyecto Pablo Timoteo.
+                            Por este motivo, se ha abierto una convocatoria para <strong>4 carpinteros</strong> (o personas con ganas de ayudar, no se requiere experiencia previa estricta) para la fase de levantamiento de la estructura. 
                         </p>
                     </div>
                 </div>
@@ -400,38 +413,30 @@
                     <span class="tag" style="background: #dc2626; color: white; margin-bottom: 1rem;">
                         <i class="fas fa-hands-praying"></i> UNIDAD EN ORACIÓN
                     </span>
-                    <h2>7 Motivos Urgentes de Oración y Ayuno</h2>
-                    <p>Te pedimos que te unas con nosotros intercediendo por las siguientes peticiones:</p>
+                    <h2>Motivos de Oración para el Viaje</h2>
+                    <p>Gracias por sostener en oración y en obra este trabajo en la Amazonía:</p>
                 </div>
 
                 <div class="oracion-grid">
                     <div class="oracion-card">
-                        <h4><i class="fas fa-tools" style="color: #e6993a;"></i> 1. Por la Construcción (Septiembre)</h4>
-                        <p>Oren por el viaje de la 1ª semana de septiembre, por recursos, por 4 carpinteros y protección para todo el equipo. (<em>Salmo 127:1</em>)</p>
+                        <h4><i class="fas fa-user-plus" style="color: #e6993a;"></i> 1. Por los voluntarios</h4>
+                        <p>Oramos para que el Señor provea a los 4 carpinteros o colaboradores necesarios para este viaje. No se requiere experiencia previa, solo un corazón dispuesto a servir.</p>
                     </div>
                     <div class="oracion-card">
-                        <h4><i class="fas fa-hand-holding-usd" style="color: #10b981;"></i> 2. Sostén del Proyecto</h4>
-                        <p>Por 50 iglesias que se sumen a apoyar con $50.000 mensuales para discipulado, evangelismo y plantación. (<em>2 Corintios 9:8</em>)</p>
+                        <h4><i class="fas fa-heartbeat" style="color: #10b981;"></i> 2. Por salud y fortaleza física</h4>
+                        <p>Pedimos protección para los miembros de la comunidad y el equipo de servicio, ya que el trabajo de mover y estibar la madera es sumamente exigente.</p>
                     </div>
                     <div class="oracion-card">
-                        <h4><i class="fas fa-cubes" style="color: #3b82f6;"></i> 3. Materiales Faltantes</h4>
-                        <p>Por las calaminas, clavos y demás materiales necesarios para terminar la estructura de la iglesia Kichwa.</p>
+                        <h4><i class="fas fa-ship" style="color: #3b82f6;"></i> 3. Por seguridad en los traslados</h4>
+                        <p>Rogamos por viajes seguros a través de los ríos amazónicos, que son la única vía de acceso a la comunidad de Angotero.</p>
                     </div>
                     <div class="oracion-card">
-                        <h4><i class="fas fa-seedling" style="color: #8b5cf6;"></i> 4. Primeros Frutos</h4>
-                        <p>Por la familia de Edgar y la comunidad de Angotero, los primeros discípulos Kichwa. Que Dios siga obrando en sus vidas.</p>
+                        <h4><i class="fas fa-users" style="color: #8b5cf6;"></i> 4. Por la comunidad Kichwa</h4>
+                        <p>Para que este proyecto fortalezca la unión de quienes sostienen la obra con sus propias manos, y que la iglesia sea un faro de luz en la región.</p>
                     </div>
                     <div class="oracion-card">
-                        <h4><i class="fas fa-home" style="color: #ec4899;"></i> 5. Familia Zamorano</h4>
-                        <p>Por Vania, David y Hannah que quedarán en Pehuajó. Oren por fortaleza, salud, cuidado y provisión continua.</p>
-                    </div>
-                    <div class="oracion-card">
-                        <h4><i class="fas fa-door-open" style="color: #f59e0b;"></i> 6. Puertas Abiertas en Agosto</h4>
-                        <p>Por la gira y reuniones en Buenos Aires y países vecinos compartiendo el Proyecto Pablo Timoteo.</p>
-                    </div>
-                    <div class="oracion-card" style="grid-column: 1 / -1;">
-                        <h4><i class="fas fa-key" style="color: #6366f1;"></i> 7. Provisión de Hogar</h4>
-                        <p>Por una casa para alquilar en Pehuajó y por los muebles necesarios para vivir.</p>
+                        <h4><i class="fas fa-boxes" style="color: #ec4899;"></i> 5. Por la logística y provisión</h4>
+                        <p>Oramos por Eduardo Zamorano y el equipo organizador, para que cada detalle del viaje y la construcción sea respaldado por la gracia de Dios.</p>
                     </div>
                 </div>
             </div>
@@ -441,7 +446,7 @@
                 <div style="text-align: center; margin-bottom: 2rem;">
                     <i class="fas fa-hand-holding-heart" style="font-size: 3rem; color: #fbc02d; margin-bottom: 1rem;"></i>
                     <h3 style="font-size: 2rem; font-weight: 800; color: white !important; margin-bottom: 0.5rem;">Sumate al Proyecto Pablo Timoteo</h3>
-                    <p style="opacity: 0.9; max-width: 600px; margin: 0 auto; line-height: 1.6;"> Podés hacer llegar tu ofrenda directamente a través del Departamento Nacional de Misiones (DNM):</p>
+                    <p style="font-size: 1.15rem; color: #ffffff !important; max-width: 600px; margin: 0 auto; line-height: 1.6;"> Podés hacer llegar tu ofrenda directamente a través del Departamento Nacional de Misiones (DNM):</p>
                 </div>
 
                 <div class="donacion-grid">
@@ -452,6 +457,7 @@
                         <p><strong>Titular:</strong> Unión de las Asambleas de Dios</p>
                         <p><strong>CBU:</strong> <code>0720055720000000125572</code></p>
                         <p><strong>CUIT:</strong> <code>30-53803502/1</code></p>
+                        <p><strong>Alias:</strong> <code>MANDO.OBOE.JAPON</code></p>
                     </div>
                     <div class="donacion-item">
                         <h4><i class="fas fa-paper-plane"></i> Envío de Comprobante</h4>
