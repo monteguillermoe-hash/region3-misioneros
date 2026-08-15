@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
             continentColor: '#e6993a',
             quote: 'Proyecto Pablo Timoteo: Construyendo la 1ª iglesia Kichwa en la selva peruana.',
             img: 'assets/images/zamorano_tour.png',
-            link: 'https://www.instagram.com/p/DVg_d20Epdx/',
+            link: 'https://www.instagram.com/eduardoyvania/',
             customImageLink: 'zamorano-detalle.html',
             coords: [-12.0464, -77.0428],
             whatsapp: '5492396601312'
