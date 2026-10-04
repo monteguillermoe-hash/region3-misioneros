@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
             continent: 'asia',
             continentLabel: 'ASIA',
             continentColor: '#dc2626',
-            quote: 'Proyecto "De tu casa a las naciones". Levantando intercesores para la parte del mundo no alcanzada.',
+            quote: 'Viaje "Misión Posible a Tokyo" y proyecto "Change the Map" orando por el mundo Budista.',
             img: 'assets/images/aristimuno_1.png',
             link: 'https://www.instagram.com/fliaaristimuno/',
             customImageLink: 'evento-detalle.html',
