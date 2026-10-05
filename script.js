@@ -267,6 +267,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Gira Redesign: Carrusel y Mapa Interactivo ──────────────────
     const missionaries = [
         {
+            id: 'sepulveda-belarde',
+            name: 'Familia Sepúlveda Belarde',
+            destination: 'El Hoyo — Argentina',
+            continent: 'america',
+            continentLabel: 'AMÉRICA',
+            continentColor: '#16a34a',
+            quote: 'Trabajando en Misión Mapuche y discipulado rural en El Hoyo, Chubut.',
+            img: 'assets/images/sepulveda_belarde_sept.jpg',
+            link: 'sepulveda-belarde.html',
+            customImageLink: 'sepulveda-belarde.html',
+            coords: [-42.0667, -71.5167],
+            whatsapp: ''
+        },
+        {
             id: 'zamorano',
             name: 'Familia Zamorano',
             destination: 'Per&uacute; / Argentina',
@@ -303,6 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
             quote: 'Sirviendo en 5 pa&iacute;ses: hoy con llamado a la iglesia espa&ntilde;ola.',
             img: 'assets/images/sepulveda_1.png',
             link: 'https://www.instagram.com/p/DV4CXrMiRmr/?img_index=1',
+            customImageLink: 'sepulveda-ramello.html',
             coords: [40.4168, -3.7038],
             whatsapp: '5493516169210'
         },
