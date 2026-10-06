@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
             continentColor: '#16a34a',
             quote: 'Trabajando en Misión Mapuche y discipulado rural en El Hoyo, Chubut.',
             img: 'assets/images/sepulveda_belarde_sept.jpg',
-            link: 'sepulveda-belarde.html',
+            link: 'https://www.instagram.com/sepulvedabelardee',
             customImageLink: 'sepulveda-belarde.html',
             coords: [-42.0667, -71.5167],
             whatsapp: ''
