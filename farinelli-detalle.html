@@ -13,6 +13,77 @@
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
     <style>
+        /* --- Barra de navegación superior (efecto franja al scrollear) --- */
+        .navbar {
+            transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 0.9rem 5% !important;
+        }
+        .navbar.scrolled .logo {
+            color: #0f172a !important;
+        }
+        .navbar.scrolled .logo span {
+            color: var(--primary-color) !important;
+        }
+        .navbar.scrolled .nav-item {
+            color: #1e293b !important;
+            font-weight: 700;
+        }
+        .navbar.scrolled .nav-item:hover,
+        .navbar.scrolled .nav-item.active {
+            color: var(--primary-color) !important;
+        }
+        .navbar.scrolled .mobile-toggle {
+            color: #0f172a !important;
+        }
+
+        /* --- Donaciones Box --- */
+        .donacion-box {
+            background: linear-gradient(135deg, #002b5c 0%, #004080 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,64,128,0.25);
+            margin-top: 3.5rem;
+        }
+        .donacion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .donacion-item {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        .donacion-item h4 {
+            color: #fbc02d !important;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+        .donacion-item p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0 0 0.5rem;
+            color: rgba(255,255,255,0.9);
+        }
+        .donacion-item code {
+            background: rgba(0,0,0,0.3);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-family: monospace;
+            color: #fff;
+            font-size: 1rem;
+        }
+
         /* --- Estilos específicos para la página de Farinelli --- */
         .perfil-hero {
             min-height: 60vh;
@@ -204,7 +275,10 @@
         <a class="logo" href="index.html">Red de Movilización Nacional<br/><span>Región 3</span></a>
         <nav class="nav-links" id="nav-links">
             <a class="nav-item" href="index.html#inicio">Inicio</a>
-            <a class="nav-item" href="index.html#gira">Familias Misioneras</a>
+            <a class="nav-item" href="index.html#misioneros">Familias Misioneras</a>
+            <a class="nav-item" href="#boletines">Boletines</a>
+            <a class="nav-item" href="#oracion">Oración</a>
+            <a class="nav-item" href="#donaciones">Ofrendar</a>
         </nav>
         <button aria-label="Menú" class="mobile-toggle">
             <i class="fas fa-bars"></i>
@@ -216,16 +290,19 @@
         <div class="perfil-hero-overlay"></div>
         <div class="perfil-hero-content reveal">
             <div class="perfil-hero-badge">
-                <i class="fas fa-globe-europe"></i> Misioneros en Europa
+                <i class="fas fa-globe-europe"></i> Misioneros en Europa · Croacia
             </div>
             <h1 class="perfil-hero-title">Familia Farinelli</h1>
             <p class="perfil-hero-sub">Split, Croacia · Región de Dalmacia</p>
             <div class="perfil-hero-actions">
-                <a href="https://www.instagram.com/farinellijorge/" target="_blank" class="btn-unified" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.4);">
-                    <i class="fab fa-instagram" style="font-size: 1.2rem;"></i> Instagram
+                <a class="btn-unified" href="#boletines" style="background: #16a34a; color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <i class="fas fa-newspaper"></i> Ver Boletines
                 </a>
-                <a href="https://dnmargentina.org/page/misioneros/argentina/article/189-flia-farinelli" target="_blank" class="btn-unified btn-unified-primary" style="padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.4);">
-                    <i class="fas fa-globe"></i> Ficha Oficial en DNM
+                <a class="btn-unified" href="#oracion" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); border: 1px solid white; color: white; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-hands-praying"></i> Motivos de Oración
+                </a>
+                <a class="btn-unified" href="#donaciones" style="background: #e6993a; color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <i class="fas fa-hand-holding-heart"></i> Ofrendar
                 </a>
             </div>
         </div>
@@ -287,19 +364,22 @@
                 </div>
             </div>
 
-            <!-- Reporte Actual: Noticias desde Croacia -->
-            <div class="detalle-bloque reveal" style="margin-bottom: 4rem;">
+            <!-- Reporte Actual: Noticias desde Croacia / Boletines -->
+            <div id="boletines" class="detalle-bloque reveal" style="margin-bottom: 4rem;">
                 <div class="section-header text-center" style="margin-bottom: 2rem;">
                     <span class="tag" style="background: var(--primary-color); color: white; margin-bottom: 1rem;">
-                        <i class="fas fa-newspaper"></i> REPORTE DESDE EL CAMPO
+                        <i class="fas fa-newspaper"></i> INFORMES DESDE EL CAMPO
                     </span>
-                    <h2>Noticias desde Croacia</h2>
-                    <p style="font-style: italic; color: var(--text-muted);">Testimonio y avances del ministerio en Split</p>
+                    <h2>Noticias y Boletines desde Croacia</h2>
+                    <p style="font-style: italic; color: var(--text-muted);">Testimonio, avances y crónicas del ministerio en Split</p>
                 </div>
 
                 <div style="max-width: 850px; margin: 0 auto;">
                     <div class="reporte-box">
-                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem; font-size: 1.3rem;">
+                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: #e0f2fe; color: #0284c7; font-weight: 800; font-size: 0.85rem; padding: 0.35rem 1rem; border-radius: 20px; text-transform: uppercase; margin-bottom: 1rem;">
+                            <i class="far fa-calendar-check"></i> Último Reporte Oficial
+                        </div>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem; font-size: 1.4rem;">
                             <i class="fas fa-quote-left" style="color: #3b82f6; opacity: 0.6; margin-right: 0.5rem;"></i>
                             Avanzando en la Región de Dalmacia
                         </h3>
@@ -309,15 +389,28 @@
                         <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.2rem;">
                             "Tuvimos también una reunión unida con las iglesias en <strong>Split</strong>. Es interesante que Split significa 'dividido', pero desde que llegamos nos sorprendió ver la gran unidad que hay entre las iglesias de diferentes denominaciones y el mismo deseo de un despertar de Dios en la nación."
                         </p>
-                        <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin: 0;">
+                        <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem;">
                             "Continuamos con las reuniones de discipulado en nuestra casa y estudiando en familia el idioma croata en el instituto. ¡Es una gran bendición!"
                         </p>
+
+                        <!-- Barra de Enlaces Oficiales / Boletines -->
+                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                            <div>
+                                <h5 style="margin: 0 0 0.2rem; font-size: 0.95rem; color: var(--primary-dark);">Material y Ficha Oficial</h5>
+                                <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Próximo boletín gráfico en preparación</p>
+                            </div>
+                            <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                                <a href="https://dnmargentina.org/page/misioneros/argentina/article/189-flia-farinelli" target="_blank" class="btn-unified" style="background: #3b82f6; color: white; padding: 0.6rem 1.4rem; border-radius: 30px; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fas fa-external-link-alt"></i> Ver Ficha Oficial DNM
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Motivos de Oración -->
-            <div class="detalle-bloque reveal">
+            <div id="oracion" class="detalle-bloque reveal" style="margin-bottom: 4rem;">
                 <div class="intercesion-card">
                     <i class="fas fa-hands-praying" style="font-size: 2.5rem; color: #3b82f6; margin-bottom: 1rem;"></i>
                     <h3>Motivos de Oración por la Familia Farinelli</h3>
@@ -331,6 +424,42 @@
 
                     <a href="https://dnmargentina.org/page/misioneros/argentina/article/189-flia-farinelli" target="_blank" class="btn-unified btn-unified-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 2rem; border-radius: 50px;">
                         <i class="fas fa-external-link-alt"></i> Ver Ficha Completa en DNM Argentina
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ofrendas y Donaciones -->
+            <div id="donaciones" class="donacion-box reveal">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <i class="fas fa-hand-holding-heart" style="font-size: 3rem; color: #fbc02d; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 2rem; font-weight: 800; color: white !important; margin-bottom: 0.5rem;">Sumate a la Obra Misionera en Croacia</h3>
+                    <p style="font-size: 1.15rem; color: #ffffff !important; max-width: 650px; margin: 0 auto; line-height: 1.6;">
+                        Podés hacer llegar tu ofrenda directamente a través de las cuentas oficiales del <strong>Departamento Nacional de Misiones (DNM)</strong>:
+                    </p>
+                </div>
+                <div class="donacion-grid">
+                    <div class="donacion-item">
+                        <h4><i class="fas fa-university"></i> Transferencia Bancaria (DNM)</h4>
+                        <p><strong>Banco:</strong> Santander Río</p>
+                        <p><strong>Titular:</strong> Unión de las Asambleas de Dios</p>
+                        <p><strong>Cuenta:</strong> Cta. Cte. Sucursal 055 · N° 1255/7</p>
+                        <p><strong>CBU:</strong> <code>0720055720000000125572</code></p>
+                        <p><strong>CUIT:</strong> <code>30-53803502/1</code></p>
+                    </div>
+                    <div class="donacion-item">
+                        <h4><i class="fas fa-receipt"></i> Aviso de Transferencia</h4>
+                        <p>Una vez realizada la ofrenda, es indispensable enviar el comprobante para su correcta asignación:</p>
+                        <p><strong>Teléfono DNM:</strong> (011) 4958-5095</p>
+                        <p><strong>Email:</strong> recibos@dnmargentina.org</p>
+                        <p style="margin-top: 0.8rem; background: rgba(0,0,0,0.25); padding: 0.8rem; border-radius: 8px; font-size: 0.88rem;">
+                            <strong>Asunto/Aclaración indispensable:</strong><br/>
+                            <em>"Para Familia Farinelli – Croacia"</em>
+                        </p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a class="btn-unified" href="https://dnmargentina.org/page/donaciones-ofrendas" style="background: #fbc02d; color: #002b5c; font-weight: 800; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Portal Oficial de Donaciones DNM
                     </a>
                 </div>
             </div>
@@ -350,7 +479,7 @@
                 <ul>
                     <li><a href="index.html#region">La Región</a></li>
                     <li><a href="index.html#promotores">Promotores</a></li>
-                    <li><a href="index.html#gira">Familias Misioneras</a></li>
+                    <li><a href="index.html#misioneros">Familias Misioneras</a></li>
                     <li><a href="https://dnmargentina.org/page/donaciones-ofrendas" target="_blank">DNM Central (Ofrendas)</a></li>
                 </ul>
             </div>
@@ -367,5 +496,17 @@
     </footer>
 
     <script src="script.js?v=20261004"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                const updateNavbar = () => {
+                    navbar.classList.toggle('scrolled', window.scrollY > 25);
+                };
+                window.addEventListener('scroll', updateNavbar, { passive: true });
+                updateNavbar();
+            }
+        });
+    </script>
 </body>
 </html>

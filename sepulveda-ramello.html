@@ -13,6 +13,77 @@
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
     <style>
+        /* --- Barra de navegación superior (efecto franja al scrollear) --- */
+        .navbar {
+            transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 0.9rem 5% !important;
+        }
+        .navbar.scrolled .logo {
+            color: #0f172a !important;
+        }
+        .navbar.scrolled .logo span {
+            color: var(--primary-color) !important;
+        }
+        .navbar.scrolled .nav-item {
+            color: #1e293b !important;
+            font-weight: 700;
+        }
+        .navbar.scrolled .nav-item:hover,
+        .navbar.scrolled .nav-item.active {
+            color: var(--primary-color) !important;
+        }
+        .navbar.scrolled .mobile-toggle {
+            color: #0f172a !important;
+        }
+
+        /* --- Donaciones Box --- */
+        .donacion-box {
+            background: linear-gradient(135deg, #002b5c 0%, #004080 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,64,128,0.25);
+            margin-top: 3.5rem;
+        }
+        .donacion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .donacion-item {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        .donacion-item h4 {
+            color: #fbc02d !important;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+        .donacion-item p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0 0 0.5rem;
+            color: rgba(255,255,255,0.9);
+        }
+        .donacion-item code {
+            background: rgba(0,0,0,0.3);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-family: monospace;
+            color: #fff;
+            font-size: 1rem;
+        }
+
         /* --- Estilos específicos para la página de perfil --- */
         .perfil-hero {
             min-height: 60vh;
@@ -231,7 +302,10 @@
         <a class="logo" href="index.html">Red de Movilización Nacional<br/><span>Región 3</span></a>
         <nav class="nav-links" id="nav-links">
             <a class="nav-item" href="index.html#inicio">Inicio</a>
-            <a class="nav-item" href="index.html#gira">Familias Misioneras</a>
+            <a class="nav-item" href="index.html#misioneros">Familias Misioneras</a>
+            <a class="nav-item" href="#boletines">Boletines</a>
+            <a class="nav-item" href="#oracion">Oración</a>
+            <a class="nav-item" href="#donaciones">Ofrendar</a>
         </nav>
         <button aria-label="Menú" class="mobile-toggle">
             <i class="fas fa-bars"></i>
@@ -248,11 +322,14 @@
             <h1 class="perfil-hero-title">Familia Sepúlveda Ramello</h1>
             <p class="perfil-hero-sub">Europa · Con un llamado a la iglesia española</p>
             <div class="perfil-hero-actions">
-                <a href="https://www.instagram.com/p/DV4CXrMiRmr/?img_index=1" target="_blank" class="btn-unified" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.4);">
-                    <i class="fab fa-instagram" style="font-size: 1.2rem;"></i> Instagram
+                <a class="btn-unified" href="#boletines" style="background: #16a34a; color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <i class="fas fa-file-alt"></i> Ver Boletines
                 </a>
-                <a href="https://wa.me/5493516169210" target="_blank" class="btn-unified" style="background: #25D366; color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.4);">
-                    <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Contactar
+                <a class="btn-unified" href="#oracion" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); border: 1px solid white; color: white; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-hands-praying"></i> Motivos de Oración
+                </a>
+                <a class="btn-unified" href="#donaciones" style="background: #e6993a; color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <i class="fas fa-hand-holding-heart"></i> Ofrendar
                 </a>
             </div>
         </div>
@@ -286,11 +363,11 @@
                 </div>
             </div>
 
-            <!-- Proyecto España -->
-            <div class="detalle-bloque reveal" style="margin-bottom: 3rem;">
+            <!-- Proyecto España / Boletines -->
+            <div id="boletines" class="detalle-bloque reveal" style="margin-bottom: 3rem;">
                 <div class="section-header text-center" style="margin-bottom: 2rem;">
                     <span class="tag" style="background: var(--primary-color); color: white; margin-bottom: 1rem;">
-                        <i class="fas fa-globe-europe"></i> PROYECTO MISIONERO
+                        <i class="fas fa-globe-europe"></i> PROYECTO MISIONERO &amp; INFORMES
                     </span>
                     <h2>España: Un nuevo impulso</h2>
                 </div>
@@ -299,8 +376,17 @@
                     <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem; color: #334155;">Creemos que todo este movimiento migratorio es parte de un plan de Dios para dar un nuevo impulso a la iglesia española. Los habitantes de esta nación están siendo alcanzados. Por ahora, los evangélicos representan un reducido porcentaje de la población, pero de a poco los españoles van escuchando el mensaje de salvación.</p>
                     <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem; color: #334155;">Otra faceta de la evangelización en España lo constituyen los miles de inmigrantes provenientes de la África subsahariana (musulmanes). De la misma manera que cientos de musulmanes han llegado a esas tierras, Dios ha movilizado a cientos de latinos a la península ibérica para reforzar los esfuerzos que los cristianos españoles han venido haciendo en pro de la evangelización.</p>
                     <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: #334155;">España (toda Europa en realidad) está atravesando un proceso de cambios en lo que a su demografía se refiere. Se calcula que de los 45 millones y medio de habitantes, casi el 15% lo constituyen los inmigrantes. No tenemos dudas que Dios controla todos los eventos mundiales que suceden; y la inmigración no es una excepción.</p>
-                    <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--secondary-color);">
+                    <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--secondary-color); margin-bottom: 2rem;">
                         <p style="font-size: 1.15rem; font-style: italic; margin: 0; color: var(--primary-dark);">Después de haber servido en 5 países, siendo Etiopía en donde más permanecimos, Dios, por medio de un llamado claro y específico, nos habló para unir nuestros esfuerzos a la iglesia española.</p>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+                        <a href="https://www.instagram.com/p/DV4CXrMiRmr/?img_index=1" target="_blank" class="btn-unified" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border: none; padding: 0.8rem 1.6rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <i class="fab fa-instagram"></i> Ver Actualizaciones en Instagram
+                        </a>
+                        <a href="https://wa.me/5493516169210" target="_blank" class="btn-unified" style="background: #25D366; color: white; border: none; padding: 0.8rem 1.6rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <i class="fab fa-whatsapp"></i> Solicitar Último Boletín
+                        </a>
                     </div>
                 </div>
             </div>
@@ -331,7 +417,7 @@
             </div>
 
             <!-- Motivos de Oración -->
-            <div class="detalle-bloque reveal" style="margin-bottom: 4rem;">
+            <div id="oracion" class="detalle-bloque reveal" style="margin-bottom: 4rem;">
                 <div class="section-header text-center" style="margin-bottom: 2rem;">
                     <span class="tag" style="background: #dc2626; color: white; margin-bottom: 1rem;">
                         <i class="fas fa-hands-praying"></i> PETICIONES
@@ -349,6 +435,46 @@
                     <p style="margin: 0.5rem 0; color: #334155;"><strong>Email:</strong> crisetiope@hotmail.com</p>
                     <p style="margin: 0.5rem 0; color: #334155;"><strong>Facebook:</strong> Cristian Sepulveda – Erica Ramello</p>
                     <p style="margin: 0.5rem 0; color: #334155;"><strong>WhatsApp:</strong> +54 9 351 6169210</p>
+                </div>
+            </div>
+
+            <!-- Cómo Ofrendar / Donaciones -->
+            <div id="donaciones" class="donacion-box reveal" style="margin-bottom: 4rem;">
+                <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                    <span class="tag" style="background: #fbc02d; color: #002b5c; font-weight: 800; margin-bottom: 1rem;">
+                        <i class="fas fa-hand-holding-heart"></i> APOYO ECONÓMICO DIRECTO
+                    </span>
+                    <h3 style="color: white; font-size: 2rem; margin-bottom: 0.8rem;">¿Cómo Ofrendar para la Familia Sepúlveda Ramello?</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 1.05rem; line-height: 1.6;">
+                        Podés ser parte activa del ministerio en España enviando tu ofrenda a través de la cuenta oficial de la Dirección Nacional de Misiones (DNM):
+                    </p>
+                </div>
+
+                <div class="donacion-grid">
+                    <div class="donacion-item">
+                        <h4><i class="fas fa-university"></i> Datos Bancarios (DNM)</h4>
+                        <p><strong>Banco:</strong> Banco Santander Río</p>
+                        <p><strong>Titular:</strong> UNIÓN DE LAS ASAMBLEAS DE DIOS</p>
+                        <p><strong>Cuenta:</strong> Cta. Cte. N° 1255/7 (Suc. 055)</p>
+                        <p><strong>CBU:</strong> <code>0720055720000000125572</code></p>
+                        <p><strong>Alias:</strong> <code>mando.oboe.japon</code></p>
+                    </div>
+
+                    <div class="donacion-item">
+                        <h4><i class="fas fa-receipt"></i> Aviso de Transferencia</h4>
+                        <p>Una vez realizada la ofrenda, es indispensable enviar el comprobante para su correcta asignación:</p>
+                        <p><strong>Teléfono DNM:</strong> (011) 4958-5095</p>
+                        <p><strong>Email:</strong> recibos@dnmargentina.org</p>
+                        <p style="margin-top: 0.8rem; background: rgba(0,0,0,0.25); padding: 0.8rem; border-radius: 8px; font-size: 0.88rem;">
+                            <strong>Asunto/Aclaración indispensable:</strong><br/>
+                            <em>"Para Familia Sepúlveda Ramello – España"</em>
+                        </p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a class="btn-unified" href="https://dnmargentina.org/page/donaciones-ofrendas" style="background: #fbc02d; color: #002b5c; font-weight: 800; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Portal Oficial de Donaciones DNM
+                    </a>
                 </div>
             </div>
 
@@ -381,7 +507,7 @@
                 <ul>
                     <li><a href="index.html#region">La Región</a></li>
                     <li><a href="index.html#promotores">Promotores</a></li>
-                    <li><a href="index.html#gira">Familias Misioneras</a></li>
+                    <li><a href="index.html#misioneros">Familias Misioneras</a></li>
                     <li><a href="https://dnmargentina.org/page/donaciones-ofrendas" target="_blank">DNM Central (Ofrendas)</a></li>
                 </ul>
             </div>
@@ -398,5 +524,17 @@
     </footer>
 
     <script src="script.js?v=20261004"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                const updateNavbar = () => {
+                    navbar.classList.toggle('scrolled', window.scrollY > 25);
+                };
+                window.addEventListener('scroll', updateNavbar, { passive: true });
+                updateNavbar();
+            }
+        });
+    </script>
 </body>
 </html>

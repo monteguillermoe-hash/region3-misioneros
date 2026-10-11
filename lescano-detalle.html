@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Familia Lescano | Misiones Región 3</title>
+    <meta name="description" content="Conocé los reportes, testimonios y labor misionera de la Familia Lescano en Ecuador a través del Proyecto Rescate."/>
+    <link href="estilos.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Montserrat:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="manifest.json" rel="manifest"/>
+    <meta content="#004080" name="theme-color"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+    <style>
+        /* --- Barra de navegación superior (efecto franja al scrollear) --- */
+        .navbar {
+            transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 0.9rem 5% !important;
+        }
+        .navbar.scrolled .logo {
+            color: #0f172a !important;
+        }
+        .navbar.scrolled .logo span {
+            color: var(--primary-color) !important;
+        }
+        .navbar.scrolled .nav-item {
+            color: #1e293b !important;
+            font-weight: 700;
+        }
+        .navbar.scrolled .nav-item:hover,
+        .navbar.scrolled .nav-item.active {
+            color: var(--primary-color) !important;
+        }
+        .navbar.scrolled .mobile-toggle {
+            color: #0f172a !important;
+        }
+
+        /* --- Estilos específicos para Familia Lescano --- */
+        .perfil-hero {
+            min-height: 65vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+            padding-top: 80px;
+            padding-bottom: 3.5rem;
+            background: url('assets/images/flia_lescano_familia_seleccion.jpg') center 20%/cover no-repeat;
+        }
+        .perfil-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(230, 153, 58, 0.25), transparent 60%),
+                        linear-gradient(to top, rgba(0,20,60,0.92) 0%, rgba(0,20,60,0.6) 100%);
+            z-index: 1;
+        }
+        .perfil-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #ffffff !important;
+            width: 100%;
+            max-width: 850px;
+            padding: 0 1.5rem;
+        }
+        .perfil-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.35);
+            color: #ffffff !important;
+            padding: 0.4rem 1.3rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .perfil-hero-title {
+            color: #ffffff !important;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+        }
+        .perfil-hero-sub {
+            color: #ffffff !important;
+            font-size: 1.15rem;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+        }
+        .perfil-hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- Info cards --- */
+        .perfil-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+        .perfil-info-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.7rem;
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .perfil-info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .perfil-info-card .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            background: var(--primary-color);
+        }
+        .perfil-info-card h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .perfil-info-card p {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* --- Canal WhatsApp Card Centrado --- */
+        .whatsapp-channel-card {
+            background: linear-gradient(135deg, #075e54 0%, #128c7e 100%);
+            color: white;
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 1.8rem;
+            box-shadow: 0 10px 30px rgba(18, 140, 126, 0.25);
+            margin: 0 auto 4rem;
+            max-width: 820px;
+        }
+        .whatsapp-channel-text {
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .whatsapp-channel-text h3 {
+            color: white !important;
+            font-size: 1.8rem;
+            margin-bottom: 0.7rem;
+        }
+        .whatsapp-channel-text p {
+            color: rgba(255,255,255,0.92);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .whatsapp-channel-qr {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+        }
+        .whatsapp-channel-qr img {
+            width: 160px;
+            height: 160px;
+            display: block;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+        .whatsapp-channel-qr span {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #075e54;
+            margin-top: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Carrusel Unificado de Informes / Boletines --- */
+        .informes-swiper-container {
+            position: relative;
+            margin-bottom: 4rem;
+        }
+        .informesSwiper {
+            width: 100%;
+            padding: 0.5rem 0.2rem 4.5rem;
+        }
+        .informesSwiper .swiper-wrapper {
+            align-items: stretch;
+        }
+        .informesSwiper .swiper-slide {
+            height: auto;
+            display: flex;
+            box-sizing: border-box;
+        }
+        .informe-slide-card {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem 2.2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+            border-top: 5px solid #16a34a;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.8rem;
+            box-sizing: border-box;
+        }
+        .informe-slide-card.slide-agosto {
+            border-top-color: #e6993a;
+        }
+        .informe-slide-card.slide-julio {
+            border-top-color: #0284c7;
+        }
+        .informe-slide-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+        .informe-badge-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #eaf7ec;
+            color: #16a34a;
+            font-weight: 800;
+            font-size: 0.85rem;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .slide-agosto .informe-badge-date {
+            background: #fff5e6;
+            color: #e6993a;
+        }
+        .slide-julio .informe-badge-date {
+            background: #e0f2fe;
+            color: #0284c7;
+        }
+        .informe-slide-header h3 {
+            color: var(--primary-dark);
+            font-size: 1.65rem;
+            margin: 0;
+            line-height: 1.25;
+        }
+        .informe-slide-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .informe-destacados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.3rem;
+            flex: 1 1 auto;
+        }
+        .informe-destacado-item {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.4rem;
+            border-left: 4px solid #16a34a;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .slide-agosto .informe-destacado-item {
+            border-left-color: #e6993a;
+        }
+        .slide-julio .informe-destacado-item {
+            border-left-color: #0284c7;
+        }
+        .informe-destacado-item h4 {
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .informe-destacado-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Barra de Descarga / Vista del Boletín Oficial en cada slide */
+        .informe-action-bar {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1.3rem 1.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            border: 1px solid #e2e8f0;
+            margin-top: auto;
+        }
+        .informe-action-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .informe-action-info .action-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            background: #16a34a;
+            flex-shrink: 0;
+        }
+        .slide-agosto .informe-action-info .action-icon {
+            background: #e6993a;
+        }
+        .slide-julio .informe-action-info .action-icon {
+            background: #0284c7;
+        }
+        .informe-action-info h5 {
+            font-size: 1rem;
+            color: var(--primary-dark);
+            margin: 0 0 0.2rem;
+            font-weight: 700;
+        }
+        .informe-action-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .informe-action-btns {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        /* Swiper Controls Custom */
+        .informesSwiper .swiper-button-prev,
+        .informesSwiper .swiper-button-next {
+            color: #16a34a;
+            background: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            transition: transform 0.2s ease, background 0.2s ease;
+            top: auto;
+            bottom: 0.5rem;
+        }
+        .informesSwiper .swiper-button-prev {
+            left: calc(50% - 60px);
+        }
+        .informesSwiper .swiper-button-next {
+            right: calc(50% - 60px);
+        }
+        .informesSwiper .swiper-button-prev:hover,
+        .informesSwiper .swiper-button-next:hover {
+            transform: scale(1.08);
+            background: #f1f5f9;
+        }
+        .informesSwiper .swiper-button-prev::after,
+        .informesSwiper .swiper-button-next::after {
+            font-size: 1rem;
+            font-weight: 800;
+        }
+        .informesSwiper .swiper-pagination {
+            bottom: 1rem !important;
+        }
+        .informesSwiper .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #cbd5e1;
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+        .informesSwiper .swiper-pagination-bullet-active {
+            background: #16a34a !important;
+            width: 26px;
+            border-radius: 6px;
+        }
+
+        /* --- Carrusel de Motivos de Oración --- */
+        .oracionSwiper {
+            width: 100%;
+            padding: 0.5rem 0.2rem 4rem;
+        }
+        .oracionSwiper .swiper-wrapper {
+            align-items: stretch;
+        }
+        .oracionSwiper .swiper-slide {
+            height: auto;
+            display: flex;
+            box-sizing: border-box;
+        }
+        .oracion-card-item {
+            width: 100%;
+            background: white;
+            border-radius: 18px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border-left: 5px solid #dc2626;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .oracion-card-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .oracion-card-item h4 {
+            color: var(--primary-dark);
+            font-size: 1.15rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            line-height: 1.3;
+        }
+        .oracion-card-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+        .oracionSwiper .swiper-button-prev,
+        .oracionSwiper .swiper-button-next {
+            color: #dc2626;
+            background: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            transition: transform 0.2s ease, background 0.2s ease;
+            top: auto;
+            bottom: 0.5rem;
+        }
+        .oracionSwiper .swiper-button-prev {
+            left: calc(50% - 60px);
+        }
+        .oracionSwiper .swiper-button-next {
+            right: calc(50% - 60px);
+        }
+        .oracionSwiper .swiper-button-prev:hover,
+        .oracionSwiper .swiper-button-next:hover {
+            transform: scale(1.08);
+            background: #f1f5f9;
+        }
+        .oracionSwiper .swiper-button-prev::after,
+        .oracionSwiper .swiper-button-next::after {
+            font-size: 0.95rem;
+            font-weight: 800;
+        }
+        .oracionSwiper .swiper-pagination {
+            bottom: 1rem !important;
+        }
+        .oracionSwiper .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #cbd5e1;
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+        .oracionSwiper .swiper-pagination-bullet-active {
+            background: #dc2626 !important;
+            width: 24px;
+            border-radius: 6px;
+        }
+
+        /* --- Donaciones Box --- */
+        .donacion-box {
+            background: linear-gradient(135deg, #002b5c 0%, #004080 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,64,128,0.25);
+            margin-top: 3rem;
+        }
+        .donacion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .donacion-item {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        .donacion-item h4 {
+            color: #fbc02d !important;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+        .donacion-item p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0 0 0.5rem;
+            color: rgba(255,255,255,0.9);
+        }
+        .donacion-item code {
+            background: rgba(0,0,0,0.3);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-family: monospace;
+            color: #fff;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body class="page-interna">
+<!-- Navbar -->
+<header class="navbar" id="navbar">
+    <a class="logo" href="index.html">Red de Movilización Nacional<br/><span>Región 3</span></a>
+    <nav class="nav-links" id="nav-links">
+        <a class="nav-item" href="index.html#inicio">Inicio</a>
+        <a class="nav-item" href="index.html#misioneros">Familias Misioneras</a>
+        <a class="nav-item" href="#boletines">Boletines</a>
+        <a class="nav-item" href="#oracion">Oración</a>
+        <a class="nav-item" href="#donaciones">Ofrendar</a>
+    </nav>
+    <button aria-label="Menú" class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+</header>
+
+<!-- Hero Header -->
+<section class="perfil-hero">
+    <div class="perfil-hero-overlay"></div>
+    <div class="perfil-hero-content reveal">
+        <div class="perfil-hero-badge">
+            <i class="fas fa-globe-americas"></i> Misioneros en América · Ecuador · DNM Argentina
+        </div>
+        <h1 class="perfil-hero-title">Familia Lescano</h1>
+        <p class="perfil-hero-sub">Proyecto Rescate · Llevando el amor de Cristo a personas con problemas de adicciones, discipulando y transformando familias.</p>
+        <div class="perfil-hero-actions">
+            <a class="btn-unified" href="#boletines" style="background: #16a34a; color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                <i class="fas fa-images"></i> Ver Boletines
+            </a>
+            <a class="btn-unified" href="#oracion" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); border: 1px solid white; color: white; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-hands-praying"></i> Motivos de Oración
+            </a>
+            <a class="btn-unified" href="#donaciones" style="background: #e6993a; color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                <i class="fas fa-hand-holding-heart"></i> Ofrendar
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Contenido Principal -->
+<main class="section bg-light" style="padding: 4rem 0;">
+    <div class="container">
+        <!-- Info rápida -->
+        <div class="perfil-info-grid reveal">
+            <div class="perfil-info-card">
+                <div class="card-icon" style="background: #16a34a;"><i class="fas fa-map-marked-alt"></i></div>
+                <h4>Campo de Servicio</h4>
+                <p>Ecuador (Quito y sectores rurales)</p>
+            </div>
+            <div class="perfil-info-card" style="border-color: #e6993a;">
+                <div class="card-icon" style="background: #e6993a;"><i class="fas fa-heart-pulse"></i></div>
+                <h4>Enfoque Ministerial</h4>
+                <p>Proyecto Rescate: Adicciones y Restauración</p>
+            </div>
+            <div class="perfil-info-card" style="border-color: #3b82f6;">
+                <div class="card-icon" style="background: #3b82f6;"><i class="fas fa-child-reaching"></i></div>
+                <h4>Alcance Semanal</h4>
+                <p>Hora Feliz (+30 niños) y Célula Familiar</p>
+            </div>
+            <div class="perfil-info-card" style="border-color: #8b5cf6;">
+                <div class="card-icon" style="background: #8b5cf6;"><i class="fas fa-users"></i></div>
+                <h4>Familia Misionera</h4>
+                <p>Sebastián, Cintia, Jere y Melek</p>
+            </div>
+        </div>
+
+        <!-- Banner WhatsApp Canal -->
+        <div class="whatsapp-channel-card reveal">
+            <div class="whatsapp-channel-text">
+                <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.8rem;">
+                    <i class="fab fa-whatsapp"></i> COMUNIDAD EN VIVO
+                </div>
+                <h3>Seguí las noticias en el Canal de WhatsApp</h3>
+                <p>La Familia Lescano comparte actualizaciones semanales, fotos y testimonios de la obra en Ecuador. Escaneá el código con tu celular o sumate directamente desde el enlace:</p>
+                <div style="margin-top: 1.3rem;">
+                    <a href="https://whatsapp.com/channel/0029Vb6PJ5WF6smsNIkKOD0Q" target="_blank" rel="noopener noreferrer" class="btn-unified" style="background: white; color: #075e54; font-weight: 800; padding: 0.85rem 2rem; border-radius: 30px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; box-shadow: 0 4px 18px rgba(0,0,0,0.15); font-size: 1rem;">
+                        <i class="fab fa-whatsapp" style="font-size: 1.35rem; color: #25d366;"></i> Unirse al Canal en WhatsApp
+                    </a>
+                </div>
+            </div>
+            <a href="https://whatsapp.com/channel/0029Vb6PJ5WF6smsNIkKOD0Q" target="_blank" rel="noopener noreferrer" class="whatsapp-channel-qr" style="text-decoration: none; color: inherit; cursor: pointer;" title="Hacé clic o escaneá para unirte al canal">
+                <img src="assets/images/flia_lescano_qr.png" alt="Código QR Canal WhatsApp Familia Lescano"/>
+                <span>Escanear o Tocar Aquí</span>
+            </a>
+        </div>
+
+        <!-- Sección Unificada: Boletines e Informes desde el Campo -->
+        <section id="boletines" class="detalle-bloque reveal informes-swiper-container">
+            <span id="reportes" style="position: absolute; top: -80px;"></span>
+            <div class="section-header text-center" style="margin-bottom: 2.5rem;">
+                <span class="tag" style="background: #16a34a; color: white; margin-bottom: 1rem;">
+                    <i class="fas fa-newspaper"></i> INFORMES DESDE EL CAMPO
+                </span>
+                <h2>Boletines y Resumen Ministerial</h2>
+                <p>Novedades mensuales en formato condensado. Deslizá para ver los informes anteriores o descargá el boletín oficial completo.</p>
+            </div>
+
+            <!-- Swiper de Informes Mensuales -->
+            <div class="swiper informesSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1: Septiembre 2026 (Más reciente) -->
+                    <div class="swiper-slide">
+                        <div class="informe-slide-card">
+                            <div class="informe-slide-header">
+                                <span class="informe-badge-date">
+                                    <i class="far fa-calendar-check"></i> Septiembre 2026 · Más Reciente
+                                </span>
+                                <h3>Crecimiento de Células y Apoyo a Familias</h3>
+                                <p>¡Gloria a Dios! Las reuniones de los sábados siguen multiplicándose: el garage donde se reúnen ya queda chico para albergar a tantas personas con sed de la Palabra.</p>
+                            </div>
+
+                            <div class="informe-destacados-grid">
+                                <div class="informe-destacado-item">
+                                    <h4><i class="fas fa-gift" style="color: #e6993a;"></i> Cumpleaños y Útiles</h4>
+                                    <p>Festejaron con los niños y adolescentes de la célula, y gracias a corazones generosos bendijeron a 14 familias con las listas de útiles escolares de alto costo en la zona.</p>
+                                </div>
+                                <div class="informe-destacado-item">
+                                    <h4><i class="fas fa-graduation-cap" style="color: #3b82f6;"></i> Inicio de Clases Rurales</h4>
+                                    <p>Jere y Melek quedaron formalmente escolarizados en un colegio rural a 7 km en turno mañana, una provisión clave de Dios que optimiza los tiempos de ministerio en el barrio.</p>
+                                </div>
+                                <div class="informe-destacado-item">
+                                    <h4><i class="fas fa-chart-line" style="color: #16a34a;"></i> Multiplicación Continua</h4>
+                                    <p>Cada semana se suman más vidas al discipulado y al acompañamiento familiar, desafiando a encontrar espacios cada vez más amplios para la congregación.</p>
+                                </div>
+                            </div>
+
+                            <!-- Barra de Descarga / Vista del Boletín Oficial de Septiembre -->
+                            <div class="informe-action-bar">
+                                <div class="informe-action-info">
+                                    <div class="action-icon"><i class="fas fa-file-invoice"></i></div>
+                                    <div>
+                                        <h5>Boletín Oficial de Septiembre 2026</h5>
+                                        <p>Documento gráfico oficial enviado por la Familia Lescano</p>
+                                    </div>
+                                </div>
+                                <div class="informe-action-btns">
+                                    <a href="assets/images/flia_lescano_2.jpeg" target="_blank" class="btn-unified" style="background: #16a34a; color: white; padding: 0.65rem 1.4rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(22,163,74,0.3);">
+                                        <i class="fas fa-external-link-alt"></i> Ver / Descargar Boletín Completo
+                                    </a>
+                                    <a href="assets/images/flia_lescano_1.jpeg" target="_blank" class="btn-unified btn-unified-outline" style="border: 1px solid #16a34a; color: #16a34a; padding: 0.65rem 1.2rem; border-radius: 30px; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                                        <i class="fas fa-eye"></i> Afiche Proyecto Rescate
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Agosto 2026 -->
+                    <div class="swiper-slide">
+                        <div class="informe-slide-card slide-agosto">
+                            <div class="informe-slide-header">
+                                <span class="informe-badge-date">
+                                    <i class="far fa-calendar-check"></i> Agosto 2026
+                                </span>
+                                <h3>Puertas Abiertas y Proyecto Rescate</h3>
+                                <p>Un mes de avance sobrenatural y puertas abiertas para servir a Dios y hacer Su voluntad en la nación ecuatoriana.</p>
+                            </div>
+
+                            <div class="informe-destacados-grid">
+                                <div class="informe-destacado-item">
+                                    <h4><i class="fas fa-shield-heart" style="color: #e6993a;"></i> Proyecto Rescate</h4>
+                                    <p>Ministración diaria a un grupo de entre 15 y 20 hombres con problemas de adicciones y alcoholismo, rescatando vidas y restaurando sus vínculos familiares.</p>
+                                </div>
+                                <div class="informe-destacado-item">
+                                    <h4><i class="fas fa-face-smile" style="color: #10b981;"></i> Hora Feliz Barrial</h4>
+                                    <p>Dios abrió las puertas de un hogar donde cada sábado se reúnen más de 30 niños y 15 mamás para escuchar la Palabra y recibir acompañamiento pastoral.</p>
+                                </div>
+                                <div class="informe-destacado-item">
+                                    <h4><i class="fas fa-hands-holding-child" style="color: #8b5cf6;"></i> Testimonio Integral</h4>
+                                    <p>Apertura comunitaria tras la oración por Camila; Melek comparte a Jesús mediante la danza en Calderón; y Jere evangeliza en las inferiores de Deportivo Quito.</p>
+                                </div>
+                            </div>
+
+                            <!-- Barra de Descarga / Vista del Boletín Oficial de Agosto -->
+                            <div class="informe-action-bar">
+                                <div class="informe-action-info">
+                                    <div class="action-icon"><i class="fas fa-file-invoice"></i></div>
+                                    <div>
+                                        <h5>Boletín Oficial de Agosto 2026</h5>
+                                        <p>Informe en 2 partes: Puertas que se abren, testimonios y peticiones</p>
+                                    </div>
+                                </div>
+                                <div class="informe-action-btns">
+                                    <a href="assets/images/flia_lescano_proyecto_rescate_1.jpeg" target="_blank" class="btn-unified" style="background: #e6993a; color: white; padding: 0.65rem 1.3rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(230,153,58,0.3);">
+                                        <i class="fas fa-external-link-alt"></i> Ver Boletín Parte 1
+                                    </a>
+                                    <a href="assets/images/flia_lescano_proyecto_rescate_2.jpeg" target="_blank" class="btn-unified btn-unified-outline" style="border: 1px solid #e6993a; color: #e6993a; padding: 0.65rem 1.3rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                                        <i class="fas fa-external-link-alt"></i> Ver Boletín Parte 2
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Julio 2026 -->
+                    <div class="swiper-slide">
+                        <div class="informe-slide-card slide-julio">
+                            <div class="informe-slide-header">
+                                <span class="informe-badge-date">
+                                    <i class="far fa-calendar-check"></i> Julio 2026
+                                </span>
+                                <h3>Llegada a Ecuador, Pasión por las Almas y Primeras Puertas</h3>
+                                <p>Los primeros pasos de la Familia Lescano en el campo misionero: inserción barrial, atención a personas en situación de calle y el inicio de la obra.</p>
+                            </div>
+
+                            <div class="informe-destacados-grid">
+                                <div class="informe-destacado-item">
+                                    <h4><i class="fas fa-futbol" style="color: #0284c7;"></i> Conexión Vecinal</h4>
+                                    <p>El fútbol y el aliento a la Selección Argentina abrió las puertas con los vecinos del barrio, generando cercanía para compartirles las Buenas Nuevas.</p>
+                                </div>
+                                <div class="informe-destacado-item">
+                                    <h4><i class="fas fa-mug-hot" style="color: #0284c7;"></i> Desayunos y Rescate</h4>
+                                    <p>Asistencia matutina con desayunos y oración a 12-16 personas que amanecían consumiendo en la calle, clamando muchos de ellos por libertad en Cristo.</p>
+                                </div>
+                                <div class="informe-destacado-item">
+                                    <h4><i class="fas fa-door-open" style="color: #0284c7;"></i> Inserción Comunitaria</h4>
+                                    <p>Fichaje de Jere en Deportivo Quito, clases de danza de Melek en Sociedad de Fomento de Calderón y apertura para reuniones en Coral Shopping.</p>
+                                </div>
+                            </div>
+
+                            <!-- Barra de Descarga / Vista del Boletín Oficial de Julio -->
+                            <div class="informe-action-bar">
+                                <div class="informe-action-info">
+                                    <div class="action-icon"><i class="fas fa-file-pdf"></i></div>
+                                    <div>
+                                        <h5>Boletín Oficial de Julio 2026 (PDF Original)</h5>
+                                        <p>Informe fundacional de 3 páginas de la llegada a Ecuador</p>
+                                    </div>
+                                </div>
+                                <div class="informe-action-btns">
+                                    <a href="assets/images/Lescano%20-%20Julio%202026.pdf" target="_blank" class="btn-unified" style="background: #0284c7; color: white; padding: 0.65rem 1.4rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(2,132,199,0.3);">
+                                        <i class="fas fa-download"></i> Descargar Informe Completo (PDF)
+                                    </a>
+                                    <a href="assets/images/flia_lescano_julio_1.jpg" target="_blank" class="btn-unified btn-unified-outline" style="border: 1px solid #0284c7; color: #0284c7; padding: 0.65rem 1.1rem; border-radius: 30px; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                                        <i class="fas fa-image"></i> Ver Digitalizado
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controles Swiper -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev" title="Informe anterior"></div>
+                <div class="swiper-button-next" title="Informe siguiente"></div>
+            </div>
+        </section>
+
+        <!-- Motivos de Oración en Carrusel -->
+        <div id="oracion" class="detalle-bloque reveal" style="margin-bottom: 4rem;">
+            <div class="section-header text-center" style="margin-bottom: 2rem;">
+                <span class="tag" style="background: #dc2626; color: white; margin-bottom: 1rem;">
+                    <i class="fas fa-hands-praying"></i> UNIDAD EN INTERCESIÓN
+                </span>
+                <h2>Motivos de Oración</h2>
+                <p>Deslizá para conocer las peticiones de la Familia Lescano e interceder juntos</p>
+            </div>
+
+            <div class="swiper oracionSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="oracion-card-item">
+                            <h4><i class="fas fa-fire" style="color: #e6993a;"></i> Avivamiento Sobrenatural</h4>
+                            <p>Por un mover del Espíritu Santo en cada lugar, calle y hogar que pisan, para que los corazones sean quebrantados por el mensaje de salvación.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="oracion-card-item">
+                            <h4><i class="fas fa-handshake-angle" style="color: #3b82f6;"></i> Aliados de la Visión</h4>
+                            <p>Por hermanos, iglesias y pastores que entiendan la necesidad de ser un andamio de apoyo para sostener esta obra y construir juntos este legado.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="oracion-card-item">
+                            <h4><i class="fas fa-shield" style="color: #16a34a;"></i> Cobertura Familiar</h4>
+                            <p>Por cobertura, salud física y bienestar espiritual sobre Cintia, Jere y Melek, guardándolos de toda enfermedad y peligro.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="oracion-card-item">
+                            <h4><i class="fas fa-coins" style="color: #f59e0b;"></i> Multiplicación de Recursos</h4>
+                            <p>Por provisión y multiplicación sobrenatural de recursos económicos necesarios para sostener la familia y las demandas del ministerio en Ecuador.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="oracion-card-item">
+                            <h4><i class="fas fa-notes-medical" style="color: #dc2626;"></i> Vidas en Recuperación</h4>
+                            <p>Por cada persona y joven batallando contra las adicciones, para que el Señor rompa cadenas, traiga sanidad y restaure los hogares.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="oracion-card-item">
+                            <h4><i class="fas fa-seedling" style="color: #10b981;"></i> Nuevos Creyentes</h4>
+                            <p>Por el crecimiento espiritual de las familias contactadas en el vecindario y las mamás y niños que asisten a la Hora Feliz.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev" title="Anterior"></div>
+                <div class="swiper-button-next" title="Siguiente"></div>
+            </div>
+        </div>
+
+        <!-- Ofrendas y Donaciones -->
+        <div id="donaciones" class="donacion-box reveal">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <i class="fas fa-hand-holding-heart" style="font-size: 3rem; color: #fbc02d; margin-bottom: 1rem;"></i>
+                <h3 style="font-size: 2rem; font-weight: 800; color: white !important; margin-bottom: 0.5rem;">Sumate al Proyecto Rescate Ecuador</h3>
+                <p style="font-size: 1.15rem; color: #ffffff !important; max-width: 650px; margin: 0 auto; line-height: 1.6;">
+                    Podés hacer llegar tu aporte misionero directamente a través de las cuentas oficiales del <strong>Departamento Nacional de Misiones (DNM)</strong>:
+                </p>
+            </div>
+            <div class="donacion-grid">
+                <div class="donacion-item">
+                    <h4><i class="fas fa-university"></i> Transferencia Bancaria (DNM)</h4>
+                    <p><strong>Banco:</strong> Santander Río</p>
+                    <p><strong>Titular:</strong> Unión de las Asambleas de Dios</p>
+                    <p><strong>Cuenta:</strong> Cta. Cte. Sucursal 055 · N° 1255/7</p>
+                    <p><strong>CBU:</strong> <code>0720055720000000125572</code></p>
+                    <p><strong>CUIT:</strong> <code>30-53803502/1</code></p>
+                </div>
+                <div class="donacion-item">
+                    <h4><i class="fas fa-receipt"></i> Aviso de Transferencia</h4>
+                    <p>Una vez realizada la ofrenda, es indispensable enviar el comprobante para su correcta asignación:</p>
+                    <p><strong>Teléfono DNM:</strong> (011) 4958-5095</p>
+                    <p><strong>Email:</strong> recibos@dnmargentina.org</p>
+                    <p style="margin-top: 0.8rem; background: rgba(0,0,0,0.25); padding: 0.8rem; border-radius: 8px; font-size: 0.88rem;">
+                        <strong>Asunto/Aclaración indispensable:</strong><br/>
+                        <em>"Para Proyecto Rescate Ecuador – Familia Lescano"</em>
+                    </p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a class="btn-unified" href="https://dnmargentina.org/page/donaciones-ofrendas" style="background: #fbc02d; color: #002b5c; font-weight: 800; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Portal Oficial de Donaciones DNM
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container footer-grid reveal">
+        <div class="footer-info">
+            <a class="footer-logo" href="index.html">Red de Movilización Nacional<span>Región 3</span></a>
+            <p>Promoviendo y acompañando a las familias misioneras en las naciones.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Enlaces Rápidos</h4>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#misioneros">Familias Misioneras</a></li>
+                <li><a href="index.html#promotores">Directorio de Promotores</a></li>
+                <li><a href="https://dnmargentina.org/page/" target="_blank">DNM Central</a></li>
+            </ul>
+        </div>
+        <div class="footer-contacto">
+            <h4>Contacto Región 3</h4>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1.2rem;">Coordinación y consultas sobre actividades misioneras:</p>
+            <div class="footer-contact-buttons" style="display: flex; flex-direction: column; gap: 0.8rem;">
+                <a class="btn-unified btn-unified-wa" href="https://wa.me/5492954641455" style="padding: 0.6rem 1.2rem; font-size: 0.9rem; width: 100%; justify-content: flex-start;" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Regional</a>
+                <a class="btn-unified btn-unified-outline" href="mailto:region3rmn@gmail.com" style="padding: 0.6rem 1.2rem; font-size: 0.9rem; border-color: rgba(255,255,255,0.2); color: white; width: 100%; justify-content: flex-start;"><i class="fas fa-envelope"></i> region3rmn@gmail.com</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Misiones Región 3 - UAD Argentina. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="script.js?v=20261011"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Inicializar Swiper de Informes Mensuales (mismo tamaño exacto en todos los slides)
+        if (document.querySelector('.informesSwiper')) {
+            new Swiper('.informesSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 24,
+                autoHeight: false,
+                pagination: {
+                    el: '.informesSwiper .swiper-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.informesSwiper .swiper-button-next',
+                    prevEl: '.informesSwiper .swiper-button-prev'
+                }
+            });
+        }
+
+        // Inicializar Swiper de Motivos de Oración (carrusel dinámico y limpio)
+        if (document.querySelector('.oracionSwiper')) {
+            new Swiper('.oracionSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                pagination: {
+                    el: '.oracionSwiper .swiper-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.oracionSwiper .swiper-button-next',
+                    prevEl: '.oracionSwiper .swiper-button-prev'
+                },
+                breakpoints: {
+                    640:  { slidesPerView: 2, spaceBetween: 20 },
+                    1024: { slidesPerView: 3, spaceBetween: 24 }
+                }
+            });
+        }
+
+        // Asegurar efecto de franja contrastada en la barra de navegación al scrollear
+        const navbar = document.getElementById('navbar');
+        if (navbar) {
+            const updateNavbar = () => {
+                navbar.classList.toggle('scrolled', window.scrollY > 25);
+            };
+            window.addEventListener('scroll', updateNavbar, { passive: true });
+            updateNavbar();
+        }
+    });
+</script>
+</body>
+</html>

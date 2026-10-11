@@ -1,7 +1,7 @@
 {
     "name": "Misiones Región 3",
     "short_name": "Región 3",
-    "description": "Portal oficial de Misiones Región 3 - UAD Argentina. Promotores, eventos, misioneros en gira y formación misionera.",
+    "description": "Portal oficial de Misiones Región 3 - UAD Argentina. Promotores, eventos, familias misioneras y formación misionera.",
     "start_url": "./index.html",
     "scope": "./",
     "display": "standalone",

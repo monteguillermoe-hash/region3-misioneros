@@ -281,13 +281,27 @@ document.addEventListener('DOMContentLoaded', () => {
             whatsapp: ''
         },
         {
+            id: 'lescano',
+            name: 'Familia Lescano',
+            destination: 'Ecuador',
+            continent: 'america',
+            continentLabel: 'AMÉRICA',
+            continentColor: '#16a34a',
+            quote: 'Proyecto Rescate: Transformando vidas frente a adicciones, discipulado y células familiares en Ecuador.',
+            img: 'assets/images/flia_lescano_card.png',
+            link: 'https://dnmargentina.org/page/',
+            customImageLink: 'lescano-detalle.html',
+            coords: [-0.1807, -78.4678],
+            whatsapp: ''
+        },
+        {
             id: 'zamorano',
             name: 'Familia Zamorano',
             destination: 'Per&uacute; / Argentina',
             continent: 'america',
             continentLabel: 'AMERICA',
             continentColor: '#e6993a',
-            quote: 'Proyecto Pablo Timoteo: Construyendo la 1ª iglesia Kichwa en la selva peruana.',
+            quote: 'Proyecto Pablo Timoteo: Construyendo la 1ª iglesia Kichwa en Angotero. ¡Campaña 200 Sillas activa!',
             img: 'assets/images/zamorano_tour.png',
             link: 'https://www.instagram.com/eduardoyvania/',
             customImageLink: 'zamorano-detalle.html',
@@ -444,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${m.customImageLink ? `</a>` : ''}
                     <div class="gira-card-content">
                         <h3 class="gira-card-name">${m.name}</h3>
-                        <p class="gira-card-dest"><i class="fas fa-plane-departure"></i> ${m.destination}</p>
+                        <p class="gira-card-dest"><i class="fas fa-map-marker-alt"></i> ${m.destination}</p>
                         <p class="gira-card-quote">${m.quote}</p>
                         <div class="gira-card-footer">
                             <a href="${m.link}" target="_blank"
