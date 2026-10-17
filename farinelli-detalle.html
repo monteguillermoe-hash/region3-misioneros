@@ -12,6 +12,7 @@
     <meta content="#004080" name="theme-color"/>
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
     <style>
         /* --- Barra de navegación superior (efecto franja al scrollear) --- */
         .navbar {
@@ -265,7 +266,276 @@
             padding-left: 1.2rem;
             color: var(--primary-dark);
             font-weight: 500;
-            line-height: 1.8;
+        /* --- Carrusel Unificado de Informes / Boletines --- */
+        .informes-swiper-container {
+            position: relative;
+            margin-bottom: 4rem;
+        }
+        .informesSwiper {
+            width: 100%;
+            padding: 0.5rem 0.2rem 4.5rem;
+        }
+        .informesSwiper .swiper-wrapper {
+            align-items: stretch;
+        }
+        .informesSwiper .swiper-slide {
+            height: auto;
+            display: flex;
+            box-sizing: border-box;
+        }
+        .informe-slide-card {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem 2.2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+            border-top: 5px solid #16a34a;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.8rem;
+            box-sizing: border-box;
+        }
+        .informe-slide-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+        .informe-badge-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #eaf7ec;
+            color: #16a34a;
+            font-weight: 800;
+            font-size: 0.85rem;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .informe-slide-header h3 {
+            color: var(--primary-dark);
+            font-size: 1.65rem;
+            margin: 0;
+            line-height: 1.25;
+        }
+        .informe-slide-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .informe-destacados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.3rem;
+            flex: 1 1 auto;
+        }
+        .informe-destacado-item {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.4rem;
+            border-left: 4px solid #16a34a;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .informe-destacado-item h4 {
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .informe-destacado-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .informe-action-bar {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1.3rem 1.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            border: 1px solid #e2e8f0;
+            margin-top: auto;
+        }
+        .informe-action-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .informe-action-info .action-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            background: #16a34a;
+            flex-shrink: 0;
+        }
+        .informe-action-info h5 {
+            font-size: 1rem;
+            color: var(--primary-dark);
+            margin: 0 0 0.2rem;
+            font-weight: 700;
+        }
+        .informe-action-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .informe-action-btns {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        /* Swiper Controls Custom */
+        .informesSwiper .swiper-button-prev,
+        .informesSwiper .swiper-button-next {
+            color: #16a34a;
+            background: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            transition: transform 0.2s ease, background 0.2s ease;
+            top: auto;
+            bottom: 0.5rem;
+        }
+        .informesSwiper .swiper-button-prev {
+            left: calc(50% - 60px);
+        }
+        .informesSwiper .swiper-button-next {
+            right: calc(50% - 60px);
+        }
+        .informesSwiper .swiper-button-prev:hover,
+        .informesSwiper .swiper-button-next:hover {
+            transform: scale(1.08);
+            background: #f1f5f9;
+        }
+        .informesSwiper .swiper-button-prev::after,
+        .informesSwiper .swiper-button-next::after {
+            font-size: 1rem;
+            font-weight: 800;
+        }
+        .informesSwiper .swiper-pagination {
+            bottom: 1rem !important;
+        }
+        .informesSwiper .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #cbd5e1;
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+        .informesSwiper .swiper-pagination-bullet-active {
+            background: #16a34a !important;
+            width: 26px;
+            border-radius: 6px;
+        }
+
+        /* --- Carrusel de Motivos de Oración --- */
+        .oracionSwiper {
+            width: 100%;
+            padding: 0.5rem 0.2rem 4rem;
+        }
+        .oracionSwiper .swiper-wrapper {
+            align-items: stretch;
+        }
+        .oracionSwiper .swiper-slide {
+            height: auto;
+            display: flex;
+            box-sizing: border-box;
+        }
+        .oracion-card-item {
+            width: 100%;
+            background: white;
+            border-radius: 18px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border-left: 5px solid #dc2626;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .oracion-card-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .oracion-card-item h4 {
+            color: var(--primary-dark);
+            font-size: 1.15rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            line-height: 1.3;
+        }
+        .oracion-card-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+        .oracionSwiper .swiper-button-prev,
+        .oracionSwiper .swiper-button-next {
+            color: #dc2626;
+            background: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            transition: transform 0.2s ease, background 0.2s ease;
+            top: auto;
+            bottom: 0.5rem;
+        }
+        .oracionSwiper .swiper-button-prev {
+            left: calc(50% - 60px);
+        }
+        .oracionSwiper .swiper-button-next {
+            right: calc(50% - 60px);
+        }
+        .oracionSwiper .swiper-button-prev:hover,
+        .oracionSwiper .swiper-button-next:hover {
+            transform: scale(1.08);
+            background: #f1f5f9;
+        }
+        .oracionSwiper .swiper-button-prev::after,
+        .oracionSwiper .swiper-button-next::after {
+            font-size: 0.95rem;
+            font-weight: 800;
+        }
+        .oracionSwiper .swiper-pagination {
+            bottom: 1rem !important;
+        }
+        .oracionSwiper .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #cbd5e1;
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+        .oracionSwiper .swiper-pagination-bullet-active {
+            background: #dc2626 !important;
+            width: 24px;
+            border-radius: 6px;
         }
     </style>
 </head>
@@ -364,72 +634,117 @@
                 </div>
             </div>
 
-            <!-- Reporte Actual: Noticias desde Croacia / Boletines -->
-            <div id="boletines" class="detalle-bloque reveal" style="margin-bottom: 4rem;">
-                <div class="section-header text-center" style="margin-bottom: 2rem;">
-                    <span class="tag" style="background: var(--primary-color); color: white; margin-bottom: 1rem;">
+            <!-- Sección Unificada: Boletines e Informes desde el Campo -->
+            <section id="boletines" class="detalle-bloque reveal informes-swiper-container">
+                <span id="reportes" style="position: absolute; top: -80px;"></span>
+                <div class="section-header text-center" style="margin-bottom: 2.5rem;">
+                    <span class="tag" style="background: #16a34a; color: white; margin-bottom: 1rem;">
                         <i class="fas fa-newspaper"></i> INFORMES DESDE EL CAMPO
                     </span>
                     <h2>Noticias y Boletines desde Croacia</h2>
-                    <p style="font-style: italic; color: var(--text-muted);">Testimonio, avances y crónicas del ministerio en Split</p>
+                    <p>Testimonios, avances y crónicas del ministerio en Split en formato condensado.</p>
                 </div>
 
-                <div style="max-width: 850px; margin: 0 auto;">
-                    <div class="reporte-box">
-                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: #e0f2fe; color: #0284c7; font-weight: 800; font-size: 0.85rem; padding: 0.35rem 1rem; border-radius: 20px; text-transform: uppercase; margin-bottom: 1rem;">
-                            <i class="far fa-calendar-check"></i> Último Reporte Oficial
-                        </div>
-                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem; font-size: 1.4rem;">
-                            <i class="fas fa-quote-left" style="color: #3b82f6; opacity: 0.6; margin-right: 0.5rem;"></i>
-                            Avanzando en la Región de Dalmacia
-                        </h3>
-                        <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.2rem;">
-                            "Con la ayuda de Dios, seguimos trabajando y avanzando para cumplir con sus propósitos en esta hermosa Nación. Tuvimos bautismos, una experiencia hermosa viendo almas croatas dar pasos de obediencia."
-                        </p>
-                        <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.2rem;">
-                            "Tuvimos también una reunión unida con las iglesias en <strong>Split</strong>. Es interesante que Split significa 'dividido', pero desde que llegamos nos sorprendió ver la gran unidad que hay entre las iglesias de diferentes denominaciones y el mismo deseo de un despertar de Dios en la nación."
-                        </p>
-                        <p style="color: var(--text-dark); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem;">
-                            "Continuamos con las reuniones de discipulado en nuestra casa y estudiando en familia el idioma croata en el instituto. ¡Es una gran bendición!"
-                        </p>
+                <!-- Swiper de Informes Mensuales -->
+                <div class="swiper informesSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1: Avances en Dalmacia -->
+                        <div class="swiper-slide">
+                            <div class="informe-slide-card">
+                                <div class="informe-slide-header">
+                                    <span class="informe-badge-date">
+                                        <i class="far fa-calendar-check"></i> Reporte Oficial · Split, Dalmacia
+                                    </span>
+                                    <h3>Avanzando en la Región de Dalmacia</h3>
+                                    <p>"Con la ayuda de Dios, seguimos trabajando y avanzando para cumplir con Sus propósitos en esta hermosa nación croata: bautismos, comunión interdenominacional y discipulado familiar."</p>
+                                </div>
 
-                        <!-- Barra de Enlaces Oficiales / Boletines -->
-                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-                            <div>
-                                <h5 style="margin: 0 0 0.2rem; font-size: 0.95rem; color: var(--primary-dark);">Material y Ficha Oficial</h5>
-                                <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Próximo boletín gráfico en preparación</p>
-                            </div>
-                            <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
-                                <a href="https://dnmargentina.org/page/misioneros/argentina/article/189-flia-farinelli" target="_blank" class="btn-unified" style="background: #3b82f6; color: white; padding: 0.6rem 1.4rem; border-radius: 30px; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-                                    <i class="fas fa-external-link-alt"></i> Ver Ficha Oficial DNM
-                                </a>
+                                <div class="informe-destacados-grid">
+                                    <div class="informe-destacado-item">
+                                        <h4><i class="fas fa-water" style="color: #0284c7;"></i> Bautismos y Nuevos Creyentes</h4>
+                                        <p>Una experiencia hermosa viendo almas croatas dar pasos firmes de obediencia a Dios y testimonio público de su fe en Jesucristo.</p>
+                                    </div>
+                                    <div class="informe-destacado-item">
+                                        <h4><i class="fas fa-handshake" style="color: #16a34a;"></i> Gran Unidad en Split</h4>
+                                        <p>Reunión unida con iglesias de distintas denominaciones en Split, manifestando un mismo anhelo y clamor por un despertar de Dios en la nación.</p>
+                                    </div>
+                                    <div class="informe-destacado-item">
+                                        <h4><i class="fas fa-book-reader" style="color: #e6993a;"></i> Discipulado e Idioma</h4>
+                                        <p>Células de discipulado activas en su hogar y estudio en familia del idioma croata en el instituto para una comunicación profunda y contextualizada.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Barra de Descarga / Ficha Oficial -->
+                                <div class="informe-action-bar">
+                                    <div class="informe-action-info">
+                                        <div class="action-icon"><i class="fas fa-file-invoice"></i></div>
+                                        <div>
+                                            <h5>Ficha y Registro Oficial DNM Argentina</h5>
+                                            <p>Documentación y perfil ministerial de la Familia Farinelli</p>
+                                        </div>
+                                    </div>
+                                    <div class="informe-action-btns">
+                                        <a href="https://dnmargentina.org/page/misioneros/argentina/article/189-flia-farinelli" target="_blank" class="btn-unified" style="background: #16a34a; color: white; padding: 0.65rem 1.4rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(22,163,74,0.3);">
+                                            <i class="fas fa-external-link-alt"></i> Ver Ficha Oficial DNM
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Motivos de Oración -->
+                    <!-- Controles Swiper -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev" title="Informe anterior"></div>
+                    <div class="swiper-button-next" title="Informe siguiente"></div>
+                </div>
+            </section>
+
+            <!-- Motivos de Oración en Carrusel -->
             <div id="oracion" class="detalle-bloque reveal" style="margin-bottom: 4rem;">
-                <div class="intercesion-card">
-                    <i class="fas fa-hands-praying" style="font-size: 2.5rem; color: #3b82f6; margin-bottom: 1rem;"></i>
-                    <h3>Motivos de Oración por la Familia Farinelli</h3>
-                    <p>Te pedimos que te unas en oración por las siguientes peticiones específicas:</p>
-                    
-                    <ul class="oracion-list">
-                        <li><i class="fas fa-check-circle" style="color: #3b82f6; margin-right: 0.5rem;"></i> <strong>Apertura de grupos</strong> en Omiš, Vrgorac, Ploče, Metković, Makarska y Podgora en la región de Dalmacia.</li>
-                        <li><i class="fas fa-check-circle" style="color: #3b82f6; margin-right: 0.5rem;"></i> <strong>Familia y aprendizaje del idioma</strong> croata.</li>
-                        <li><i class="fas fa-check-circle" style="color: #3b82f6; margin-right: 0.5rem;"></i> <strong>Renovación de Visa</strong> para toda la familia.</li>
-                    </ul>
+                <div class="section-header text-center" style="margin-bottom: 2rem;">
+                    <span class="tag" style="background: #dc2626; color: white; margin-bottom: 1rem;">
+                        <i class="fas fa-hands-praying"></i> UNIDAD EN ORACIÓN
+                    </span>
+                    <h2>Motivos de Oración</h2>
+                    <p>Deslizá para conocer las peticiones de la Familia Farinelli e interceder juntos</p>
+                </div>
 
-                    <a href="https://dnmargentina.org/page/misioneros/argentina/article/189-flia-farinelli" target="_blank" class="btn-unified btn-unified-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 2rem; border-radius: 50px;">
-                        <i class="fas fa-external-link-alt"></i> Ver Ficha Completa en DNM Argentina
-                    </a>
+                <div class="swiper oracionSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="oracion-card-item">
+                                <h4><i class="fas fa-map-marked-alt" style="color: #3b82f6;"></i> Grupos en Dalmacia</h4>
+                                <p>Por la apertura de nuevos grupos de estudio bíblico y oración en Omiš, Vrgorac, Ploče, Metković, Makarska y Podgora.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="oracion-card-item">
+                                <h4><i class="fas fa-language" style="color: #10b981;"></i> Idioma y Familia</h4>
+                                <p>Por el progreso en el aprendizaje y fluidez del idioma croata en el instituto y la adaptación plena de toda la familia en Split.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="oracion-card-item">
+                                <h4><i class="fas fa-passport" style="color: #e6993a;"></i> Renovación de Visas</h4>
+                                <p>Por los procesos legales y la aprobación sin demoras de la renovación de residencia y visas de toda la familia en Croacia.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="oracion-card-item">
+                                <h4><i class="fas fa-church" style="color: #8b5cf6;"></i> Unidad y Avivamiento</h4>
+                                <p>Por un derramamiento del Espíritu Santo en Split y que la unidad de las iglesias continúe abriendo el corazón de la sociedad croata.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev" title="Anterior"></div>
+                    <div class="swiper-button-next" title="Siguiente"></div>
                 </div>
             </div>
 
-            <!-- Ofrendas y Donaciones -->
-            <div id="donaciones" class="donacion-box reveal">
+            <!-- Ofrendas y Donaciones (Siempre al final antes del footer) -->
+            <div id="donaciones" class="donacion-box reveal" style="margin-bottom: 4rem;">
                 <div style="text-align: center; margin-bottom: 2rem;">
                     <i class="fas fa-hand-holding-heart" style="font-size: 3rem; color: #fbc02d; margin-bottom: 1rem;"></i>
                     <h3 style="font-size: 2rem; font-weight: 800; color: white !important; margin-bottom: 0.5rem;">Sumate a la Obra Misionera en Croacia</h3>
@@ -495,9 +810,48 @@
         </div>
     </footer>
 
-    <script src="script.js?v=20261004"></script>
+    <script src="script.js?v=20261011"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar Swiper de Informes Mensuales
+            if (document.querySelector('.informesSwiper')) {
+                new Swiper('.informesSwiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 24,
+                    autoHeight: false,
+                    pagination: {
+                        el: '.informesSwiper .swiper-pagination',
+                        clickable: true
+                    },
+                    navigation: {
+                        nextEl: '.informesSwiper .swiper-button-next',
+                        prevEl: '.informesSwiper .swiper-button-prev'
+                    }
+                });
+            }
+
+            // Inicializar Swiper de Motivos de Oración
+            if (document.querySelector('.oracionSwiper')) {
+                new Swiper('.oracionSwiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    pagination: {
+                        el: '.oracionSwiper .swiper-pagination',
+                        clickable: true
+                    },
+                    navigation: {
+                        nextEl: '.oracionSwiper .swiper-button-next',
+                        prevEl: '.oracionSwiper .swiper-button-prev'
+                    },
+                    breakpoints: {
+                        640:  { slidesPerView: 2, spaceBetween: 20 },
+                        1024: { slidesPerView: 3, spaceBetween: 24 }
+                    }
+                });
+            }
+
+            // Franja en navbar al scrollear
             const navbar = document.getElementById('navbar');
             if (navbar) {
                 const updateNavbar = () => {
