@@ -266,6 +266,9 @@
             padding-left: 1.2rem;
             color: var(--primary-dark);
             font-weight: 500;
+            line-height: 1.8;
+        }
+
         /* --- Carrusel Unificado de Informes / Boletines --- */
         .informes-swiper-container {
             position: relative;
@@ -537,6 +540,72 @@
             width: 24px;
             border-radius: 6px;
         }
+
+        /* Estilos de la Galería de Fotos del Boletín */
+        .informe-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            width: 100%;
+            flex: 1 1 auto;
+        }
+        .informe-gallery-item {
+            background: #f8fafc;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .informe-gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .informe-gallery-item img {
+            width: 100%;
+            height: 175px;
+            object-fit: cover;
+            display: block;
+        }
+        .informe-gallery-item-caption {
+            padding: 0.9rem 1.1rem;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .informe-gallery-item-caption strong {
+            display: block;
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        /* Variantes de color para tarjetas de oración */
+        .oracion-card-item.accent-blue { border-left-color: #0284c7; }
+        .oracion-card-item.accent-green { border-left-color: #16a34a; }
+        .oracion-card-item.accent-amber { border-left-color: #e6993a; }
+        .oracion-card-item.accent-purple { border-left-color: #8b5cf6; }
+        .oracion-card-item.accent-rose { border-left-color: #e11d48; }
+
+        .oracion-card-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 0.25rem 0.65rem;
+            border-radius: 12px;
+            width: fit-content;
+        }
+        .badge-blue { background: #e0f2fe; color: #0284c7; }
+        .badge-green { background: #eaf7ec; color: #16a34a; }
+        .badge-amber { background: #fef3c7; color: #b45309; }
+        .badge-purple { background: #ede9fe; color: #7c3aed; }
+        .badge-rose { background: #ffe4e6; color: #e11d48; }
     </style>
 </head>
 <body class="page-interna">
@@ -606,6 +675,141 @@
                 </div>
             </div>
 
+            <!-- Sección Unificada: Boletines e Informes desde el Campo -->
+            <section id="boletines" class="detalle-bloque reveal informes-swiper-container">
+                <span id="reportes" style="position: absolute; top: -80px;"></span>
+                <div class="section-header text-center" style="margin-bottom: 2.5rem;">
+                    <span class="tag" style="background: #16a34a; color: white; margin-bottom: 1rem;">
+                        <i class="fas fa-newspaper"></i> INFORMES DESDE EL CAMPO
+                    </span>
+                    <h2>Noticias y Boletines desde Croacia</h2>
+                    <p>Testimonios, avances y crónicas del ministerio en Split en formato interactivo.</p>
+                </div>
+
+                <!-- Swiper de Informes Mensuales -->
+                <div class="swiper informesSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1: Reporte Oficial Abril 2024 -->
+                        <div class="swiper-slide">
+                            <div class="informe-slide-card">
+                                <div class="informe-slide-header">
+                                    <span class="informe-badge-date">
+                                        <i class="far fa-calendar-check"></i> Abril 2024 · Noticias desde Croacia
+                                    </span>
+                                    <h3>Bautismos en el Adriático, Gran Unidad en Split y Discipulado</h3>
+                                    <p><em>"Queremos contarles que con la ayuda de Dios, seguimos trabajando y avanzando para cumplir con Sus propósitos en esta hermosa nación. Este mes de abril tuvimos bautismos; fue una experiencia hermosa, un poco de frío en las aguas, pero muy felices de ver almas croatas que dan pasos de obediencia a Dios."</em> — Familia Farinelli</p>
+                                </div>
+
+                                <div class="informe-destacados-grid">
+                                    <div class="informe-destacado-item">
+                                        <h4><i class="fas fa-water" style="color: #0284c7;"></i> Bautismos en las Aguas</h4>
+                                        <p>Testimonio público y conmovedor de nuevos convertidos croatas bajando a las aguas en Split, confirmando su fe y entrega a Cristo.</p>
+                                    </div>
+                                    <div class="informe-destacado-item">
+                                        <h4><i class="fas fa-handshake" style="color: #16a34a;"></i> Gran Unidad en Split</h4>
+                                        <p>Encuentro unida entre congregaciones de diferentes denominaciones. <em>"Split significa dividido, pero nos sorprendió la profunda unidad y el clamor conjunto por un despertar."</em></p>
+                                    </div>
+                                    <div class="informe-destacado-item">
+                                        <h4><i class="fas fa-book-reader" style="color: #e6993a;"></i> Discipulado e Idioma Croata</h4>
+                                        <p>Reuniones de discipulado activas abriendo las puertas de su propio hogar, y toda la familia estudiando croata en el instituto para una comunicación fluida.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Barra de Descarga / Ficha Oficial -->
+                                <div class="informe-action-bar">
+                                    <div class="informe-action-info">
+                                        <div class="action-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div>
+                                            <h5>Reporte Oficial de Misión · Abril 2024</h5>
+                                            <p>Documento oficial emitido desde Split, Croacia para el DNM (2 páginas con fotos)</p>
+                                        </div>
+                                    </div>
+                                    <div class="informe-action-btns">
+                                        <a href="assets/images/Farinelli - Abril 2024.pdf" download="Farinelli - Reporte Abril 2024.pdf" target="_blank" class="btn-unified" style="background: #16a34a; color: white; padding: 0.7rem 1.4rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(22,163,74,0.3);">
+                                            <i class="fas fa-download"></i> Descargar Boletín Oficial (PDF)
+                                        </a>
+                                        <a href="assets/images/farinelli_abril_page_1.jpg" target="_blank" class="btn-unified btn-unified-outline" style="border: 1px solid #16a34a; color: #16a34a; padding: 0.7rem 1.2rem; border-radius: 30px; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                                            <i class="fas fa-eye"></i> Ver Carta Digitalizada
+                                        </a>
+                                        <a href="https://dnmargentina.org/page/misioneros/argentina/article/189-flia-farinelli" target="_blank" class="btn-unified btn-unified-outline" style="border: 1px solid #64748b; color: #475569; padding: 0.7rem 1.2rem; border-radius: 30px; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                                            <i class="fas fa-external-link-alt"></i> Ficha DNM
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: Galería Fotográfica del Reporte -->
+                        <div class="swiper-slide">
+                            <div class="informe-slide-card">
+                                <div class="informe-slide-header">
+                                    <span class="informe-badge-date" style="background: #e0f2fe; color: #0284c7;">
+                                        <i class="fas fa-camera"></i> Galería Testimonial · Dalmacia
+                                    </span>
+                                    <h3>Crónicas Fotográficas de la Obra en Croacia</h3>
+                                    <p>Imágenes extraídas del reporte oficial: bautismos en el mar Adriático, el clamor multitudinario de unidad en Split y la comunión en los hogares.</p>
+                                </div>
+
+                                <div class="informe-gallery-grid">
+                                    <div class="informe-gallery-item">
+                                        <img src="assets/images/farinelli_foto_bautismo.jpg" alt="Bautismos en Split, Croacia" loading="lazy"/>
+                                        <div class="informe-gallery-item-caption">
+                                            <strong><i class="fas fa-water" style="color: #0284c7;"></i> Bautismos en las Aguas</strong>
+                                            Almas croatas rindiendo sus vidas a Dios y dando testimonio público en el mar.
+                                        </div>
+                                    </div>
+                                    <div class="informe-gallery-item">
+                                        <img src="assets/images/farinelli_foto_unidad_split.jpg" alt="Gran reunión unida en Split" loading="lazy"/>
+                                        <div class="informe-gallery-item-caption">
+                                            <strong><i class="fas fa-hands-praying" style="color: #16a34a;"></i> Gran Unidad en Split</strong>
+                                            Histórica reunión interdenominacional clamando por un despertar espiritual nacional.
+                                        </div>
+                                    </div>
+                                    <div class="informe-gallery-item">
+                                        <img src="assets/images/farinelli_foto_discipulado_casa.jpg" alt="Discipulado en el hogar" loading="lazy"/>
+                                        <div class="informe-gallery-item-caption">
+                                            <strong><i class="fas fa-users" style="color: #e6993a;"></i> Discipulado en el Hogar</strong>
+                                            Reuniones familiares de edificación y estudio bíblico continuo con amigos y creyentes.
+                                        </div>
+                                    </div>
+                                    <div class="informe-gallery-item">
+                                        <img src="assets/images/farinelli_foto_familia_costa.jpg" alt="Familia Farinelli en la costa croata" loading="lazy"/>
+                                        <div class="informe-gallery-item-caption">
+                                            <strong><i class="fas fa-sun" style="color: #8b5cf6;"></i> Familia Farinelli en Dalmacia</strong>
+                                            Testimonio vivo y ministerio permanente en la costa dálmata frente al mar Adriático.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Barra de Descarga / Ficha Oficial en Slide 2 -->
+                                <div class="informe-action-bar">
+                                    <div class="informe-action-info">
+                                        <div class="action-icon" style="background: #0284c7;"><i class="fas fa-images"></i></div>
+                                        <div>
+                                            <h5>Archivo Histórico Completo (2 páginas)</h5>
+                                            <p>Descargá el documento PDF original o consultá la segunda página digitalizada</p>
+                                        </div>
+                                    </div>
+                                    <div class="informe-action-btns">
+                                        <a href="assets/images/Farinelli - Abril 2024.pdf" download="Farinelli - Reporte Abril 2024.pdf" target="_blank" class="btn-unified" style="background: #0284c7; color: white; padding: 0.7rem 1.4rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(2,132,199,0.3);">
+                                            <i class="fas fa-download"></i> Descargar Reporte Completo (PDF)
+                                        </a>
+                                        <a href="assets/images/farinelli_abril_page_2.jpg" target="_blank" class="btn-unified btn-unified-outline" style="border: 1px solid #0284c7; color: #0284c7; padding: 0.7rem 1.2rem; border-radius: 30px; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                                            <i class="fas fa-images"></i> Ver Página 2 Digitalizada
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controles Swiper -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev" title="Informe anterior"></div>
+                    <div class="swiper-button-next" title="Informe siguiente"></div>
+                </div>
+            </section>
+
             <!-- Sección del Video de los Adolescentes -->
             <div class="detalle-bloque reveal" style="margin-bottom: 4rem;">
                 <div class="section-header text-center" style="margin-bottom: 2rem;">
@@ -634,72 +838,6 @@
                 </div>
             </div>
 
-            <!-- Sección Unificada: Boletines e Informes desde el Campo -->
-            <section id="boletines" class="detalle-bloque reveal informes-swiper-container">
-                <span id="reportes" style="position: absolute; top: -80px;"></span>
-                <div class="section-header text-center" style="margin-bottom: 2.5rem;">
-                    <span class="tag" style="background: #16a34a; color: white; margin-bottom: 1rem;">
-                        <i class="fas fa-newspaper"></i> INFORMES DESDE EL CAMPO
-                    </span>
-                    <h2>Noticias y Boletines desde Croacia</h2>
-                    <p>Testimonios, avances y crónicas del ministerio en Split en formato condensado.</p>
-                </div>
-
-                <!-- Swiper de Informes Mensuales -->
-                <div class="swiper informesSwiper">
-                    <div class="swiper-wrapper">
-                        <!-- Slide 1: Avances en Dalmacia -->
-                        <div class="swiper-slide">
-                            <div class="informe-slide-card">
-                                <div class="informe-slide-header">
-                                    <span class="informe-badge-date">
-                                        <i class="far fa-calendar-check"></i> Reporte Oficial · Split, Dalmacia
-                                    </span>
-                                    <h3>Avanzando en la Región de Dalmacia</h3>
-                                    <p>"Con la ayuda de Dios, seguimos trabajando y avanzando para cumplir con Sus propósitos en esta hermosa nación croata: bautismos, comunión interdenominacional y discipulado familiar."</p>
-                                </div>
-
-                                <div class="informe-destacados-grid">
-                                    <div class="informe-destacado-item">
-                                        <h4><i class="fas fa-water" style="color: #0284c7;"></i> Bautismos y Nuevos Creyentes</h4>
-                                        <p>Una experiencia hermosa viendo almas croatas dar pasos firmes de obediencia a Dios y testimonio público de su fe en Jesucristo.</p>
-                                    </div>
-                                    <div class="informe-destacado-item">
-                                        <h4><i class="fas fa-handshake" style="color: #16a34a;"></i> Gran Unidad en Split</h4>
-                                        <p>Reunión unida con iglesias de distintas denominaciones en Split, manifestando un mismo anhelo y clamor por un despertar de Dios en la nación.</p>
-                                    </div>
-                                    <div class="informe-destacado-item">
-                                        <h4><i class="fas fa-book-reader" style="color: #e6993a;"></i> Discipulado e Idioma</h4>
-                                        <p>Células de discipulado activas en su hogar y estudio en familia del idioma croata en el instituto para una comunicación profunda y contextualizada.</p>
-                                    </div>
-                                </div>
-
-                                <!-- Barra de Descarga / Ficha Oficial -->
-                                <div class="informe-action-bar">
-                                    <div class="informe-action-info">
-                                        <div class="action-icon"><i class="fas fa-file-invoice"></i></div>
-                                        <div>
-                                            <h5>Ficha y Registro Oficial DNM Argentina</h5>
-                                            <p>Documentación y perfil ministerial de la Familia Farinelli</p>
-                                        </div>
-                                    </div>
-                                    <div class="informe-action-btns">
-                                        <a href="https://dnmargentina.org/page/misioneros/argentina/article/189-flia-farinelli" target="_blank" class="btn-unified" style="background: #16a34a; color: white; padding: 0.65rem 1.4rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(22,163,74,0.3);">
-                                            <i class="fas fa-external-link-alt"></i> Ver Ficha Oficial DNM
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Controles Swiper -->
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev" title="Informe anterior"></div>
-                    <div class="swiper-button-next" title="Informe siguiente"></div>
-                </div>
-            </section>
-
             <!-- Motivos de Oración en Carrusel -->
             <div id="oracion" class="detalle-bloque reveal" style="margin-bottom: 4rem;">
                 <div class="section-header text-center" style="margin-bottom: 2rem;">
@@ -707,33 +845,53 @@
                         <i class="fas fa-hands-praying"></i> UNIDAD EN ORACIÓN
                     </span>
                     <h2>Motivos de Oración</h2>
-                    <p>Deslizá para conocer las peticiones de la Familia Farinelli e interceder juntos</p>
+                    <p>Deslizá para conocer las peticiones directas de la Familia Farinelli e interceder juntos</p>
                 </div>
 
                 <div class="swiper oracionSwiper">
                     <div class="swiper-wrapper">
+                        <!-- Petición 1: Grupos en Dalmacia -->
                         <div class="swiper-slide">
-                            <div class="oracion-card-item">
-                                <h4><i class="fas fa-map-marked-alt" style="color: #3b82f6;"></i> Grupos en Dalmacia</h4>
-                                <p>Por la apertura de nuevos grupos de estudio bíblico y oración en Omiš, Vrgorac, Ploče, Metković, Makarska y Podgora.</p>
+                            <div class="oracion-card-item accent-blue">
+                                <span class="oracion-card-badge badge-blue"><i class="fas fa-map-marked-alt"></i> Región de Dalmacia</span>
+                                <h4><i class="fas fa-location-dot" style="color: #0284c7;"></i> Apertura de Grupos en Dalmacia</h4>
+                                <p>Por la apertura y consolidación de grupos de estudio bíblico y oración en 6 ciudades de la región: Omiš, Vrgorac, Ploče, Metković, Makarska y Podgora.</p>
                             </div>
                         </div>
+
+                        <!-- Petición 2: Idioma Croata -->
                         <div class="swiper-slide">
-                            <div class="oracion-card-item">
-                                <h4><i class="fas fa-language" style="color: #10b981;"></i> Idioma y Familia</h4>
-                                <p>Por el progreso en el aprendizaje y fluidez del idioma croata en el instituto y la adaptación plena de toda la familia en Split.</p>
+                            <div class="oracion-card-item accent-green">
+                                <span class="oracion-card-badge badge-green"><i class="fas fa-language"></i> Idioma Croata</span>
+                                <h4><i class="fas fa-book-open-reader" style="color: #16a34a;"></i> Dominio y Estudio del Idioma</h4>
+                                <p>Por sabiduría, retención y rapidez en el instituto de idiomas para toda la familia, facilitando una inserción cultural profunda y comunicación fluida.</p>
                             </div>
                         </div>
+
+                        <!-- Petición 3: Visas y Residencia -->
                         <div class="swiper-slide">
-                            <div class="oracion-card-item">
-                                <h4><i class="fas fa-passport" style="color: #e6993a;"></i> Renovación de Visas</h4>
-                                <p>Por los procesos legales y la aprobación sin demoras de la renovación de residencia y visas de toda la familia en Croacia.</p>
+                            <div class="oracion-card-item accent-amber">
+                                <span class="oracion-card-badge badge-amber"><i class="fas fa-passport"></i> Trámites Legales</span>
+                                <h4><i class="fas fa-id-card" style="color: #e6993a;"></i> Renovación de Visas Familiares</h4>
+                                <p>Por el favor de Dios ante las autoridades migratorias y la aprobación ágil y sin demoras de los permisos de residencia para toda la familia en Croacia.</p>
                             </div>
                         </div>
+
+                        <!-- Petición 4: Unidad y Avivamiento -->
                         <div class="swiper-slide">
-                            <div class="oracion-card-item">
-                                <h4><i class="fas fa-church" style="color: #8b5cf6;"></i> Unidad y Avivamiento</h4>
-                                <p>Por un derramamiento del Espíritu Santo en Split y que la unidad de las iglesias continúe abriendo el corazón de la sociedad croata.</p>
+                            <div class="oracion-card-item accent-purple">
+                                <span class="oracion-card-badge badge-purple"><i class="fas fa-church"></i> Avivamiento</span>
+                                <h4><i class="fas fa-hands-holding-child" style="color: #8b5cf6;"></i> Unidad de Iglesias en Split</h4>
+                                <p>Para que la histórica armonía y el trabajo conjunto entre congregaciones de distintas denominaciones continúe expandiéndose y traiga un despertar espiritual a Croacia.</p>
+                            </div>
+                        </div>
+
+                        <!-- Petición 5: Cobertura y Sostén -->
+                        <div class="swiper-slide">
+                            <div class="oracion-card-item accent-rose">
+                                <span class="oracion-card-badge badge-rose"><i class="fas fa-shield-heart"></i> Cobertura Familiar</span>
+                                <h4><i class="fas fa-heart-pulse" style="color: #e11d48;"></i> Protección y Sostén Ministerial</h4>
+                                <p>Por la salud integral, fortaleza física y espiritual de Jorge, su esposa y sus hijos, y por la fidelidad de Dios en el sustento mensual de la obra misionera.</p>
                             </div>
                         </div>
                     </div>
