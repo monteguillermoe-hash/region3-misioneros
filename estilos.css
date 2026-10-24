@@ -72,7 +72,7 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
 /* Navbar */
 .navbar {
     position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between;
-    align-items: center; padding: 1.2rem 5%; background-color: transparent; z-index: 1000;
+    align-items: center; padding: 1.2rem 5%; background-color: transparent; z-index: 1050;
     transition: all var(--transition-fast);
     padding-top: max(1.2rem, env(safe-area-inset-top, 0px));
     padding-left: max(5%, env(safe-area-inset-left, 0px));
@@ -111,10 +111,10 @@ a { text-decoration: none; color: inherit; transition: color var(--transition-fa
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(15, 23, 42, 0.55);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    z-index: 1000;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1040;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -457,7 +457,7 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 *, *::before, *::after {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 body {
     overflow-x: hidden;
@@ -521,7 +521,7 @@ a, span, button, input, label {
         color: var(--bg-white);
         font-size: 1.35rem;
         cursor: pointer;
-        z-index: 1002;
+        z-index: 1060;
         transition: all 0.25s ease;
         -webkit-tap-highlight-color: transparent;
     }
@@ -535,6 +535,7 @@ a, span, button, input, label {
         border-color: #cbd5e1 !important;
         color: var(--text-dark) !important;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 1060 !important;
     }
     .mobile-toggle:active {
         transform: scale(0.92);
@@ -549,7 +550,7 @@ a, span, button, input, label {
         max-width: 360px;
         height: 100%;
         height: 100dvh;
-        background: #ffffff;
+        background: #ffffff !important;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
@@ -559,7 +560,7 @@ a, span, button, input, label {
         transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        z-index: 1001;
+        z-index: 1052;
         display: flex;
         border-left: 1px solid rgba(0, 0, 0, 0.08);
     }
@@ -567,23 +568,26 @@ a, span, button, input, label {
         transform: translateX(0);
     }
     .nav-item {
-        color: #1e293b !important;
+        color: #0f172a !important;
         padding: 0.95rem 1.1rem;
         border-radius: 12px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         font-size: 1.05rem;
         font-weight: 700;
         text-align: left;
         white-space: nowrap !important;
         word-break: normal !important;
         overflow-wrap: normal !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
         min-height: 48px;
+        text-decoration: none;
+        cursor: pointer;
     }
     .nav-item:hover, .nav-item:active {
-        background-color: #f8fafc;
+        background-color: #f1f5f9;
         color: var(--primary-color) !important;
         transform: translateX(3px);
     }
@@ -1186,6 +1190,7 @@ a, span, button, input, label {
 .swiper {
     padding-bottom: 4rem !important; /* Spacing for pagination bullets */
     padding-top: 1rem !important; /* Spacing for hover shadows */
+    box-sizing: border-box !important;
 }
 .promotores-swiper {
     padding-bottom: 2rem; 
@@ -1198,23 +1203,28 @@ a, span, button, input, label {
     display: flex;
     align-items: stretch;
     height: auto;
+    box-sizing: border-box !important;
+}
+.swiper-slide > * {
+    box-sizing: border-box !important;
 }
 .promotor-card {
     background: var(--bg-white);
-    border-radius: 24px;
-    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+    padding: 2.2rem 1.4rem;
     text-align: center;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.03);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     flex: 1; 
     display: flex;
     flex-direction: column;
     width: 100%;
+    box-sizing: border-box !important;
 }
 .promotor-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 /* Asegurar alineación vertical de textos variables */
 .promotor-card h3 {
@@ -1236,11 +1246,21 @@ a, span, button, input, label {
     align-items: center;
     justify-content: center;
 }
-.promotor-card:hover {
-    transform: translateY(-5px);
-}
 
 /* ===== Voces del Campo Overrides ===== */
+.mySwiperVoces .swiper-slide {
+    display: flex;
+    height: auto;
+    box-sizing: border-box !important;
+}
+.mySwiperVoces .promotor-card {
+    min-height: 250px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box !important;
+    width: 100%;
+}
 .mySwiperVoces .promotor-card h3,
 .mySwiperVoces .promotor-card p {
     min-height: 0 !important;
@@ -1502,22 +1522,23 @@ a, span, button, input, label {
 
 .gira-card {
     background: var(--bg-white);
-    border-radius: 24px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.03);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.08);
     display: flex;
     flex-direction: column;
     height: 100%;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box !important;
 }
 
 .gira-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.1);
     background: white;
-    border-color: rgba(255,111,0,0.2);
+    border-color: rgba(255,111,0,0.25);
 }
 
 .gira-card-img-wrapper {
@@ -2071,8 +2092,14 @@ html, body {
 
 /* ── Promotores Swiper Mobile ── */
 @media (max-width: 600px) {
-    .promotores-swiper { padding: 0 0.5rem; }
-    .promotor-card { padding: 1.5rem 1rem; border-radius: 16px; }
+    .promotores-swiper { padding: 0 0.5rem 2rem; }
+    .promotor-card {
+        padding: 1.5rem 1rem !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07) !important;
+        box-sizing: border-box !important;
+    }
     .promotor-card h3 { min-height: unset; font-size: 1rem; }
     .promotor-card p:nth-of-type(1),
     .promotor-card p:nth-of-type(2) { min-height: unset; }
@@ -2091,7 +2118,12 @@ html, body {
     .gira-filters { gap: 0.5rem; margin-bottom: 1.5rem; }
     .filter-btn-gira { padding: 0.5rem 1rem; font-size: 0.82rem; }
     .giraSwiper { padding: 0.5rem 0.5rem 3rem !important; }
-    .gira-card { border-radius: 16px; }
+    .gira-card {
+        border-radius: 16px !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07) !important;
+        box-sizing: border-box !important;
+    }
     .gira-card-img-wrapper { height: 180px; border-radius: 12px; }
     .gira-card-content { padding: 1.2rem 1rem; }
     .gira-card-name { font-size: 1.3rem; }
@@ -2104,7 +2136,14 @@ html, body {
 
 /* ── Voces del Campo Mobile ── */
 @media (max-width: 600px) {
-    .voces-swiper { padding-bottom: 2rem; }
+    .voces-swiper { padding: 0 0.5rem 2.5rem; }
+    .mySwiperVoces .promotor-card {
+        padding: 1.5rem 1.1rem !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07) !important;
+        box-sizing: border-box !important;
+    }
 }
 
 /* ── Eventos Mobile ── */
