@@ -512,7 +512,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="gira-card-footer">
                             <a href="${m.link}" target="_blank"
                                class="btn-unified ${m.link.includes('dnmargentina.org') ? 'btn-unified-primary' : 'btn-unified-instagram'} gira-btn">
-                                <i class="${m.link.includes('dnmargentina.org') ? 'fas fa-globe' : 'fab fa-instagram'}"></i> ${m.link.includes('dnmargentina.org') ? 'Ver en DNM' : 'Ver en Instagram'}
+                                <i class="${m.link.includes('dnmargentina.org') ? 'fas fa-globe' : 'fab fa-instagram'}"></i> ${m.link.includes('dnmargentina.org') ? 'Ver en DNM' : (m.whatsapp ? 'Instagram' : 'Ver en Instagram')}
                             </a>
                             ${m.whatsapp ? `<a href="https://wa.me/${m.whatsapp}" target="_blank"
                                class="btn-unified btn-unified-wa gira-btn">

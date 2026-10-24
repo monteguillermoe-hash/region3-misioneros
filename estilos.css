@@ -1646,15 +1646,21 @@ a, span, button, input, label {
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: auto;
+    width: 100%;
 }
 
 .gira-btn {
-    flex: 1;
-    min-width: 120px;
+    flex: 1 1 115px;
+    min-width: 0;
     border-radius: 12px !important;
-    font-size: 0.85rem !important;
-    padding: 0.6rem 1rem !important;
+    font-size: 0.84rem !important;
+    padding: 0.6rem 0.75rem !important;
     justify-content: center;
+    white-space: nowrap;
+    box-sizing: border-box !important;
+}
+.gira-btn i {
+    flex-shrink: 0;
 }
 
 /* WhatsApp button */
